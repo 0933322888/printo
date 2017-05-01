@@ -1,0 +1,20 @@
+<div>
+
+    Hello, I'm home.wallpapers with {{id}} filter
+
+</div>
+
+<ul class="catalog grid">
+    <li class="catalog-item item" ng-repeat="item in list">
+        <div class="photo">
+            <img ng-src="/uploads/images/wp/{{item.id+'/240b240.jpg'}}" alt="{{item.name_ru}}">
+        </div>
+        <div class="actions">
+            {{item.name_ru}}
+            <!--<a href="#" title="{{LANG[ru]addToFavourites}}"></a>-->
+            <a href="#" title="Add To Favourites">
+                <span class="fa fa-star-o"></span>
+            </a>
+        </div>
+    </li>
+</ul>
