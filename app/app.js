@@ -1,10 +1,10 @@
-var app = angular.module('app', ['ui.router',  'ui.bootstrap']);
+var app = angular.module('app', ['ui.router',  'ui.bootstrap', 'infinite-scroll']);
 
 app.constant('BASE_URL', 'http://foto-oboi.com.ua/');
 
 app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/home");
 
     $stateProvider
         .state('home', {
@@ -13,20 +13,31 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
             controller: 'homeCtrl'
         })
         .state('home.wallpapers', {
-            url: "/wallpapers/:id",
+            url: "/wallpapers",
             templateUrl: "./app/components/wallpapersPane/wallpapers.html",
-            controller: 'wallpapersCtrl'
+            controller: 'wallpapersCtrl',
+            params: {
+                id: null,
+                name: null
+            }
         });
         $locationProvider.html5Mode(true);
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     // $httpProvider.interceptors.push('Interceptor');
 }])
-    .run(['$rootScope', '$state',
-        function ($rootScope, $state) {
+    .run(['$rootScope', '$state', '$http',
+        function ($rootScope, $state, $http) {
+            $rootScope.curLang = $rootScope.curLang || 'ru';
+            $http.get('dist/languages.json').then(function (responce) {
+                $rootScope.LANG = responce.data;
+            }, function (err) {
+                console.log(err)
+            });
+
 
             $rootScope.$on('$stateChangeError', function (e) {
                 e.preventDefault();
-                    $state.go('/');
+                    $state.go('home');
 
             });
 

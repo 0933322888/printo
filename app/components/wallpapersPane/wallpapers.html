@@ -1,20 +1,37 @@
-<div>
-
-    Hello, I'm home.wallpapers with {{id}} filter
-
-</div>
-
-<ul class="catalog grid">
-    <li class="catalog-item item" ng-repeat="item in list">
-        <div class="photo">
-            <img ng-src="/uploads/images/wp/{{item.id+'/240b240.jpg'}}" alt="{{item.name_ru}}">
-        </div>
-        <div class="actions">
-            {{item.name_ru}}
-            <!--<a href="#" title="{{LANG[ru]addToFavourites}}"></a>-->
-            <a href="#" title="Add To Favourites">
-                <span class="fa fa-star-o"></span>
+<div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="grid-container">
+    <div class="category-name">{{categoryName}}</div>
+    <div class="fast-search">
+        <div class="sort-buttons">
+            <a href="">
+                <i class="fa fa-asterisk"></i>
+                <span>All</span>
+            </a>
+            <a href="">
+                <i class="fa fa-bars"></i>
+                <span>Horizontal</span>
+            </a>
+            <a href="">
+                <i class="fa fa-bars fa-rotate-90"></i>
+                <span>Vertical</span>
+            </a>
+            <a href="">
+                <i class="fa fa-money"></i>
+                <span>Panorama</span>
             </a>
         </div>
-    </li>
-</ul>
+    </div>
+    <ul class="catalog grid">
+        <li class="catalog-item item" ng-repeat="item in list track by $index">
+            <div class="photo">
+                <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}" alt="{{item.name_ru}}">
+            </div>
+            <div class="actions">
+                {{item.name_ru}}
+
+                <a href="#" title="Add To Favourites">
+                    <span class="fa fa-star-o"></span>
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>

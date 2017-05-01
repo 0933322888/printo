@@ -4,11 +4,19 @@ angular.module('app')
     .controller('homeCtrl', ['$scope', '$rootScope', '$state', 'Image', '$http',
         function ($scope, $rootScope, $state, Image, $http) {
 
+            $scope.setLanguage = function (language) {
+              $rootScope.curLang = language;
+            };
+
+            $scope.goToCateg = function (id, name) {
+              $state.go('home.wallpapers', {id: id, name: name})
+            };
+
             $http.get('dist/categories.json').then(function (resp) {
                 var categories = resp.data;
 
                 $scope.popular = [
-                    {name: categories[54].name_ru, id: 54},
+                    {name: categories[54]["name_" + $rootScope.curLang], id: 54},
                     {name: categories[70].name_ru, id: 70},
                     {name: categories[133].name_ru, id: 133},
                     {name: categories[71].name_ru, id: 71},

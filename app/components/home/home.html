@@ -2,19 +2,23 @@
 <div class="header">
     <div>
         <div class="col-sm-3">LOGO</div>
-        <div class="col-sm-6">LANG+SEARCH+PHONES</div>
+        <div class="col-sm-6">
+            <a href="#" ng-click="setLanguage('ua')">UA</a>
+            <a href="#" ng-click="setLanguage('ru')">RU</a>
+            SEARCH+PHONES
+        </div>
         <div class="col-sm-3">BUTTON</div>
     </div>
 
     <!--header: main menu-->
     <div class="menu text-center">
         <div class="btn-group">
-            <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uncheckable>Left</label>
-            <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable>Middle1</label>
-            <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable>Middle2</label>
-            <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable>Middle3</label>
-            <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uncheckable>Middle4</label>
-            <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uncheckable>Right</label>
+            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'adhence'" uncheckable>{{$root.LANG.adhence[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'textures'" uncheckable>{{$root.LANG.textures[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'services'" uncheckable>{{$root.LANG.services[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'delivery'" uncheckable>{{$root.LANG.delivery[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'contacts'" uncheckable>{{$root.LANG.contacts[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'pay'" uncheckable>{{$root.LANG.pay[$root.curLang]}}</label>
         </div>
         <!--end of header-->
     </div>
@@ -22,31 +26,39 @@
 
 
 <!--body-->
-<div>
-    <!--left-side menu-->
-    <div class="col-sm-3 left-side-block">
-        <div class="popular">
-            <div ng-repeat="item in popular track by $index">
-                <ul>
-                    <li><a ui-sref="home.wallpapers({id: item.id})"> {{item.name }}</a></li> <!-- пробросить фильтр item.filter при клике -->
-                </ul>
+<div class="body">
+    <div class="content">
+        <!--left-side menu-->
+        <div class="col-sm-3 left-side-block">
+
+            <div class="block-item">
+                <div class="name text-center">Popular</div>
+                <div>
+                    <ul>
+                        <li ng-repeat="item in popular track by $index">
+                            <a href="#" ng-click="goToCateg(item.id, item.name)"> {{item.name }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="categories">
+                <div ng-repeat="item in categories track by $index">
+                    <ul>
+                        <li>
+                            <a href="#" ng-click="goToCateg(item.id, item.name)"> {{item.name }}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <br>
-
-        <div class="categories">
-            <div ng-repeat="item in categories track by $index">
-                <ul>
-                    <li><a ui-sref="home.wallpapers({id: item.id})"> {{item.name }}</a></li> <!-- пробросить фильтр item.filter при клике -->
-                </ul>
-            </div>
+        <!--viewport for both menus-->
+        <div class="plates col-sm-9">
+            <ui-view></ui-view>
         </div>
-    </div>
-
-    <!--viewport for both menus-->
-    <div class="col-sm-9">
-        <ui-view></ui-view>
     </div>
 </div>
 <!--end of body-->
