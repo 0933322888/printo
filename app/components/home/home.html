@@ -1,14 +1,23 @@
 <!--header-->
 <div class="header">
-    <div>
+
         <div class="col-sm-3">LOGO</div>
-        <div class="col-sm-6">
-            <a href="#" ng-click="setLanguage('ua')">UA</a>
-            <a href="#" ng-click="setLanguage('ru')">RU</a>
-            SEARCH+PHONES
-        </div>
+            <div class="col-sm-1">
+                <a href="#" ng-click="setLanguage('ua')">UA</a>
+                <a href="#" ng-click="setLanguage('ru')">RU</a>
+            </div>
+                <div class="col-sm-2">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Поиск ...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> </button>
+                </span>
+            </div>
+                </div>
+            <div class="col-sm-3">Phones</div>
+
+
         <div class="col-sm-3">BUTTON</div>
-    </div>
 
     <!--header: main menu-->
     <div class="menu text-center">
@@ -22,6 +31,7 @@
         </div>
         <!--end of header-->
     </div>
+
 </div>
 
 
@@ -44,7 +54,7 @@
 
             <br>
 
-            <div class="categories">
+            <div class="block-item">
                 <div ng-repeat="item in categories track by $index">
                     <ul>
                         <li>
