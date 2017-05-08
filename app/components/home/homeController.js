@@ -4,6 +4,8 @@ angular.module('app')
     .controller('homeCtrl', ['$scope', '$rootScope', '$state', 'Image', '$http',
         function ($scope, $rootScope, $state, Image, $http) {
 
+            //$scope.paramID = $routeParams.paramID;
+
             $scope.setLanguage = function (language) {
               $rootScope.curLang = language;
             };
