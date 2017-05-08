@@ -1,15 +1,15 @@
 <!--header-->
 <div class="header">
     <br>
-        <div class="col-sm-1" style="background-color:#ff0b0e">A</div>
-        <div class="col-sm-2" style="background-color:#0000ff">LOGO</div>
-            <div class="col-sm-1" style="background-color:#ff0000">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-1" style="">LOGO</div>
+            <div class="col-sm-1">
                 <ul style="list-style-type:none">
                 <li><img ng-src="./app/components/pics/ua.png"/><a href="#" ng-click="setLanguage('ua')"> UA</a></li>
                 <li><img ng-src="./app/components/pics/rus.png"/><a href="#" ng-click="setLanguage('ru')"> RU</a></li>
                 </ul>
             </div>
-                <div class="col-sm-3" style="background-color:#0000ff">
+                <div class="col-sm-2">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
                 <span class="input-group-btn">
@@ -17,11 +17,24 @@
                 </span>
             </div>
                 </div>
-            <div class="col-sm-2" style="background-color:#00ff00">Phones</div>
+            <div class="col-sm-2" style="text-align: end">
+                <ul style="list-style-type:none; font-family: Arial; font-size: 12px; color: #515865; font-weight: bold">
+                    <li>{{$root.LANG.weWork[$root.curLang]}}</li>
+                    <li>9:00-18:00</li>
+                    <li>{{$root.LANG.weWorkDays[$root.curLang]}}</li>
+                </ul>
+            </div>
 
 
-        <div class="col-sm-2" style="background-color:#ff0b0e">BUTTON</div>
-        <div class="col-sm-1" style="background-color:#00ff00">RR</div>
+        <div class="col-sm-2" style="text-align: right">
+
+                <span style="font-family: Arial; font-size: 18px; color: #515865">(044)221-33-03  </span>
+                <img ng-src="./app/components/pics/btn-recall_{{$root.curLang}}.png" />
+
+
+
+        </div>
+        <div class="col-sm-2"></div>
     <!--header: main menu-->
     <div class="menu text-center">
         <div class="btn-group">
