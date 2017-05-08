@@ -1,0 +1,82 @@
+var gulp = require('gulp');
+var plugins = require('gulp-load-plugins')();
+var argv = require('yargs').argv;
+
+var paths = {
+    less: ['./app/**/*.less'],
+    js: ['./app/**/*.js'],
+    json: ['./app/components/**/*.json'],
+    dist: {
+        css: './dist/',
+        js: './dist/',
+        json: './dist/'
+    },
+    vendor: {
+        css: ['./bower_components/**/*.css'],
+        js: [
+            './bower_components/jquery/dist/jquery.min.js',
+            './bower_components/angular/angular.min.js',
+            './bower_components/angular-ui-router/release/angular-ui-router.min.js',
+            './bower_components/bootstrap/dist/js/bootstrap.min.js',
+            './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+            './bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js'
+        ]
+    }
+
+};
+
+/**
+ * compiles less files into css.
+ */
+gulp.task('less', function() {
+    gulp.src(paths.less)
+        .pipe(plugins.concat('style.css'))
+        .pipe(plugins.less())
+        .pipe(plugins.minifyCss())
+        .pipe(gulp.dest(paths.dist.css));
+});
+
+gulp.task('js', function() {
+    gulp.src(paths.js)
+        .pipe(plugins.concat('printo.js'))
+        .pipe(plugins.if(argv.prod, plugins.uglify({mangle: false})))
+        .pipe(gulp.dest(paths.dist.js));
+});
+
+gulp.task('json', function() {
+    gulp.src(paths.json)
+        .pipe(plugins.mergeJson({
+            fileName: 'languages.json'
+        }))
+        .pipe(gulp.dest(paths.dist.json));
+});
+
+gulp.task('watch', function() {
+    gulp.watch(paths.less, ['less']);
+    console.log('watching directory:' + paths.less.join(', '));
+
+    gulp.watch(paths.js, ['js']);
+    console.log('watching directory:' + paths.js.join(', '));
+});
+
+/**
+ * copies vendor specific files to the public folder.
+ */
+gulp.task('vendor', function() {
+    gulp.src(paths.vendor.css)
+        .pipe(plugins.concat('vendor.css'))
+        .pipe(plugins.minifyCss())
+        .pipe(gulp.dest(paths.dist.css));
+
+    gulp.src(paths.vendor.js)
+        .pipe(plugins.concat('vendor.min.js'))
+        .pipe(plugins.uglify({mangle: false}))
+        .pipe(gulp.dest(paths.dist.js));
+});
+
+
+
+gulp.task('build', ['vendor', 'less', 'js', 'json']);
+gulp.task('dev', ['less', 'js']);
+gulp.task('default', ['dev']);
+gulp.task('watch', ['watch']);

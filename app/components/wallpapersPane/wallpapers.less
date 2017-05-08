@@ -1,0 +1,119 @@
+.grid-container {
+  position: relative;
+  top: 50px;
+
+  .fast-search {
+    width: 745px;
+    border-radius: 12px;
+    background: #e6ebf6;
+    box-shadow: inset 0px 0px 7px -3px #5e6572;
+    height: 47px;
+    margin: 20px 0;
+    .sort-buttons {
+      position: relative;
+      top: 12px;
+      a {
+        margin: 0 0 0 15px;
+        vertical-align: middle;
+        font-size: 12px;
+        color: #204275;
+        box-shadow: none;
+        width: auto;
+        height: auto;
+        line-height: 1.2;
+        text-align: left;
+        display: inline;
+        padding: 0;
+        background: rgba(0, 0, 0, 0);
+
+        i {
+          color: #a0ba43;
+          box-shadow: 1px 1.732px 5px 0px rgb(190, 192, 194);
+          width: 25px;
+          height: 25px;
+          background: #fff;
+          -moz-border-radius: 50px;
+          -webkit-border-radius: 50px;
+          border-radius: 50%;
+          padding: 7px 7px;
+          margin-right: 5px;
+        }
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .catalog {
+    padding-left: 0px;
+    padding-top: 65px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    .actions {
+      font-size: 14px;
+      font-weight: 100;
+      color: #214477;
+      padding: 10px 45px 0px 20px;
+      width: auto;
+      position: relative;
+      height: 37px;
+      a {
+        position: absolute;
+        right: 7px;
+        top: 10px;
+        text-decoration: none;
+        font-size: 22px;
+        line-height: 22px;
+        background: #f2f5fa;
+        color: #b8bfcd;
+        padding: 4px 7px;
+        border-radius: 10px;
+      }
+    }
+    .photo {
+      display: table-cell;
+      vertical-align: middle;
+      width: 240px;
+      height: 240px;
+      cursor: pointer;
+      cursor: -webkit-zoom-in;
+      cursor: zoom-in;
+      text-align: center;
+      overflow: hidden;
+    }
+    .grid {
+
+      .item {
+        //display: inline-block;
+        //vertical-align: top;
+        //letter-spacing: normal !important;
+        //font-size: 10px;
+        //line-height: 1.2;
+      }
+    }
+    .item {
+      margin-right: 14px;
+      margin-bottom: 21px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #FFF;
+      box-shadow: 0px 1px 3px 0px rgb(176, 187, 196);
+      width: 240px !important;
+      margin-left: 0;
+      padding: 0 !important;
+      outline: none;
+      border: none;
+    }
+  }
+
+  .fa {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+
+  }
+}

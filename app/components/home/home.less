@@ -1,0 +1,87 @@
+
+.header {
+  height: 100px;
+  background-color: #fff;
+  width: 100%;
+  margin: 0 auto;
+
+  .menu {
+    position: relative;
+    top: 5px;
+    z-index: 1;
+
+    .btn-group {
+
+      .btn-menu {
+        height: 50px;
+        background: linear-gradient(#bbbbbb, #8f8f8f);
+
+        width: 178px;
+        &:first-child {
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          width: 178px;
+
+        }
+        &:last-child {
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          width: 178px;
+        }
+
+        &:hover {
+          background: linear-gradient(#8f8f8f, #bbbbbb);
+        }
+      }
+    }
+  }
+}
+
+.body {
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  min-height: 100%;
+  color: #475360;
+  font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
+  font-size: 13px;
+  background: url(http://print-oboi.com.ua/public/img/redesign/body_bg.jpg) repeat !important;
+
+  .content {
+    height: 100%;
+    width: 1050px;
+    margin: 0 auto;
+
+  }
+  .left-side-block {
+    margin-top: 50px;
+    margin-left: 0px;
+    width: 230px;
+
+    .block-item {
+      position: relative;
+      border-radius: 10px;
+      background-image: -webkit-linear-gradient(90deg, rgb(238, 243, 249) 0%, rgb(255, 255, 255) 32%, rgb(255, 255, 255) 75%, rgb(239, 244, 250) 100%);
+      box-shadow: 2px 3px 10px 0px rgba(110, 114, 124, .5);
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+
+      .name {
+        padding: 10px 0;
+        color: #f59912;
+        margin-bottom: -5px;
+        &:after {
+          display: block;
+          content: '';
+          background: url(http://print-oboi.com.ua/public/img/redesign/sidebar_divider.png) no-repeat;
+          width: 200px;
+          height: 19px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  .plates {
+    padding-left: 0;
+  }
+}
