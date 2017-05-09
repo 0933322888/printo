@@ -3,6 +3,7 @@ var plugins = require('gulp-load-plugins')();
 var argv = require('yargs').argv;
 
 var paths = {
+    proj: ['./'],
     less: ['./app/**/*.less'],
     js: ['./app/**/*.js'],
     json: ['./app/components/**/*.json'],
@@ -51,14 +52,6 @@ gulp.task('json', function() {
         .pipe(gulp.dest(paths.dist.json));
 });
 
-gulp.task('watch', function() {
-    gulp.watch(paths.less, ['less']);
-    console.log('watching directory:' + paths.less.join(', '));
-
-    gulp.watch(paths.js, ['js']);
-    console.log('watching directory:' + paths.js.join(', '));
-});
-
 /**
  * copies vendor specific files to the public folder.
  */
@@ -74,9 +67,37 @@ gulp.task('vendor', function() {
         .pipe(gulp.dest(paths.dist.js));
 });
 
+gulp.task('connect', function() {
+    plugins.connect.server({
+        root: './',
+        port: 8080,
+        fallback: 'index.html',
+        livereload: true
+    });
+});
 
+gulp.task('html', function () {
+    gulp.src('./index.html')
+        .pipe(plugins.connect.reload());
+});
+
+gulp.task('watch', function () {
+    gulp.watch(['./app/components/**/*.json'], ['json', 'html']);
+});
+
+gulp.task('watch', function () {
+    gulp.watch(
+        ['./app/components/**/*.js', './app/components/**/*.less'],
+        ['dev', 'html']);
+});
+
+gulp.task('watch', function () {
+    gulp.watch(
+        ['./app/components/**/*.html'], ['html']);
+});
+
+gulp.task('default', ['serve', 'dev']);
 
 gulp.task('build', ['vendor', 'less', 'js', 'json']);
 gulp.task('dev', ['less', 'js']);
-gulp.task('default', ['dev']);
-gulp.task('watch', ['watch']);
+gulp.task('serve', ['connect', 'watch']);
