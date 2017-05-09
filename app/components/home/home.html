@@ -4,7 +4,7 @@
         <div class="col-sm-2"></div>
         <div class="col-sm-1" style="">LOGO</div>
             <div class="col-sm-1">
-                <ul style="list-style-type:none">
+                <ul class="lang_list">
                 <li><img ng-src="./app/components/pics/ua.png"/><a href="#" ng-click="setLanguage('ua')"> UA</a></li>
                 <li><img ng-src="./app/components/pics/rus.png"/><a href="#" ng-click="setLanguage('ru')"> RU</a></li>
                 </ul>
@@ -83,11 +83,16 @@
 
         <div class="col-sm-8 left-side-block" style="width: 815px">
 
-            <img ng-src="./app/components/pics/main_banner.png" />
+            <div class="banner_holder">
+                <i class="small_icon">
+                    Cool photo to be here !
+                </i>
+
+            </div>
             <p><h3>{{$root.LANG.pHomePhotozakazTitle[$root.curLang]}}</h3></p>
             <p>{{$root.LANG.pHomePhotozakaz[$root.curLang]}}</p>
 
-            <img ng-src="./app/components/pics/icons.png" />
+            <img ng-src="./app/components/pics/icons.png"></img>
         </div>
 
         <div class="col-sm-8 left-side-block" style="width: 815px; margin-top: 10px">
