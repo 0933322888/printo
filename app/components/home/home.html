@@ -1,15 +1,40 @@
 <!--header-->
 <div class="header">
-    <div>
-        <div class="col-sm-3">LOGO</div>
-        <div class="col-sm-6">
-            <a href="#" ng-click="setLanguage('ua')">UA</a>
-            <a href="#" ng-click="setLanguage('ru')">RU</a>
-            SEARCH+PHONES
-        </div>
-        <div class="col-sm-3">BUTTON</div>
-    </div>
+    <br>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-1" style="">LOGO</div>
+            <div class="col-sm-1">
+                <ul style="list-style-type:none">
+                <li><img ng-src="./app/components/pics/ua.png"/><a href="#" ng-click="setLanguage('ua')"> UA</a></li>
+                <li><img ng-src="./app/components/pics/rus.png"/><a href="#" ng-click="setLanguage('ru')"> RU</a></li>
+                </ul>
+            </div>
+                <div class="col-sm-2">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
+                </span>
+            </div>
+                </div>
+            <div class="col-sm-2" style="text-align: end">
+                <ul style="list-style-type:none; font-family: Arial; font-size: 12px; color: #515865; font-weight: bold">
+                    <li>{{$root.LANG.weWork[$root.curLang]}}</li>
+                    <li>9:00-18:00</li>
+                    <li>{{$root.LANG.weWorkDays[$root.curLang]}}</li>
+                </ul>
+            </div>
 
+
+        <div class="col-sm-2" style="text-align: right">
+
+                <span style="font-family: Arial; font-size: 18px; color: #515865">(044)221-33-03  </span>
+                <img ng-src="./app/components/pics/btn-recall_{{$root.curLang}}.png" />
+
+
+
+        </div>
+        <div class="col-sm-2"></div>
     <!--header: main menu-->
     <div class="menu text-center">
         <div class="btn-group">
@@ -22,6 +47,7 @@
         </div>
         <!--end of header-->
     </div>
+
 </div>
 
 
@@ -31,8 +57,8 @@
         <!--left-side menu-->
         <div class="col-sm-3 left-side-block">
 
-            <div class="block-item">
-                <div class="name text-center">Popular</div>
+           <div class="block-item">
+                <div class="name text-center">{{$root.LANG.popularCat[$root.curLang]}}</div>
                 <div>
                     <ul>
                         <li ng-repeat="item in popular track by $index">
@@ -42,9 +68,9 @@
                 </div>
             </div>
 
-            <br>
 
-            <div class="categories">
+            <div class="block-item">
+                <div class="name text-center">{{$root.LANG.categoriesCat[$root.curLang]}}</div>
                 <div ng-repeat="item in categories track by $index">
                     <ul>
                         <li>
@@ -55,6 +81,21 @@
             </div>
         </div>
 
+        <div class="col-sm-8 left-side-block" style="width: 815px">
+
+            <img ng-src="./app/components/pics/main_banner.png" />
+            <p><h3>{{$root.LANG.pHomePhotozakazTitle[$root.curLang]}}</h3></p>
+            <p>{{$root.LANG.pHomePhotozakaz[$root.curLang]}}</p>
+
+            <img ng-src="./app/components/pics/icons.png" />
+        </div>
+
+        <div class="col-sm-8 left-side-block" style="width: 815px; margin-top: 10px">
+
+        Просто хороший текст
+
+        8 Штучек гифок
+        </div>
         <!--viewport for both menus-->
         <div class="plates col-sm-9">
             <ui-view></ui-view>
