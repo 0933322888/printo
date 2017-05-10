@@ -6,7 +6,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
     function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
     $urlRouterProvider.otherwise("/home");
 
-
     $stateProvider
         .state('home', {
             url: "/home",
@@ -100,8 +99,6 @@ angular.module('app')
 angular.module('app')
     .controller('homeCtrl', ['$scope', '$rootScope', '$state', 'Image', '$http',
         function ($scope, $rootScope, $state, Image, $http) {
-
-            //$scope.paramID = $routeParams.paramID;
 
             $scope.setLanguage = function (language) {
               $rootScope.curLang = language;
