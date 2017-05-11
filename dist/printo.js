@@ -12,6 +12,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
             templateUrl: "./app/components/home/home.html",
             controller: 'homeCtrl'
         })
+
         .state('home.wallpapers', {
             url: "/wallpapers",
             templateUrl: "./app/components/wallpapersPane/wallpapers.html",
