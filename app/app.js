@@ -7,12 +7,17 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
     $urlRouterProvider.otherwise("/home");
 
     $stateProvider
-        .state('home', {
+        .state('app', {
+            abstract: true,
+            templateUrl: "./app/components/menu/menu.html",
+            controller: 'menuCtrl'
+        })
+        .state('app.home', {
             url: "/home",
             templateUrl: "./app/components/home/home.html",
             controller: 'homeCtrl'
         })
-        .state('home.wallpapers', {
+        .state('app.wallpapers', {
             url: "/wallpapers",
             templateUrl: "./app/components/wallpapersPane/wallpapers.html",
             controller: 'wallpapersCtrl',
