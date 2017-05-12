@@ -1,6 +1,9 @@
 
 .header {
-  height: 50px;
+  height: 100px;
+  background-color: #fff;
+  width: 100%;
+  margin: 0 auto;
 
   .menu {
     position: relative;
@@ -38,7 +41,10 @@
 }
 
 .body {
-
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  min-height: 100%;
   color: #475360;
   font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
   font-size: 13px;
@@ -83,11 +89,11 @@
     width: 230px;
 
     .block-item {
-
+        position: relative;
         border-radius: 10px;
         background-image: -webkit-linear-gradient(90deg, rgb(238, 243, 249) 0%, rgb(255, 255, 255) 32%, rgb(255, 255, 255) 75%, rgb(239, 244, 250) 100%);
         box-shadow: 2px 3px 10px 0px rgba(110, 114, 124, .5);
-        margin-bottom: 5px;
+        margin-bottom: 25px;
         padding-bottom: 10px;
 
         .name {
