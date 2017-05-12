@@ -1,40 +1,107 @@
+ul, li {list-style-type: none !important}
+
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+
+}
+
 .header {
-  height: 100px;
+  height: 50px;
   background-color: #fff;
   width: 100%;
   margin: 0 auto;
+  padding-top: 5px;
+  text-align: right;
 
+}
   .menu {
-    position: relative;
-    top: 5px;
-    z-index: 1;
-    height: 80px;
+
+
+  }
 
     .btn-group {
 
+      //position: relative;
+      width: 100%;
+      top: -20px;
+      z-index: 1;
+      height: 80px;
+      border-right: medium;
+
       .btn-menu {
+
 
         padding-top: 15px;
         height: 50px;
         background: linear-gradient(#bbbbbb, #8f8f8f);
+        width: 200px;
+        color: white;
 
-        width: 172px;
         &:first-child {
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
-          width: 172px;
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+          width: 200px;
 
         }
         &:last-child {
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
-          width: 172px;
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+          width: 200px;
         }
 
         &:hover, &.active {
           background: linear-gradient(#8f8f8f, #bbbbbb);
+          text-decoration-line: underline;
+
         }
+
+        .button-plus {
+          color: white;
+          width: 20px;;
+        }
+
+
+
       }
     }
+
+
+.body {
+
+  margin-top: 40px;
+  background: url(http://print-oboi.com.ua/public/img/redesign/body_bg.jpg) repeat !important;
+
+}
+
+.left-side-block {
+  margin-top: -20px;
+  margin-left: 0px;
+  width: 230px;
+
+  .block-item {
+    position: relative;
+    border-radius: 10px;
+    background-image: -webkit-linear-gradient(90deg, rgb(238, 243, 249) 0%, rgb(255, 255, 255) 32%, rgb(255, 255, 255) 75%, rgb(239, 244, 250) 100%);
+    box-shadow: 2px 3px 10px 0px rgba(110, 114, 124, .5);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 13px;
+
+    .name {
+      padding: 10px 0;
+      color: #f59912;
+      margin-bottom: -5px;
+      &:after {
+        display: block;
+        content: '';
+        background: url(http://print-oboi.com.ua/public/img/redesign/sidebar_divider.png) no-repeat;
+        width: 200px;
+        height: 19px;
+        margin-bottom: 15px;
+      }
+    }
+    li {list-style-type: disc !important}
   }
 }
