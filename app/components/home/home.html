@@ -1,85 +1,6 @@
-<!--header-->
-<div class="header">
-    <br>
-        <div class="col-sm-2"></div>
-        <div class="col-sm-1" style="">LOGO</div>
-            <div class="col-sm-1">
-                <ul class="ul">
-                <li><img ng-src="./app/components/pics/ua.png"/><a href="#" ng-click="setLanguage('ua')"> UA</a></li>
-                <li><img ng-src="./app/components/pics/rus.png"/><a href="#" ng-click="setLanguage('ru')"> RU</a></li>
-                </ul>
-            </div>
-                <div class="col-sm-2">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
-                </span>
-            </div>
-                </div>
-            <div class="col-sm-2" style="text-align: end">
-                <ul style="font-family: Arial; font-size: 12px; color: #515865; font-weight: bold" class="ul">
-                    <li>{{$root.LANG.weWork[$root.curLang]}}</li>
-                    <li>9:00-18:00</li>
-                    <li>{{$root.LANG.weWorkDays[$root.curLang]}}</li>
-                </ul>
-            </div>
-
-
-        <div class="col-sm-2" style="text-align: right">
-
-                <span style="font-family: Arial; font-size: 18px; color: #515865">(044)221-33-03  </span>
-                <img ng-src="./app/components/pics/btn-recall_{{$root.curLang}}.png" />
-
-
-        </div>
-        <div class="col-sm-2"></div>
-    <!--header: main menu-->
-    <div class="menu text-center">
-        <div class="btn-group">
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'adhence'" uncheckable>{{$root.LANG.adhence[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'textures'" uncheckable>{{$root.LANG.textures[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'services'" uncheckable>{{$root.LANG.services[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'delivery'" uncheckable>{{$root.LANG.delivery[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'contacts'" uncheckable>{{$root.LANG.contacts[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'pay'" uncheckable>{{$root.LANG.pay[$root.curLang]}}</label>
-        </div>
-        <!--end of header-->
-    </div>
-
-</div>
-
-
-<!--body-->
 <div class="body">
     <div class="content">
-        <!--left-side menu-->
-        <div class="col-sm-3 left-side-block">
-
-           <div class="block-item">
-                <div class="name text-center">{{$root.LANG.popularCat[$root.curLang]}}</div>
-                <div>
-                    <ul>
-                        <li ng-repeat="item in popular track by $index">
-                            <a href="#" ng-click="goToCateg(item.id, item.name)"> {{item.name }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div class="block-item">
-                <div class="name text-center">{{$root.LANG.categoriesCat[$root.curLang]}}</div>
-
-                <div ng-repeat="item in categories track by $index">
-                    <ul>
-                        <li>
-                            <a href="#" ng-click="goToCateg(item.id, item.name)"> {{item.name }}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        
 
         <div class="col-sm-8 left-side-block" style="width: 815px">
 
@@ -95,7 +16,7 @@
             <p><h3>{{$root.LANG.pHomePhotozakazTitle[$root.curLang]}}</h3></p>
             <p>{{$root.LANG.pHomePhotozakaz[$root.curLang]}}</p>
 
-            <img ng-src="./app/components/pics/icons.png"></img>
+            <img ng-src="../pics/icons.png">
         </div>
 
 
@@ -121,39 +42,39 @@
              <h3>{{$root.LANG.pHomHowToOrder[$root.curLang]}}</h3>
 
 
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
+            <!--<div id="myCarousel" class="carousel slide" data-ride="carousel">-->
+                <!--&lt;!&ndash; Indicators &ndash;&gt;-->
+                <!--<ol class="carousel-indicators">-->
+                    <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
+                    <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
+                <!--</ol>-->
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="./app/components/pics/detskiye_fotooboi.jpg" alt="">
-                    </div>
+                <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+                <!--<div class="carousel-inner">-->
+                    <!--<div class="item active">-->
+                        <!--<img src="./app/components/pics/detskiye_fotooboi.jpg" alt="">-->
+                    <!--</div>-->
 
-                    <div class="item">
-                        <img src="./app/components/pics/fotooboi_dlya_kukhni.jpg" alt="">
-                    </div>
+                    <!--<div class="item">-->
+                        <!--<img src="./app/components/pics/fotooboi_dlya_kukhni.jpg" alt="">-->
+                    <!--</div>-->
 
-                    <div class="item">
-                        <img src="./app/components/pics/fotooboi_dlya_ofisa.jpg" alt="">
-                    </div>
-                </div>
+                    <!--<div class="item">-->
+                        <!--<img src="./app/components/pics/fotooboi_dlya_ofisa.jpg" alt="">-->
+                    <!--</div>-->
+                <!--</div>-->
 
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                    <span class="fa angle-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                    <span class="fa angle-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+                <!--&lt;!&ndash; Left and right controls &ndash;&gt;-->
+                <!--<a class="left carousel-control" href="#myCarousel" data-slide="prev">-->
+                    <!--<span class="fa angle-left"></span>-->
+                    <!--<span class="sr-only">Previous</span>-->
+                <!--</a>-->
+                <!--<a class="right carousel-control" href="#myCarousel" data-slide="next">-->
+                    <!--<span class="fa angle-right"></span>-->
+                    <!--<span class="sr-only">Next</span>-->
+                <!--</a>-->
+            <!--</div>-->
 
 
         </div>
@@ -167,13 +88,5 @@
             <p>{{$root.LANG.pHomWantOrdFast1[$root.curLang]}}</p>
         </div>
 
-        <!--viewport for both menus-->
-        <div class="plates col-sm-9">
-            <ui-view></ui-view>
-        </div>
     </div>
 </div>
-<!--end of body-->
-
-<!--footer-->
-<!--end of footer-->

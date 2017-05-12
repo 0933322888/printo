@@ -87,7 +87,7 @@ gulp.task('watchBuild', function () {
 
 gulp.task('watchDev', function () {
     gulp.watch(
-        ['./app/components/**/*.js', './app/components/**/*.less'],
+        ['./app/**/*.js', './app/components/**/*.less'],
         ['dev', 'html']);
 });
 
@@ -96,7 +96,7 @@ gulp.task('watch', function () {
         ['./app/components/**/*.html'], ['html']);
 });
 
-gulp.task('default', ['serve', 'dev']);
+gulp.task('default', ['build', 'serve']);
 
 gulp.task('build', ['vendor', 'less', 'js', 'json']);
 gulp.task('dev', ['less', 'js']);
