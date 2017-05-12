@@ -37,12 +37,12 @@
     <!--header: main menu-->
     <div class="menu text-center">
         <div class="btn-group">
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'adhence'" uncheckable>{{$root.LANG.adhence[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'textures'" uncheckable>{{$root.LANG.textures[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'services'" uncheckable>{{$root.LANG.services[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'delivery'" uncheckable>{{$root.LANG.delivery[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'contacts'" uncheckable>{{$root.LANG.contacts[$root.curLang]}}</label>
-            <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'pay'" uncheckable>{{$root.LANG.pay[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel" uib-btn-radio="'gluing'">{{$root.LANG.adhence[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel" uib-btn-radio="'textures'">{{$root.LANG.textures[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel" uib-btn-radio="'service'">{{$root.LANG.services[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel" uib-btn-radio="'delivery'">{{$root.LANG.delivery[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel" uib-btn-radio="'contacts'">{{$root.LANG.contacts[$root.curLang]}}</label>
+            <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel" uib-btn-radio="'payment'">{{$root.LANG.pay[$root.curLang]}}</label>
         </div>
         <!--end of header-->
     </div>
@@ -80,8 +80,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <!--viewport for both menus-->
         <div class="plates col-sm-9">

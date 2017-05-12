@@ -4,11 +4,19 @@ angular.module('app')
     .controller('menuCtrl', ['$scope', '$rootScope', '$state', 'Image', '$http',
         function ($scope, $rootScope, $state, Image, $http) {
 
+            $scope.radioModel = null;
+
+            $scope.goToMenu = function () {
+                var newState = 'app.' + $scope.radioModel;
+                $state.go(newState);
+            };
+
             $scope.setLanguage = function (language) {
                 $rootScope.curLang = language;
             };
 
             $scope.goToCateg = function (id, name) {
+                $scope.radioModel = null;
                 $state.go('app.wallpapers', {id: id, name: name})
             };
 

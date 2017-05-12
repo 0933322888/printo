@@ -25,7 +25,38 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
                 id: null,
                 name: null
             }
+        })
+        .state('app.gluing', {
+            url: "/gluing",
+            templateUrl: "./app/components/gluing/gluing.html",
+            controller: 'gluingCtrl'
+        })
+        .state('app.textures', {
+            url: "/textures",
+            templateUrl: "./app/components/textures/textures.html",
+            controller: 'texturesCtrl'
+        })
+        .state('app.service', {
+            url: "/service",
+            templateUrl: "./app/components/service/service.html",
+            controller: 'serviceCtrl'
+        })
+        .state('app.delivery', {
+            url: "/delivery",
+            templateUrl: "./app/components/delivery/delivery.html",
+            controller: 'deliveryCtrl'
+        })
+        .state('app.contacts', {
+            url: "/contacts",
+            templateUrl: "./app/components/contacts/contacts.html",
+            controller: 'contactsCtrl'
+        })
+        .state('app.payment', {
+            url: "/payment",
+            templateUrl: "./app/components/payment/payment.html",
+            controller: 'paymentCtrl'
         });
+
         $locationProvider.html5Mode(true);
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     // $httpProvider.interceptors.push('Interceptor');
