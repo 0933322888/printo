@@ -3,7 +3,7 @@
 angular.module('app')
     .controller('wallpapersCtrl', ['$scope', '$rootScope', '$state', '$stateParams', 'Image',
         function ($scope, $rootScope, $state, $stateParams, Image) {
-            console.log('hello!');
+
             $scope.categoryName = $stateParams.name;
 
             var filter = {
@@ -14,11 +14,14 @@ angular.module('app')
             $scope.fullList = [];
             $scope.list = [];
 
+            $scope.isLoading = true;
             Image.getCollection(filter).then(function (result) {
                 $scope.fullList = result;
                 $scope.list = $scope.fullList.slice(0,12);
+                $scope.isLoading = false;
             }, function (err) {
                 console.log(err);
+                $scope.isLoading = false;
             });
 
             $scope.loadMore = function() {
@@ -29,5 +32,6 @@ angular.module('app')
                     $scope.list.push($scope.fullList[last+i]);
                 }
             };
+
         }
     ]);

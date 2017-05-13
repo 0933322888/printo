@@ -20,6 +20,7 @@
             </a>
         </div>
     </div>
+
     <ul class="catalog grid">
         <li class="catalog-item item" ng-repeat="item in list track by $index">
             <div class="photo">
@@ -34,4 +35,7 @@
             </div>
         </li>
     </ul>
+
+    <div class="spinner" ng-show="isLoading"></div>
+
 </div>
