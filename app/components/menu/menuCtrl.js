@@ -54,6 +54,18 @@ angular.module('app')
                     {name: categories[134].name_ru, id: 134}
                 ];
 
+                $scope.interiors = [
+                    {name: categories[1587].name_ru, id: 1587},
+                    {name: categories[1588].name_ru, id: 1588}
+
+                ];
+
+
+
+
+
+
+
             });
 
 

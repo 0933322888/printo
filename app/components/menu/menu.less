@@ -1,58 +1,89 @@
 ul, li {list-style-type: none !important}
 
 .row {
-  margin-left: 0px !important;
   margin-right: 0px !important;
-
+  margin-left: 0px !important;
 }
 
 .header {
-  height: 50px;
-  background-color: #fff;
+  height: 100%;
   width: 100%;
   margin: 0 auto;
-  padding-top: 5px;
-  text-align: right;
+  padding-top: 10px;
+  margin-bottom: 0px;
+  color: #49515e;
 
+      .left_ord {align: left;
+        padding-left: 0px;
+        vertical-align: middle;
+              }
+
+      .right_ord {
+        text-align: end;
+        color: inherit;
+      }
+
+      #we_work  {
+        border-right: 2px dotted #ced3da;
+        padding-right: 10px;
+      }
+      .menu_lang {
+        margin-left: -20px;
+        position: absolute;
+        left: -20px;
+      }
+
+      .right_ord_2 {
+        padding-right: 8px;
+        text-align: end;
+      }
+
+      .phone_num {
+        color: inherit;
+        font-weight: 700;
+        font-size: 20px;
+        padding-right: 8px;
+      }
 }
-  .menu {
 
 
-  }
-
-    .btn-group {
+.btn-group {
 
       //position: relative;
       width: 100%;
-      top: -20px;
+      top: -16px;
       z-index: 1;
-      height: 80px;
-      border-right: medium;
+      height: 65px;
 
       .btn-menu {
 
 
-        padding-top: 15px;
-        height: 50px;
+        //height: 43px;
         background: linear-gradient(#bbbbbb, #8f8f8f);
-        width: 200px;
+        width: 16.75%;
+        height: 45px;
         color: white;
+        font-size: 13px;
+        font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
+        border-right: 2px solid gray;
+        padding-top: 10px;
 
         &:first-child {
-          border-top-left-radius: 15px;
-          border-bottom-left-radius: 15px;
-          width: 200px;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
 
         }
         &:last-child {
-          border-top-right-radius: 15px;
-          border-bottom-right-radius: 15px;
-          width: 200px;
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+          border-right: none;
+          padding-right: 0px;
         }
 
         &:hover, &.active {
           background: linear-gradient(#8f8f8f, #bbbbbb);
           text-decoration-line: underline;
+          color: white;
 
         }
 
@@ -68,18 +99,27 @@ ul, li {list-style-type: none !important}
 
 
 .body {
+  width: 100%;
 
-  margin-top: 40px;
+  .plates{
+    margin-top: -20px !important;
+  }
+
+  margin-top: 20px;
   background: url(http://print-oboi.com.ua/public/img/redesign/body_bg.jpg) repeat !important;
 
 }
 
 .left-side-block {
+
   margin-top: -20px;
   margin-left: 0px;
   width: 230px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 
   .block-item {
+    width: 87.5% !important;
     position: relative;
     border-radius: 10px;
     background-image: -webkit-linear-gradient(90deg, rgb(238, 243, 249) 0%, rgb(255, 255, 255) 32%, rgb(255, 255, 255) 75%, rgb(239, 244, 250) 100%);
@@ -104,4 +144,28 @@ ul, li {list-style-type: none !important}
     }
     li {list-style-type: disc !important}
   }
+}
+
+.right_side_block {
+  margin-left: -20px;
+}
+
+.input-group {
+  position: absolute;
+  display: table;
+  border-collapse: separate;
+  left: -60px;
+  width: 240px;
+  padding-top: 8px;
+
+  .form-control {
+    height: 45px;
+  }
+  .btn-default {
+    height: 45px;
+    width: 40px;
+    padding: 0px;
+
+  }
+
 }

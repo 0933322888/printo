@@ -3,7 +3,7 @@
 angular.module('app')
     .controller('wallpapersCtrl', ['$scope', '$rootScope', '$state', '$stateParams', 'Image',
         function ($scope, $rootScope, $state, $stateParams, Image) {
-
+            console.log('hello!');
             $scope.categoryName = $stateParams.name;
 
             var filter = {

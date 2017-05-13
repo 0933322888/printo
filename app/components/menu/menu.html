@@ -1,47 +1,53 @@
 <div class="header">
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-2">Logo</div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2 left_ord">
+            <img ng-src="./app//components/pics/logo.png"/>
+        </div>
         <div class="col-md-1">
-            <ul>
-                <li><img ng-src="./app/components/pics/ua.png"/><a href="#" ng-click="setLanguage('ua')"> UA</a></li>
-                <li><img ng-src="./app/components/pics/rus.png"/><a href="#" ng-click="setLanguage('ru')"> RU</a></li>
+            <ul class="menu_lang">
+                <li><img ng-src="./app/components/pics/ua.png"/><a href="#" ng-click="setLanguage('ua')">&nbsp;укр</a></li>
+                <li><img ng-src="./app/components/pics/rus.png"/><a href="#" ng-click="setLanguage('ru')">&nbsp;рус</a></li>
             </ul>
         </div>
-        <div class="col-md-3">
+
+        <div class="col-md-1">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
+                                <button class="btn  btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </span>
+                <input type="text" class="form-control" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
+
             </div>
         </div>
-        <div class="col-md-2">
-            <ul>
-                <li>{{$root.LANG.weWork[$root.curLang]}}</li>
+        <div class="col-md-2 right_ord">
+            <ul id="we_work">
+                <li><img ng-src="./app/components/pics/icon-clock.png"/>&nbsp;{{$root.LANG.weWork[$root.curLang]}}</li>
                 <li>9:00-18:00</li>
                 <li>{{$root.LANG.weWorkDays[$root.curLang]}}</li>
             </ul>
         </div>
-        <div class="col-md-2">
-            <span style="font-family: Arial; font-size: 18px; color: #515865">(044)221-33-03 &nbsp;  </span>
+        <div class="col-md-2 right_ord_2">
+            <span class="phone_num">(044)221-33-03</span>
             <img ng-src="./app/components/pics/btn-recall_{{$root.curLang}}.png" />
         </div>
 
-        <div class="col-md-1"></div>
+        <div class="col-md-2"></div>
 
     </div>
 </div>
+
 <div class="body">
+
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
 
             <div class="row">
 
                     <div class="btn-group">
                         <label class="btn btn-menu separator" ng-model="radioModel" uib-btn-radio="'adhence'" uncheckable>{{$root.LANG.adhence[$root.curLang]}}</label>
-                        <i class="button-plus"></i>
                         <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'textures'" uncheckable>{{$root.LANG.textures[$root.curLang]}}</label>
                         <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'services'" uncheckable>{{$root.LANG.services[$root.curLang]}}</label>
                         <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'delivery'" uncheckable>{{$root.LANG.delivery[$root.curLang]}}</label>
@@ -53,7 +59,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-2 left-side-block">
+                <div class="col-md-3 left-side-block">
                     <div class="block-item">
                         <div class="name text-center">{{$root.LANG.popularCat[$root.curLang]}}</div>
 
@@ -76,8 +82,27 @@
                         </ul>
                     </div>
 
+                    <div class="block-item">
+                        <div class="name text-center">{{$root.LANG.interiorsCat[$root.curLang]}}</div>
+
+                        <ul>
+                            <li ng-repeat="item in interiors track by $index">
+                                <a href="#" ng-click="goToCateg(item.id, item.name)"> {{item.name }}</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
                 </div>
-                <div class="col-md-10">Main part</div>
+                <div class="col-md-9 right_side_block">
+
+                    <div class="plates">
+
+                        <ui-view></ui-view>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -85,10 +110,11 @@
         </div>
 
 
-        <div class="col-md-1"></div>
+        <div class="col-md-2"></div>
     </div>
 
 </div>
+
 <div class="footer">
     <div class="row">Here will be counters etc.</div>
 </div>

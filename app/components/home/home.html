@@ -1,36 +1,151 @@
-<div class="header">
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-2">Logo</div>
-        <div class="col-md-2">Lang</div>
-        <div class="col-md-2">Search</div>
-        <div class="col-md-2">We work</div>
-        <div class="col-md-2">Phone</div>
 
-        <div class="col-md-1"></div>
+<div class="row">
+    <div class="banner_holder">
+        <p>
+            <i class="small_icon"></i>
+            {{$root.LANG.pHomInnerBoxText1[$root.curLang]}} <br />
+            {{$root.LANG.pHomInnerBoxText2[$root.curLang]}}
+        </p>
+    </div>
+    <p><h3>{{$root.LANG.pHomePhotozakazTitle[$root.curLang]}}</h3></p>
+    <p>{{$root.LANG.pHomePhotozakaz[$root.curLang]}}</p>
+
+    <img ng-src="./app/components/pics/icons.png"></img>
+
+    <h3>{{$root.LANG.pHomGreenTech[$root.curLang]}}</h3>
+    <p>{{$root.LANG.pHomGreenTechWeUse[$root.curLang]}}</p>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/62RE_hwPEjA?rel=0"></iframe>
+
+        </div>
 
     </div>
+
+
+    <div class="col-md-2">
+        <div><img ng-src="app/components/pics/ecologo.png" /></div>
+        <div><img ng-src="app/components/pics/greenguard.png" /> </div>
+    </div>
 </div>
-<div class="body">
-    <div class="row">
-        <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    <div class="row">
-                        Menu
+
+<div class="row">
+
+    <h3>{{$root.LANG.pHomHowToOrder[$root.curLang]}}</h3>
+
+    <div class="col-md-8">
+        <!--<img class="float_block_left" ng-src="app/components/pics/greenguard.png" />-->
+
+
+        <!-- ******* -->
+        <div >
+            <div class="myCarousel">
+                <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                        <img ng-src="{{slide.image}}" style="margin:auto;">
 
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-2">Left menu</div>
-                        <div class="col-md-10">Main part</div>
-
-                    </div>
-
-
                 </div>
+            </div>
+        </div>
 
 
-        <div class="col-md-1"></div>
+
+        <!-- ****** -->
+
+        <p>{{$root.LANG.pHomWantOrdFast1[$root.curLang]}}</p>
+        <p>{{$root.LANG.pHomWantOrdFast2[$root.curLang]}}</p>
+        <p>{{$root.LANG.pHomWantOrdFast3[$root.curLang]}}</p>
+
+
+    </div>
+
+    <div class="col-md-4">
+        {{$root.LANG.pHomWantOrdFast4[$root.curLang]}}
+        {{$root.LANG.pHomWantOrdFast5[$root.curLang]}}
+        {{$root.LANG.pHomWantOrdFast6[$root.curLang]}}
+
     </div>
 
 </div>
+
+<hr class="divider_shadow">
+
+<div class="row">
+
+    <h3>{{$root.LANG.pHomFenShui1[$root.curLang]}}</h3>
+
+    <div class="col-md-8">
+        <img class="float_block_left" ng-src="app/components/pics/greenguard.png" />
+        <p>{{$root.LANG.pHomFenShui2[$root.curLang]}}</p>
+        <p>{{$root.LANG.pHomFenShui3[$root.curLang]}}</p>
+        <p>{{$root.LANG.pHomFenShui4[$root.curLang]}}</p>
+
+
+    </div>
+
+    <div class="col-md-4">
+        {{$root.LANG.pHomFenShui5[$root.curLang]}}
+        {{$root.LANG.pHomFenShui6[$root.curLang]}}
+
+    </div>
+
+
+</div>
+
+<hr class="divider_shadow">
+
+<div class="row">
+
+    <h3>{{$root.LANG.pHomGoodPrice1[$root.curLang]}}</h3>
+
+    <div class="col-md-8">
+        <img class="float_block_left" ng-src="app/components/pics/greenguard.png" />
+        <p>{{$root.LANG.pHomGoodPrice2[$root.curLang]}}</p>
+        <p>{{$root.LANG.pHomGoodPrice3[$root.curLang]}}</p>
+            <ul>
+                <li>{{$root.LANG.pHomGoodPrice4[$root.curLang]}}</li>
+                <li>{{$root.LANG.pHomGoodPrice5[$root.curLang]}}</li>
+                <li>{{$root.LANG.pHomGoodPrice6[$root.curLang]}}</li>
+                <li>{{$root.LANG.pHomGoodPrice7[$root.curLang]}}</li>
+
+            </ul>
+    </div>
+
+    <div class="col-md-4">
+        {{$root.LANG.pHomGoodPrice8[$root.curLang]}}
+
+    </div>
+
+
+</div>
+
+<hr class="divider_shadow">
+
+<div class="row">
+
+    <h3>{{$root.LANG.pHomSuperDecor1[$root.curLang]}}</h3>
+
+    <div class="col-md-8">
+        <img class="float_block_left" ng-src="app/components/pics/greenguard.png" />
+        <p>{{$root.LANG.pHomSuperDecor2[$root.curLang]}}</p>
+        <p>{{$root.LANG.pHomSuperDecor3[$root.curLang]}}</p>
+        <p>{{$root.LANG.pHomSuperDecor4[$root.curLang]}}</p>
+
+
+    </div>
+
+    <div class="col-md-4">
+        {{$root.LANG.pHomSuperDecor5[$root.curLang]}}
+        {{$root.LANG.pHomSuperDecor6[$root.curLang]}}
+
+    </div>
+
+
+</div>
+
