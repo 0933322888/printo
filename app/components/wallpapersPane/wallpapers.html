@@ -2,27 +2,28 @@
     <div class="category-name">{{categoryName}}</div>
     <div class="fast-search">
         <div class="sort-buttons">
-            <a href="">
+            <a href="" ng-click="fastSort(null)" ng-class="{active : activeMenu == null}">
                 <i class="fa fa-asterisk"></i>
                 <span>All</span>
             </a>
-            <a href="">
+            <a href="" ng-click="fastSort('h')" ng-class="{active : activeMenu === 'h'}">
                 <i class="fa fa-bars"></i>
                 <span>Horizontal</span>
             </a>
-            <a href="">
+            <a href="" ng-click="fastSort('v')" ng-class="{active : activeMenu === 'v'}">
                 <i class="fa fa-bars fa-rotate-90"></i>
                 <span>Vertical</span>
             </a>
-            <a href="">
+            <a href="" ng-click="fastSort('p')" ng-class="{active : activeMenu === 'p'}">
                 <i class="fa fa-money"></i>
                 <span>Panorama</span>
             </a>
         </div>
+        <button type="button" class="btn selection-button" ng-click="modalOpen()">Open modal!</button>
     </div>
 
     <ul class="catalog grid">
-        <li class="catalog-item item" ng-repeat="item in list track by $index">
+        <li class="catalog-item item" ng-repeat="item in displayList track by $index">
             <div class="photo">
                 <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}" alt="{{item.name_ru}}">
             </div>
