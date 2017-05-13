@@ -24,7 +24,7 @@
 
     <ul class="catalog grid">
         <li class="catalog-item item" ng-repeat="item in displayList track by $index">
-            <div class="photo">
+            <div class="photo" ng-click="openPhoto(item.id, item.name_ru)">
                 <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}" alt="{{item.name_ru}}">
             </div>
             <div class="actions">

@@ -61,7 +61,7 @@ angular.module('app')
                     animation: true,
                     ariaLabelledBy: 'modal-title',
                     ariaDescribedBy: 'modal-body',
-                    templateUrl: './app/components/wallpapersPane/modal/myModalContent.html',
+                    templateUrl: './app/components/wallpapersPane/modals/selectionHelp.html',
                     controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
 
                         $scope.ok = function () {
@@ -81,6 +81,34 @@ angular.module('app')
                 });
             };
 
+            $scope.openPhoto = function (id, name) {
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    ariaLabelledBy: 'modal-title',
+                    ariaDescribedBy: 'modal-body',
+                    templateUrl: './app/components/wallpapersPane/modals/openPhoto.html',
+                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+
+                        $scope.id = id;
+                        $scope.name = name;
+
+                        $scope.ok = function () {
+                            $uibModalInstance.close();
+                        };
+
+                        $scope.cancel = function () {
+                            $uibModalInstance.dismiss('cancel');
+                        };
+                    }]
+
+                });
+                modalInstance.result.then(function (selectedItem) {
+
+                }, function () {
+
+                });
+
+            }
 
         }
     ]);
