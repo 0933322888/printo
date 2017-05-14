@@ -1,3 +1,5 @@
+<div id="container">
+
 <div class="header">
     <div class="row">
         <div class="col-md-2"></div>
@@ -94,6 +96,42 @@
                         </ul>
                     </div>
 
+                    <div class="block-item">
+                        <div class="name text-center">{{$root.LANG.selectColorsCat[$root.curLang]}}</div>
+
+                        <ul class="color-box">
+                            <li class="item"><a href="#" class="color-item" style="background: #cc0000" title={{$root.LANG.selectColorsRed[$root.curLang]}}></a></li>
+                            <li class="item"><a href="#" class="color-item" style="background: #006600" title={{$root.LANG.selectColorsGreen[$root.curLang]}}></a></li>
+                            <li class="item"><a href="#" class="color-item" style="background: #000099" title={{$root.LANG.selectColorsBlue[$root.curLang]}}></a></li>
+                            <li class="item"><a href="#" class="color-item" style="background: #ff9900" title={{$root.LANG.selectColorsOrange[$root.curLang]}}></a></li>
+                            <li class="item"><a href="#" class="color-item" style="background: #663300" title={{$root.LANG.selectColorsBrown[$root.curLang]}}></a></li>
+                            <li class="item"><a href="#" class="color-item" style="background: #000000" title={{$root.LANG.selectColorsBlack[$root.curLang]}}></a></li>
+                            <li class="item"><a href="#" class="color-item" style="background: #ff99cc" title={{$root.LANG.selectColorsPink[$root.curLang]}}></a></li>
+                            <li class="item"><a href="#" class="color-item" style="background: #00ff33" title={{$root.LANG.selectColorsCyan[$root.curLang]}}></a></li>
+                            <li class="item"><a href="#" class="color-item" style="background: #00ffff" title={{$root.LANG.selectColorsPearl[$root.curLang]}}></a></li>
+                            <li class="item"><a href="#" class="color-item" style="background: #ffff00" title={{$root.LANG.selectColorsYellow[$root.curLang]}}></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="block-item">
+                        <div class="name text-center">
+                            <img id="ownPhoto" ng-src="./app/components/pics/box-upload-title.png">{{$root.LANG.ownPhoto[$root.curLang]}}</div>
+                        <p style="padding: 0 20px; font-size: 12px; color: #475360">{{$root.LANG.ownPhoto1[$root.curLang]}}</p>
+                        <a href="#" class="btn btn_photo">{{$root.LANG.ownPhoto2[$root.curLang]}}</a>
+                    </div>
+
+
+                    <div class="block-item">
+                        <div class="name text-center">{{$root.LANG.picturesBox[$root.curLang]}}</div>
+
+                        <ul>
+                            <li style="list-style-type: none !important;"><a href="#" ng-click="goToCateg(item.id, item.name)"><strong style="margin-left: -15px">>&nbsp;</strong> {{$root.LANG.picturesBox1[$root.curLang]}}</a></li>
+                            <li style="list-style-type: none !important;"><a href="#" ng-click="goToCateg(item.id, item.name)"><strong style="margin-left: -15px">>&nbsp;</strong> {{$root.LANG.picturesBox2[$root.curLang]}}</a></li>
+
+                        </ul>
+                    </div>
+
+
                 </div>
                 <div class="col-md-9 right_side_block">
 
@@ -118,4 +156,6 @@
 
 <div class="footer">
     <div class="row">Here will be counters etc.</div>
+</div>
+
 </div>
