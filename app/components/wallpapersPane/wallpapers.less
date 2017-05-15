@@ -15,10 +15,35 @@
     background: #e6ebf6;
     box-shadow: inset 0px 0px 7px -3px #5e6572;
     height: 47px;
-    margin: 10px 0;
+    margin: 20px 0;
+
+    .selection-button {
+      position: relative;
+      float: right;
+      top: 6px;
+      right: 7px;
+      border-radius: 6px;
+      background-image: -moz-linear-gradient( 90deg, rgb(209,220,236) 0%, rgb(251,252,253) 100%);
+      background-image: -webkit-linear-gradient( 90deg, rgb(209,220,236) 0%, rgb(251,252,253) 100%);
+      background-image: -ms-linear-gradient( 90deg, rgb(209,220,236) 0%, rgb(251,252,253) 100%);
+      box-shadow: 0px 2px 1px 0px rgb( 159, 171, 186 );
+      width: 216px;
+      color: #214477;
+      text-align: center;
+      outline: none;
+      border-color: #ccc;
+      &:hover{
+        background-image: -moz-linear-gradient( 90deg, rgb(251,252,253) 0%,  rgb(209,220,236) 100%);
+        background-image: -webkit-linear-gradient(90deg, rgb(251,252,253) 0%,  rgb(209,220,236) 100%);
+        background-image: -ms-linear-gradient(90deg, rgb(251,252,253) 0%,  rgb(209,220,236) 100%);
+        background-position: 0;
+      }
+    }
     .sort-buttons {
       position: relative;
       top: 12px;
+      float: left;
+
       a {
         margin: 0 0 0 15px;
         vertical-align: middle;
@@ -32,6 +57,9 @@
         display: inline;
         padding: 0;
         background: rgba(0, 0, 0, 0);
+        &.active {
+          color: red;
+        }
 
         i {
           color: #a0ba43;
