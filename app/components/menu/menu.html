@@ -8,15 +8,21 @@
         </div>
         <div class="col-md-1">
             <ul class="menu_lang">
-                <li><img ng-src="./app/components/pics/ua.png"/><a href="#" ng-click="setLanguage('ua')">&nbsp;укр</a></li>
-                <li><img ng-src="./app/components/pics/rus.png"/><a href="#" ng-click="setLanguage('ru')">&nbsp;рус</a></li>
+                <li>
+                    <!--<img ng-src="./app/components/pics/ua.png"/>-->
+                    <a href="#" ng-click="setLanguage('ua')">UA</a>
+                </li>
+                <li>
+                    <!--<img ng-src="./app/components/pics/rus.png"/>-->
+                    <a href="#" ng-click="setLanguage('ru')">RU</a>
+                </li>
             </ul>
         </div>
 
         <div class="col-md-1">
             <div class="input-group">
                 <span class="input-group-btn">
-                                <button class="btn  btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </span>
                 <input type="text" class="form-control" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
 
@@ -24,13 +30,13 @@
         </div>
         <div class="col-md-2 right_ord">
             <ul id="we_work">
-                <li><img ng-src="./app/components/pics/icon-clock.png"/>&nbsp;{{$root.LANG.weWork[$root.curLang]}}</li>
-                <li>9:00-18:00</li>
-                <li>{{$root.LANG.weWorkDays[$root.curLang]}}</li>
+                <span class="phone_num">(044)221-33-03</span>
+                <!--<li><img ng-src="./app/components/pics/icon-clock.png"/>&nbsp;{{$root.LANG.weWork[$root.curLang]}}</li>-->
+                <li>ПН - ПТ | 9:00-18:00</li>
+                <!--<li>{{$root.LANG.weWorkDays[$root.curLang]}}</li>-->
             </ul>
         </div>
         <div class="col-md-2 right_ord_2">
-            <span class="phone_num">(044)221-33-03</span>
             <img ng-src="./app/components/pics/btn-recall_{{$root.curLang}}.png" />
         </div>
 

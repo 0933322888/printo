@@ -12,8 +12,8 @@ html, body {
 ul, li {list-style-type: none !important}
 
 .row {
-  margin-right: 0px !important;
-  margin-left: 0px !important;
+  //margin-right: 0px !important;
+  //margin-left: 0px !important;
 
   }
 
@@ -21,32 +21,43 @@ ul, li {list-style-type: none !important}
 
   width: 100%;
   margin: 0 auto;
-  padding-top: 10px;
-  margin-bottom: 0px;
+  padding-top: 15px;
   color: #49515e;
+  padding-bottom: 10px;
 
-      .left_ord {align: left;
+      .left_ord {
+        //align: left;
         padding-left: 0px;
-        vertical-align: middle;
-              }
+        //vertical-align: middle;
+        }
 
       .right_ord {
+        padding-right: 0px !important;
         text-align: end;
         color: inherit;
       }
 
       #we_work  {
-        border-right: 2px dotted #ced3da;
-        padding-right: 10px;
+        //border-right: 2px dotted #ced3da;
+        //padding-right: 10px;
       }
       .menu_lang {
-        margin-left: -20px;
-        position: absolute;
-        left: -20px;
+        //margin-left: -20px;
+        position: relative;
+        right: 35px;
+        top: 5px;
+        a {
+          font-family: sans-serif;
+          color: #49515e;
+          &:hover {
+            color: limegreen;
+            text-decoration: none;
+          }
+        }
       }
 
       .right_ord_2 {
-        padding-right: 8px;
+        //padding-right: 8px;
         text-align: end;
       }
 
@@ -54,7 +65,7 @@ ul, li {list-style-type: none !important}
         color: inherit;
         font-weight: 700;
         font-size: 20px;
-        padding-right: 8px;
+        //padding-right: 8px;
       }
 }
 
@@ -133,7 +144,7 @@ ul, li {list-style-type: none !important}
   padding-right: 0px !important;
 
   .block-item {
-    width: 87.5% !important;
+    width: 95% !important;
     position: relative;
     border-radius: 10px;
     background-image: -webkit-linear-gradient(90deg, rgb(238, 243, 249) 0%, rgb(255, 255, 255) 32%, rgb(255, 255, 255) 75%, rgb(239, 244, 250) 100%);
@@ -168,18 +179,19 @@ ul, li {list-style-type: none !important}
 }
 
 .right_side_block {
-  margin-left: -20px;
-  width: 750px !important;
+  //margin-left: -20px;
+  //width: 750px !important;
 
 }
 
+
 .input-group {
-  position: absolute;
-  display: table;
-  border-collapse: separate;
-  left: -60px;
+  //position: absolute;
+  //display: table;
+  //border-collapse: separate;
+  right: 75px;
   width: 240px;
-  padding-top: 8px;
+  //padding-top: 8px;
 
   .form-control {
     height: 45px;
