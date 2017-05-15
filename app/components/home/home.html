@@ -1,36 +1,210 @@
-<div class="header">
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-2">Logo</div>
-        <div class="col-md-2">Lang</div>
-        <div class="col-md-2">Search</div>
-        <div class="col-md-2">We work</div>
-        <div class="col-md-2">Phone</div>
 
-        <div class="col-md-1"></div>
+<div class="row">
+    <div class="banner_holder">
+        <div class="pic_over_banner">
+            <img ng-src="http://print-oboi.com.ua/public/img/redesign/title_icon.png" class="small_icon_banner"> </img>
+            <br>
+            <p>{{$root.LANG.pHomInnerBoxText1[$root.curLang]}}</p>
+            <p>{{$root.LANG.pHomInnerBoxText2[$root.curLang]}}</p>
+        </div>
+    </div>
+
+    <p class="title_text">{{$root.LANG.pHomePhotozakazTitle[$root.curLang]}}</p>
+    <p class="inner_text">{{$root.LANG.pHomePhotozakaz[$root.curLang]}}</p>
+
+    <img ng-src="./app/components/pics/icons.png"></img>
+
+    <p class="title_text">{{$root.LANG.pHomGreenTech[$root.curLang]}}</p>
+    <p class="inner_text">{{$root.LANG.pHomGreenTechWeUse[$root.curLang]}}</p>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/62RE_hwPEjA?rel=0"></iframe>
+
+        </div>
 
     </div>
+
+
+    <div class="col-md-3">
+        <div class="eco_blocks"><img ng-src="app/components/pics/ecologo.png" /></div>
+        <div class="eco_blocks"><img ng-src="app/components/pics/greenguard.png" /> </div>
+    </div>
 </div>
-<div class="body">
-    <div class="row">
-        <div class="col-md-1"></div>
-                <div class="col-md-10">
-                    <div class="row">
-                        Menu
+
+<div class="row">
+    <br>
+    <img ng-src="http://print-oboi.com.ua/public/img/redesign/title_icon.png" class="small_icon"> </img>
+    <p class="title_text">{{$root.LANG.pHomHowToOrder[$root.curLang]}}</p>
+
+    <div class="col-md-7 ">
+        <div >
+            <div class="myCarousel">
+                <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                        <img ng-src="{{slide.image}}" style="margin:auto;">
 
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-2">Left menu</div>
-                        <div class="col-md-10">Main part</div>
-
-                    </div>
-
-
                 </div>
+            </div>
+        </div>
 
+        <p class="inner_text">{{$root.LANG.pHomWantOrdFast1[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomWantOrdFast2[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomWantOrdFast3[$root.curLang]}}</p>
 
-        <div class="col-md-1"></div>
+    </div>
+
+    <div class="col-md-5">
+        <p class="inner_text">{{$root.LANG.pHomWantOrdFast4[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomWantOrdFast5[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomWantOrdFast6[$root.curLang]}}</p>
+
     </div>
 
 </div>
+
+<hr class="divider_shadow">
+
+<div class="row">
+
+    <img ng-src="http://print-oboi.com.ua/public/img/redesign/title_icon.png" class="small_icon"> </img>
+    <p class="title_text">{{$root.LANG.pHomSaleOverUa1[$root.curLang]}}</p>
+
+    <div class="col-md-7">
+        <div >
+            <div class="myCarousel">
+                <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                        <img ng-src="{{slide.image}}" style="margin:auto;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="inner_text">{{$root.LANG.pHomSaleOverUa2[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomSaleOverUa3[$root.curLang]}}</p>
+
+    </div>
+
+    <div class="col-md-5">
+        <p class="inner_text">{{$root.LANG.pHomSaleOverUa4[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomSaleOverUa5[$root.curLang]}}</p>
+
+    </div>
+
+
+</div>
+
+<hr class="divider_shadow">
+
+<div class="row">
+
+    <img ng-src="http://print-oboi.com.ua/public/img/redesign/title_icon.png" class="small_icon"> </img>
+    <p class="title_text">{{$root.LANG.pHomFenShui1[$root.curLang]}}</p>
+
+    <div class="col-md-7">
+        <div >
+            <div class="myCarousel">
+                <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                        <img ng-src="{{slide.image}}" style="margin:auto;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="inner_text">{{$root.LANG.pHomFenShui2[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomFenShui3[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomFenShui4[$root.curLang]}}</p>
+
+
+    </div>
+
+    <div class="col-md-5">
+        <p class="inner_text">{{$root.LANG.pHomFenShui5[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomFenShui6[$root.curLang]}}</p>
+
+    </div>
+
+
+</div>
+
+<hr class="divider_shadow">
+
+<div class="row">
+
+    <img ng-src="http://print-oboi.com.ua/public/img/redesign/title_icon.png" class="small_icon"> </img>
+    <p class="title_text">{{$root.LANG.pHomGoodPrice1[$root.curLang]}}</p>
+
+    <div class="col-md-7">
+        <div >
+            <div class="myCarousel">
+                <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                        <img ng-src="{{slide.image}}" style="margin:auto;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="inner_text">{{$root.LANG.pHomGoodPrice2[$root.curLang]}}</p>
+        <br>
+        <p class="inner_text">{{$root.LANG.pHomGoodPrice3[$root.curLang]}}</p>
+
+        <ul class="inner_text">
+                <li style="list-style-type: disc !important;">{{$root.LANG.pHomGoodPrice4[$root.curLang]}}</li>
+                <li style="list-style-type: disc !important;">{{$root.LANG.pHomGoodPrice5[$root.curLang]}}</li>
+                <li style="list-style-type: disc !important;">{{$root.LANG.pHomGoodPrice6[$root.curLang]}}</li>
+                <li style="list-style-type: disc !important;">{{$root.LANG.pHomGoodPrice7[$root.curLang]}}</li>
+
+            </ul>
+    </div>
+
+    <div class="col-md-5">
+        <p class="inner_text">{{$root.LANG.pHomGoodPrice8[$root.curLang]}}</p>
+
+    </div>
+
+
+</div>
+
+<hr class="divider_shadow">
+
+<div class="row">
+    <img ng-src="http://print-oboi.com.ua/public/img/redesign/title_icon.png" class="small_icon"> </img>
+    <p class="title_text">{{$root.LANG.pHomSuperDecor1[$root.curLang]}}</p>
+
+    <div class="col-md-7">
+        <div >
+            <div class="myCarousel">
+                <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                        <img ng-src="{{slide.image}}" style="margin:auto;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="inner_text">{{$root.LANG.pHomSuperDecor2[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomSuperDecor3[$root.curLang]}}</p>
+
+    </div>
+
+    <div class="col-md-5">
+        <p class="inner_text">{{$root.LANG.pHomSuperDecor4[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomSuperDecor5[$root.curLang]}}</p>
+        <p class="inner_text">{{$root.LANG.pHomSuperDecor6[$root.curLang]}}</p>
+
+    </div>
+
+
+</div>
+
