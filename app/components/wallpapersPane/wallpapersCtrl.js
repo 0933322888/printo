@@ -7,6 +7,8 @@ angular.module('app')
             $scope.categoryId = $stateParams.id;
             $scope.displayList = [];
             $scope.sortedList = [];
+            $rootScope.favorites = [];
+            $scope.favoritesForClass = [];
             var fullList = [];
             var filter = {
                 where: {
@@ -107,7 +109,20 @@ angular.module('app')
                 }, function () {
 
                 });
+            };
 
+            $scope.addToFavorites = function (item) {
+                var alreadyInIndex = $rootScope.favorites.findIndex(function (ele, ind) {
+                    return ele.id === item.id
+                });
+                //if not null, then delete from favorites
+                if (alreadyInIndex >= 0) {
+                    $rootScope.favorites.splice(alreadyInIndex, 1);
+                    $scope.favoritesForClass[item.id] = null;
+                } else {
+                    $rootScope.favorites.push(item);
+                    $scope.favoritesForClass[item.id] = item;
+                }
             }
 
         }

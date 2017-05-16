@@ -49,7 +49,8 @@ ul, li {list-style-type: none !important}
         a {
           font-family: sans-serif;
           color: #49515e;
-          &:hover {
+          font-weight: bold;
+          &:hover, &:active, &.active {
             color: limegreen;
             text-decoration: none;
           }
@@ -71,7 +72,6 @@ ul, li {list-style-type: none !important}
 
 
 .btn-group {
-
       //position: relative;
       width: 100%;
       top: -16px;
@@ -79,8 +79,6 @@ ul, li {list-style-type: none !important}
       height: 65px;
 
       .btn-menu {
-
-
         //height: 43px;
         background: linear-gradient(#bbbbbb, #8f8f8f);
         width: 16.75%;
@@ -89,8 +87,8 @@ ul, li {list-style-type: none !important}
         font-size: 13px;
         font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
         border-right: 2px solid gray;
-        padding-top: 10px;
-
+        padding-top: 12px;
+        font-weight: bold;
         &:first-child {
           border-top-left-radius: 10px;
           border-bottom-left-radius: 10px;
@@ -100,22 +98,14 @@ ul, li {list-style-type: none !important}
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
           border-right: none;
-          padding-right: 0px;
         }
 
         &:hover, &.active {
           background: linear-gradient(#8f8f8f, #bbbbbb);
-          text-decoration-line: underline;
+          text-decoration: none;
           color: white;
 
         }
-
-        .button-plus {
-          color: white;
-          width: 20px;;
-        }
-
-
 
       }
     }
@@ -136,12 +126,46 @@ ul, li {list-style-type: none !important}
 }
 
 .left-side-block {
-
+  font-weight: bold;
   margin-top: -20px;
   margin-left: 0px;
   width: 230px;
   padding-left: 0px !important;
-  padding-right: 0px !important;
+  padding-right: 5px !important;
+
+  .favorites {
+    width:95%;
+
+    button {
+      color: #FFF;
+      text-shadow: 0.5px 0.866px 1px rgb(229, 138, 0);
+      background: linear-gradient(#ffcb72, #ff9700);
+      height: 55px;
+      width: 100%;
+      font-weight: bold;
+      text-align: left;
+      border-radius: 10px;
+      padding: 0;
+
+      &:active, &:focus {
+        outline: none;
+        color: #FFF;
+      }
+
+      & .text {
+        padding: 17px;
+        height: 100%;
+        display: inline-block;
+      }
+      & .fa {
+        float: right;
+        height: 100%;
+        font-size: 21px;
+        padding: 15px 20px;
+        border-left: 1px solid lightcoral;
+      }
+    }
+  }
 
   .block-item {
     width: 95% !important;
@@ -240,16 +264,16 @@ ul, li {list-style-type: none !important}
   .item {
     display: inline-block;
     font-size: 0;
-    line-height: 0;
-    padding: 1px;
+    line-height: 0 !important;
+    //padding: 1px;
     margin-left: 3px;
     margin-bottom: 3px;
   }
 
   a.color-item {
     display: inline-block;
-    width: 28px;
-    height: 28px;
+    width: 29px;
+    height: 29px;
     border-radius: 4px;
     cursor: pointer;
   }
