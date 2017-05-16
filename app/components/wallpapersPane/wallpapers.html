@@ -1,4 +1,4 @@
-<div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="grid-container">
+<div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="row grid-container">
     <div class="category-name">{{categoryName}}</div>
     <div class="fast-search">
         <div class="sort-buttons">
@@ -22,21 +22,25 @@
         <button type="button" class="btn selection-button" ng-click="modalOpen()">Open modal!</button>
     </div>
 
-    <ul class="catalog grid">
-        <li class="catalog-item item" ng-repeat="item in displayList track by $index">
-            <div class="photo" ng-click="openPhoto(item.id, item.name_ru)">
-                <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}" alt="{{item.name_ru}}">
-            </div>
-            <div class="actions">
-                {{item.name_ru}}
+    <div class="row">
+        <div class="catalog grid col-md-12">
+            <div class="col-md-4 no-padding-right" ng-repeat="item in displayList track by $index">
+                <div class="catalog-item item">
+                    <div class="photo" ng-click="openPhoto(item.id, item.name_ru)">
+                        <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}"
+                             alt="{{item.name_ru}}">
+                    </div>
+                    <div class="actions">
+                        {{item.name_ru}}
 
-                <a href="#" title="Add To Favourites">
-                    <span class="fa fa-star-o"></span>
-                </a>
+                        <a href="#" title="Add To Favourites">
+                            <span class="fa fa-star-o"></span>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </li>
-    </ul>
-
+        </div>
+    </div>
     <div class="spinner" ng-show="isLoading"></div>
 
 </div>

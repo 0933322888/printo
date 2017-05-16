@@ -6,8 +6,8 @@ angular.module('app')
 
             $scope.radioModel = null;
 
-            $scope.goToMenu = function () {
-                var newState = 'app.' + $scope.radioModel;
+            $scope.goToMenu = function (param) {
+                var newState = 'app.' + ($scope.radioModel || param);
                 $state.go(newState);
             };
 
