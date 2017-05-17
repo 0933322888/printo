@@ -9,13 +9,15 @@ html, body {
   position: relative;
 }
 
-ul, li {list-style-type: none !important}
+ul, li {
+  list-style-type: none !important
+}
 
 .row {
   //margin-right: 0px !important;
   //margin-left: 0px !important;
 
-  }
+}
 
 .header {
 
@@ -25,98 +27,96 @@ ul, li {list-style-type: none !important}
   color: #49515e;
   padding-bottom: 10px;
 
-      .left_ord {
-        //align: left;
-        padding-left: 0px;
-        //vertical-align: middle;
-        }
+  .left_ord {
+    //align: left;
+    padding-left: 0px;
+    //vertical-align: middle;
+  }
 
-      .right_ord {
-        padding-right: 0px !important;
-        text-align: end;
-        color: inherit;
-      }
+  .right_ord {
+    padding-right: 0px !important;
+    text-align: end;
+    color: inherit;
+  }
 
-      #we_work  {
-        //border-right: 2px dotted #ced3da;
-        //padding-right: 10px;
-      }
-      .menu_lang {
-        //margin-left: -20px;
-        position: relative;
-        right: 35px;
-        top: 5px;
-        a {
-          font-family: sans-serif;
-          color: #49515e;
-          font-weight: bold;
-          &:hover, &:active, &.active {
-            color: limegreen;
-            text-decoration: none;
-          }
-        }
-      }
-
-      .right_ord_2 {
-        //padding-right: 8px;
-        text-align: end;
-      }
-
-      .phone_num {
-        color: inherit;
-        font-weight: 700;
-        font-size: 20px;
-        //padding-right: 8px;
-      }
-}
-
-
-.btn-group {
-      //position: relative;
-      width: 100%;
-      top: -16px;
-      z-index: 1;
-      height: 65px;
-
-      .btn-menu {
-        //height: 43px;
-        background: linear-gradient(#bbbbbb, #8f8f8f);
-        width: 16.75%;
-        height: 45px;
-        color: white;
-        font-size: 13px;
-        font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
-        border-right: 2px solid gray;
-        padding-top: 12px;
-        font-weight: bold;
-        &:first-child {
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
-
-        }
-        &:last-child {
-          border-top-right-radius: 10px;
-          border-bottom-right-radius: 10px;
-          border-right: none;
-        }
-
-        &:hover, &.active {
-          background: linear-gradient(#8f8f8f, #bbbbbb);
-          text-decoration: none;
-          color: white;
-
-        }
-
+  #we_work {
+    //border-right: 2px dotted #ced3da;
+    //padding-right: 10px;
+  }
+  .menu_lang {
+    //margin-left: -20px;
+    position: relative;
+    right: 35px;
+    top: 5px;
+    a {
+      font-family: sans-serif;
+      color: #49515e;
+      font-weight: bold;
+      &:hover, &:active, &.active {
+        color: limegreen;
+        text-decoration: none;
       }
     }
+  }
 
+  .right_ord_2 {
+    //padding-right: 8px;
+    text-align: end;
+  }
+
+  .phone_num {
+    color: inherit;
+    font-weight: 700;
+    font-size: 20px;
+    //padding-right: 8px;
+  }
+}
+
+.btn-group {
+  //position: relative;
+  width: 100%;
+  top: -16px;
+  z-index: 1;
+  height: 65px;
+
+  .btn-menu {
+    //height: 43px;
+    background: linear-gradient(#bbbbbb, #8f8f8f);
+    width: 16.75%;
+    height: 45px;
+    color: white;
+    font-size: 13px;
+    font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
+    border-right: 2px solid gray;
+    padding-top: 12px;
+    font-weight: bold;
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+
+    }
+    &:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-right: none;
+    }
+
+    &:hover, &.active {
+      background: linear-gradient(#8f8f8f, #bbbbbb);
+      text-decoration: none;
+      color: white;
+
+    }
+
+  }
+}
 
 .body {
   position: relative;
   width: 100%;
   padding-bottom: 20px;
 
-  .plates{
+  .plates {
     margin-top: -20px !important;
   }
 
@@ -134,7 +134,7 @@ ul, li {list-style-type: none !important}
   padding-right: 5px !important;
 
   .favorites {
-    width:95%;
+    width: 95%;
 
     button {
       color: #FFF;
@@ -163,6 +163,21 @@ ul, li {list-style-type: none !important}
         font-size: 21px;
         padding: 15px 20px;
         border-left: 1px solid lightcoral;
+      }
+    }
+
+    .fav-photo-plates {
+      .fav-item {
+        padding: 3px;
+        display: inline-block;
+        position: relative;
+        .fa-times {
+          color: white;
+          position: absolute;
+          top: 4px;
+          right: 5px;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -211,7 +226,6 @@ ul, li {list-style-type: none !important}
 
 }
 
-
 .input-group {
   //position: absolute;
   //display: table;
@@ -233,29 +247,27 @@ ul, li {list-style-type: none !important}
 }
 
 .footer {
- margin-bottom: 14px;
+  margin-bottom: 14px;
   height: 40px;
   position: absolute !important;
   width: 100%;
 
 }
 
-
 .btn.btn_photo {
   border-radius: 10px;
-  background-image: -webkit-linear-gradient( 90deg, rgb(160,186,67) 0%, rgb(201,233,87) 100%);
-  box-shadow: 0px 2px 2px 0px rgb( 81, 101, 8 );
+  background-image: -webkit-linear-gradient(90deg, rgb(160, 186, 67) 0%, rgb(201, 233, 87) 100%);
+  box-shadow: 0px 2px 2px 0px rgb(81, 101, 8);
   border: none;
   font-size: 12px;
   font-weight: 100;
-  text-shadow: 0.5px 0.866px 2px rgb( 118, 134, 60 );
+  text-shadow: 0.5px 0.866px 2px rgb(118, 134, 60);
   margin: 0px 20px;
   display: inline-block;
   padding: 8px 22px;
   color: white !important;
   margin: 0 20px 0 20px;
 }
-
 
 .color-box {
   list-style-type: none;
@@ -285,15 +297,15 @@ ul, li {list-style-type: none !important}
 
 }
 
-  .footer_link {
-    width: 19%;
-    display: inline-block;
-    text-align: center;
-    padding-top: 5px;
-    margin-bottom: 0;
+.footer_link {
+  width: 19%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 5px;
+  margin-bottom: 0;
 
-      a {
-        color: white;
-      }
+  a {
+    color: white;
   }
+}
 

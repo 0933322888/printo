@@ -110,6 +110,10 @@ angular.module('app')
 
                 });
             };
+            
+            $scope.$on('remove', function (event, data) {
+                $scope.addToFavorites (data)
+            });
 
             $scope.addToFavorites = function (item) {
                 var alreadyInIndex = $rootScope.favorites.findIndex(function (ele, ind) {

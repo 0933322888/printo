@@ -21,6 +21,10 @@ angular.module('app')
                 $state.go('app.wallpapers', {id: id, name: name})
             };
 
+            $scope.removeFav = function (item) {
+              $scope.$broadcast('remove', item);
+            };
+
             var getCategories = function () {
                 $http.get('dist/categories.json').then(function (resp) {
                     var categories = resp.data;
