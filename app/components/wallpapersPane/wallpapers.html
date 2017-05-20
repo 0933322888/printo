@@ -26,12 +26,12 @@
         <div class="catalog grid col-md-12">
             <div class="col-md-4 no-padding-right" ng-repeat="item in displayList track by $index">
                 <div class="catalog-item item">
-                    <div class="photo" ng-click="openPhoto(item.id, item.name_ru)">
+                    <div class="photo" ng-click="openPhoto(item)">
                         <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}"
                              alt="{{item.name_ru}}">
                     </div>
                     <div class="actions">
-                        {{item.name_ru}}
+                        {{$root.curLang == 'ru' ? item.name_ru : item.name_ua}}
 
                         <a href="#" title="Add To Favourites" ng-click="addToFavorites(item)">
                             <span class="fa " ng-class="{'fa-star': favoritesForClass[item.id], 'fa-star-o': !favoritesForClass[item.id]}"></span>

@@ -83,7 +83,7 @@ angular.module('app')
                 });
             };
 
-            $scope.openPhoto = function (id, name) {
+            $scope.openPhoto = function (item) {
                 var modalInstance = $uibModal.open({
                     animation: true,
                     ariaLabelledBy: 'modal-title',
@@ -91,8 +91,8 @@ angular.module('app')
                     templateUrl: './app/components/wallpapersPane/modals/openPhoto.html',
                     controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
 
-                        $scope.id = id;
-                        $scope.name = name;
+                        $scope.id = item.id;
+                        $scope.name = item['name_' + $rootScope.curLang];
 
                         $scope.ok = function () {
                             $uibModalInstance.close();
@@ -112,7 +112,12 @@ angular.module('app')
             };
             
             $scope.$on('remove', function (event, data) {
-                $scope.addToFavorites (data)
+                if (data === "all") {
+                    $rootScope.favorites = [];
+                    $scope.favoritesForClass = [];
+                } else {
+                    $scope.addToFavorites (data);
+                }
             });
 
             $scope.addToFavorites = function (item) {

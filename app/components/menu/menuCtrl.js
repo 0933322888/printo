@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('app')
-    .controller('menuCtrl', ['$scope', '$rootScope', '$state', 'Image', '$http',
-        function ($scope, $rootScope, $state, Image, $http) {
+    .controller('menuCtrl', ['$scope', '$rootScope', '$state', 'Image', '$http', '$uibModal',
+        function ($scope, $rootScope, $state, Image, $http, $uibModal) {
 
             $scope.radioModel = null;
 
@@ -13,6 +13,7 @@ angular.module('app')
 
             $scope.setLanguage = function (language) {
                 $rootScope.curLang = language;
+                $scope.$broadcast('languageChange', language);
                 getCategories();
             };
 
@@ -22,7 +23,33 @@ angular.module('app')
             };
 
             $scope.removeFav = function (item) {
-              $scope.$broadcast('remove', item);
+                $scope.$broadcast('remove', item);
+            };
+
+            $scope.sendToFriend = function () {
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    ariaLabelledBy: 'modal-title',
+                    ariaDescribedBy: 'modal-body',
+                    templateUrl: './app/components/menu/modals/sendToFriend.html',
+                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+
+
+                        $scope.ok = function () {
+                            $uibModalInstance.close();
+                        };
+
+                        $scope.cancel = function () {
+                            $uibModalInstance.dismiss('cancel');
+                        };
+                    }]
+
+                });
+                modalInstance.result.then(function (selectedItem) {
+
+                }, function () {
+
+                });
             };
 
             var getCategories = function () {

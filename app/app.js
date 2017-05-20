@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router',  'ui.bootstrap', 'infinite-scroll']);
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'infinite-scroll', 'ngSanitize']);
 
 app.constant('BASE_URL', 'http://foto-oboi.com.ua/');
 

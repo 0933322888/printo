@@ -83,7 +83,7 @@
                                     <i class="fa " ng-class="{'fa-long-arrow-down': !isCollapsed, 'fa-long-arrow-up': isCollapsed}" aria-hidden="true"></i>
                             </button>
 
-                            <div uib-collapse="!isCollapsed">
+                            <div uib-collapse="isCollapsed">
 
                                 <div class="fav-photo-plates">
                                         <div class="fav-item" ng-repeat="favItem in $root.favorites track by $index">
@@ -93,7 +93,21 @@
                                 </div>
 
                                 <div class="fav-photo-menu">
-
+                                    <div>
+                                        <i class="fa fa-trash" aria-hidden="true" ng-click="removeFav('all')">
+                                            <a href="">Delete all</a>
+                                        </i>
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-envelope" aria-hidden="true" ng-click="sendToFriend()">
+                                            <a href="">Send to friend</a>
+                                        </i>
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-save" aria-hidden="true" ng-click="saveArc()">
+                                            <a href="">Save archive</a>
+                                        </i>
+                                    </div>
                                 </div>
                             </div>
 
