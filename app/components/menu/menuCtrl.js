@@ -7,7 +7,13 @@ angular.module('app')
             $scope.radioModel = null;
 
             $scope.goToMenu = function (param) {
-                var newState = 'app.' + ($scope.radioModel || param);
+                var newState;
+                if (param === 'home') {
+                    $scope.radioModel = null;
+                    newState = 'app.' + param;
+                } else {
+                    newState = 'app.' + $scope.radioModel;
+                }
                 $state.go(newState);
             };
 
