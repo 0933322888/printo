@@ -1,1 +1,65 @@
-contacts
+<div class="contacts">
+
+    <div class="row">
+        <p class="title_text"><b>{{$root.LANG.contacts[$root.curLang]}}</b></p>
+
+        <div class="content">
+            <div class="col-md-12 text">
+                <div class="col-md-5 column">
+                    <div class="block">
+                        <div class="icon pull-left"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                        <div class="pull-right">
+                            <div class="primary">{{$root.LANG.telephone[$root.curLang]}}:</div>
+                            <div class="secondary">(044) 221-33-03 ({{$root.LANG.multiline[$root.curLang]}})</div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="icon pull-left"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                        <div class="pull-right">
+                            <div class="primary">e-mail:<a href="mailto:office@print-oboi.com.ua">office@print-oboi.com.ua</a></div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="icon pull-left"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                        <div class="pull-right">
+                            <div class="primary">{{$root.LANG.workingHours[$root.curLang]}}:</div>
+                            <div class="secondary">Пн - Пт: 9:00 - 18:00</div>
+                            <div class="secondary">{{$root.LANG.dayoffs[$root.curLang]}}</div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="icon pull-left"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                        <div class="pull-right">
+                            <div class="primary">{{$root.LANG.mailAddress[$root.curLang]}}:</div>
+                            <div class="secondary">{{$root.LANG.mailAddressDetails[$root.curLang]}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 column">
+                    <div class="showroom">Шоурум</div>
+                    <div class="block">
+                        <div class="icon pull-left"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                        <div class="pull-right">
+                            <div class="primary">{{$root.LANG.showroomAddress[$root.curLang]}}</div>
+                            <div class="secondary">{{$root.LANG.showroomAddress2[$root.curLang]}}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 column">
+                    <div class="pull-right">
+                        <img class="mailbox" src="http://print-oboi.com.ua/public/img/bg-contacts.png" alt="">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 map">
+                <img src="../../../app/components/pics/map_l_u_34.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+</div>

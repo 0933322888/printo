@@ -1,0 +1,41 @@
+.delivery {
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-12 {
+    padding: 0;
+  }
+
+
+  .delivery-type {
+    float: left;
+    //width: 184px;
+    height: 112px;
+    margin: 20px 30px;
+    background: url(http://print-oboi.com.ua/public/img/sprite-deliverytypes.png) no-repeat 0 30px;
+
+    &.address {
+      background-position: -120px -54px;
+      height: 128px;
+    }
+
+    p {
+      text-align: center;
+      font-size: larger;
+    }
+    .price {
+      position: relative;
+      background-color: orange;
+      padding: 3px 12px;
+      float: right;
+      right: 25px;
+      color: #fff;
+
+        .number {
+          font-size: x-large;
+          font-weight: bold;
+        }
+    }
+  }
+}

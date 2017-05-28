@@ -1,1 +1,74 @@
-delivery
+<div class="delivery">
+
+    <div class="row">
+        <p class="title_text"><b>{{$root.LANG.deliveryOptions[$root.curLang]}}</b></p>
+
+        <div class="col-md-12 block">
+            <div class="content">
+                <p class="title_text">{{$root.LANG.currierKiev[$root.curLang]}}</p>
+                <p class="inner_text">{{$root.LANG.currierKievText[$root.curLang]}}</p>
+                <p class="inner_text"><b>{{$root.LANG.currierKievPrice[$root.curLang]}} - 50 {{$root.LANG.UAH[$root.curLang]}}</b></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <p class="title_text">{{$root.LANG.deliveryUkraine[$root.curLang]}}</p>
+
+        <div class="col-md-12 block">
+            <div class="content">
+                <p class="inner_text">{{$root.LANG.deliveryUkraineText[$root.curLang]}}</p>
+
+                <div class="col-md-4 delivery-type">
+                    <p>{{$root.LANG.deliveryUkraineSklad[$root.curLang]}}</p>
+                    <div class="price">
+                        <span class="number">50</span> <span>грн</span>
+                    </div>
+                </div>
+                <div class="col-md-4 delivery-type address">
+                    <p>{{$root.LANG.deliveryUkraineAddress[$root.curLang]}}</p>
+                    <div class="price">
+                        <span class="number">80</span> <span>грн</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <p class="title_text">{{$root.LANG.pHomHowToOrder[$root.curLang]}}</p>
+
+        <div class="col-md-12 block">
+            <div class="content">
+                <p class="inner_text">{{$root.LANG.pHomWantOrdFast1[$root.curLang]}}</p>
+            </div>
+
+            <div class="col-md-3">
+                <img src="http://print-oboi.com.ua/public/img/delivery/1.png" alt="">
+                <div>
+                    <a href="">{{$root.LANG.officeNovaP[$root.curLang]}}</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="http://print-oboi.com.ua/public/img/delivery/2.png" alt="">
+                <div>
+                    <a href="">{{$root.LANG.officeAvtolux[$root.curLang]}}</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="http://print-oboi.com.ua/public/img/delivery/4.png" alt="">
+                <div>
+                    <a href="">{{$root.LANG.officeInTime[$root.curLang]}}</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <img src="http://print-oboi.com.ua/public/img/delivery/5.png" alt="">
+                <div>
+                    <a href="">{{$root.LANG.officeGunsel[$root.curLang]}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
