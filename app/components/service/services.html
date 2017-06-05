@@ -25,11 +25,11 @@
             <div class="content">
 
                 <div class="col-md-6 left">
-                    <p class="title_text">{{$root.LANG.colorCorrection[$root.curLang]}}</p>
+                    <p class="title_text">{{$root.LANG.delOrAddDetails[$root.curLang]}}</p>
                     <img src="http://print-oboi.com.ua/public/img/content/design_services-3.jpg" alt="">
                 </div>
                 <div class="col-md-6 right">
-                    <p class="title_text">{{$root.LANG.applyFilter[$root.curLang]}}</p>
+                    <p class="title_text">{{$root.LANG.visualisation[$root.curLang]}}</p>
                     <img src="http://print-oboi.com.ua/public/img/content/design_services-4.jpg" alt="">
                 </div>
 
@@ -37,19 +37,21 @@
         </div>
     </div>
 
-
     <div class="row">
-        <div class="col-md-12 text-block">
+        <div class="col-md-12 photo-block">
             <div class="content">
 
-                <div class="col-md-9">
-                    <p class="title_text">{{$root.LANG.applyFilter[$root.curLang]}}</p>
-                    <p> - Aasda asd ad adaf wuif iaf asdgfas fasdfif</p>
-                    <p>- B safn fidfherv v g jfgioguigsd;khdfgsudyg</p>
+                <div class="col-md-9 left">
+                    <p class="title_text">{{$root.LANG.exclusiveTitle[$root.curLang]}}</p>
+                    <p class="inner_text">{{$root.LANG.exclusiveServices[$root.curLang]}}</p>
+                    <p class="inner_text" ng-bind-html="exclusiveServices1"></p>
+                    <p class="inner_text">
+                        <b>{{$root.LANG.exclusiveServices2[$root.curLang]}}</b>
+                    </p>
                 </div>
 
                 <div class="col-md-3 pull-right">
-                    <img src="http://print-oboi.com.ua/public/img/content/exclusive.png" alt="">
+                    <img class="exclusive" src="http://print-oboi.com.ua/public/img/content/exclusive.png" alt="">
                 </div>
 
             </div>
@@ -57,7 +59,7 @@
     </div>
 
     <div class="row">
-        <p class="inner_text" ng-bind-html="exclusive1"></p>
+        <p class="inner_text">{{$root.LANG.exclusive1[$root.curLang]}}</p>
         <p class="inner_text" ng-bind-html="exclusive2"></p>
         <p class="inner_text" ng-bind-html="exclusive3"></p>
     </div>

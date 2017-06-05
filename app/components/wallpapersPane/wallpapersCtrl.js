@@ -37,8 +37,8 @@ angular.module('app')
 
             // would be good to update backend for not get pics from the same collection
             $scope.fastSort = function (param) {
-                $scope.activeMenu = param;
                 $scope.isLoading = true;
+                $scope.activeMenu = param;
                 var filter = {
                     where: {
                         categories: $scope.categoryId,

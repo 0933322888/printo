@@ -22,7 +22,7 @@
         <button type="button" class="btn selection-button" ng-click="modalOpen()">Open modal!</button>
     </div>
 
-    <div class="row">
+    <div class="row" ng-hide="isLoading">
         <div class="catalog grid col-md-12">
             <div class="col-md-4 no-padding-right" ng-repeat="item in displayList track by $index">
                 <div class="catalog-item item">
