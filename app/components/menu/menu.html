@@ -54,13 +54,13 @@
 
             <div class="col-md-8">
                 <div class="row">
-                    <div class="btn-group">
+                    <div class="btn-group btn-group-justified">
                         <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
                                uib-btn-radio="'gluing'">{{$root.LANG.adhence[$root.curLang] | uppercase}}</label>
                         <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
                                uib-btn-radio="'textures'">{{$root.LANG.textures[$root.curLang] | uppercase}}</label>
                         <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
-                               uib-btn-radio="'service'">{{$root.LANG.services[$root.curLang] | uppercase}}</label>
+                               uib-btn-radio="'services'">{{$root.LANG.services[$root.curLang] | uppercase}}</label>
                         <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
                                uib-btn-radio="'delivery'">{{$root.LANG.delivery[$root.curLang] | uppercase}}</label>
                         <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
@@ -152,6 +152,8 @@
                             </ul>
                         </div>
 
+
+                        <!--TODO: refactor so it behaves normally when sizing-->
                         <div class="block-item">
                             <div class="name text-center">{{$root.LANG.selectColorsCat[$root.curLang] | uppercase}}</div>
 
@@ -166,6 +168,8 @@
                                                     title={{$root.LANG.selectColorsOrange[$root.curLang]}}></a></li>
                                 <li class="item"><a href="#" class="color-item" style="background: #663300"
                                                     title={{$root.LANG.selectColorsBrown[$root.curLang]}}></a></li>
+                            </ul>
+                            <ul class="color-box">
                                 <li class="item"><a href="#" class="color-item" style="background: #000000"
                                                     title={{$root.LANG.selectColorsBlack[$root.curLang]}}></a></li>
                                 <li class="item"><a href="#" class="color-item" style="background: #ff99cc"

@@ -36,10 +36,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
             templateUrl: "./app/components/textures/textures.html",
             controller: 'texturesCtrl'
         })
-        .state('app.service', {
-            url: "/service",
-            templateUrl: "./app/components/service/service.html",
-            controller: 'serviceCtrl'
+        .state('app.services', {
+            url: "/services",
+            templateUrl: "./app/components/service/services.html",
+            controller: 'servicesCtrl'
         })
         .state('app.delivery', {
             url: "/delivery",

@@ -10,7 +10,6 @@ angular.module('app')
 
             var getText = function () {
                 $scope.gluingWallpapersText = $rootScope.LANG.gluingWallpapersText[$rootScope.curLang];
-
             };
 
             getText();
