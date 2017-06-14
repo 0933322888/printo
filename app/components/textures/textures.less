@@ -1,3 +1,72 @@
 .textures {
 
+  .samples {
+    padding-left: 0;
+    display: flex;
+
+    .pics {
+      padding-left: 0;
+      padding-right: 0;
+      width: 80%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .arrow {
+      padding-left: 0;
+      min-width: 65px;
+      overflow: hidden;
+      width: 10%;
+
+      img {
+        position: relative;
+        top: 45%;
+        cursor: pointer;
+      }
+
+      &.right img{
+        right: 75px;
+      }
+    }
+
+  }
+
+  .characteristics {
+    margin-top: 30px;
+
+    .features {
+      .icon {
+        height: 40px;
+        margin-bottom: 5px;
+      }
+      .text {
+        padding-left: 45px;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .feature1 {
+        background: url(http://print-oboi.com.ua/public/img/sprite-features.png) no-repeat 0 -280px;
+      }
+      .feature2 {
+        background: url(http://print-oboi.com.ua/public/img/sprite-features.png) no-repeat 0 -80px;
+      }
+      .feature3 {
+        background: url(http://print-oboi.com.ua/public/img/sprite-features.png) no-repeat 0 -120px;
+      }
+      .feature4 {
+        background: url(http://print-oboi.com.ua/public/img/sprite-features.png) no-repeat 0 0;
+      }
+      .feature5 {
+        background: url(http://print-oboi.com.ua/public/img/sprite-features.png) no-repeat 0 -240px;
+      }
+      .feature6 {
+        background: url(http://print-oboi.com.ua/public/img/sprite-features.png) no-repeat 0 -160px;
+      }
+    }
+  }
 }
