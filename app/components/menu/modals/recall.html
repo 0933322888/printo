@@ -1,4 +1,7 @@
 <div id="sendToFriend">
+    <div class="modal-header">
+        {{$root.LANG.recall[$root.curLang]}}
+    </div>
     <div class="modal-body" id="modal-body">
         <form class="form-horizontal">
             <div class="form-group">
@@ -8,10 +11,17 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputEmail" class="col-sm-3 control-label">
-                    <span class="text-danger">*</span>{{$root.LANG.friendsEmail[$root.curLang]}}:</label>
+                <label for="phone" class="col-sm-3 control-label">
+                    <span class="text-danger">*</span>{{$root.LANG.phone[$root.curLang]}}:</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                    <input type="text" class="form-control" id="phone" placeholder="phone" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-3 control-label">
+                    Email:</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
                 </div>
             </div>
             <div class="form-group">

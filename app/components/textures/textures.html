@@ -15,18 +15,18 @@
 
         <div class="col-md-12 samples">
             <div class="arrow">
-                <img src="http://print-oboi.com.ua/public/img/redesign/nivo_arrows.png" alt="" ng-click="goBack()">
+                <img src="http://print-oboi.com.ua/public/img/redesign/nivo_arrows.png" alt="" ng-click="goBack('paper')">
             </div>
             <div class="pics">
-                <img ng-src="http://print-oboi.com.ua/public/pictures/collage/textures/{{link}}.png" alt="">
+                <img ng-src="http://print-oboi.com.ua/public/pictures/collage/textures/{{paperLink}}.png" alt="">
             </div>
             <div class="arrow right">
-                <img src="http://print-oboi.com.ua/public/img/redesign/nivo_arrows.png" alt="" ng-click="goForward()">
+                <img src="http://print-oboi.com.ua/public/img/redesign/nivo_arrows.png" alt="" ng-click="goForward('paper')">
             </div>
         </div>
         <div class="text-center">
-            <span><strong>{{vinilName}}</strong></span>
-            <span class="pull-right">{{currentSlide}} / {{totalSlides}}</span>
+            <span><strong>{{paperName}}</strong></span>
+            <span class="pull-right">{{currentPaperSlide}} / {{totalPaperSlides}}</span>
         </div>
 
         <div class="col-md-12 characteristics">
@@ -34,19 +34,19 @@
                 <div class="features">
                     <div class="pull-left icon feature1">
                         <p class="text">
-                            A asdka asdj ald ladfgdfg dgdfg si  wef dsfsdfwe
+                            {{$root.LANG.vinilFeature1[$root.curLang]}}
                         </p>
                     </div>
 
                     <div class="pull-left icon feature2">
                         <p class="text">
-                            A asdka asdjf dsfsdfwe
+                            {{$root.LANG.vinilFeature2[$root.curLang]}}
                         </p>
                     </div>
 
                     <div class="pull-left icon feature3">
                         <p class="text">
-                            A asdka asdj ald lasiasf sdf dfggfg wef dsfsdfwe
+                            {{$root.LANG.vinilFeature3[$root.curLang]}}
                         </p>
                     </div>
                 </div>
@@ -55,19 +55,19 @@
                 <div class="features">
                     <div class="pull-left icon feature4">
                         <p class="text">
-                            A asdka asdj ald ladfgdfg dgdfg si  wef dsfsdfwe
+                            {{$root.LANG.vinilFeature4[$root.curLang]}}
                         </p>
                     </div>
 
                     <div class="pull-left icon feature5">
                         <p class="text">
-                            A asdka asdjf dsfsdfwe
+                            {{$root.LANG.vinilFeature5[$root.curLang]}}
                         </p>
                     </div>
 
                     <div class="pull-left icon feature6">
                         <p class="text">
-                            A asdka asdj ald lasiasf sdf dfggfg wef dsfsdfwe
+                            {{$root.LANG.vinilFeature6[$root.curLang]}}
                         </p>
                     </div>
                 </div>
@@ -81,22 +81,22 @@
     <div class="row">
         <br>
         <img ng-src="http://print-oboi.com.ua/public/img/redesign/title_icon.png" class="small_icon">
-        <p class="title_text">{{$root.LANG.texturesVinil[$root.curLang]}}</p>
+        <p class="title_text">{{$root.LANG.texturesFlizelin[$root.curLang]}}</p>
 
         <div class="col-md-12 samples">
             <div class="arrow">
-                <img src="http://print-oboi.com.ua/public/img/redesign/nivo_arrows.png" alt="" ng-click="goBack()">
+                <img src="http://print-oboi.com.ua/public/img/redesign/nivo_arrows.png" alt="" ng-click="goBack('fliz')">
             </div>
             <div class="pics">
-                <img ng-src="http://print-oboi.com.ua/public/pictures/collage/textures/{{link}}.png" alt="">
+                <img ng-src="http://print-oboi.com.ua/public/pictures/collage/textures/{{flizelinLink}}.png" alt="">
             </div>
             <div class="arrow right">
-                <img src="http://print-oboi.com.ua/public/img/redesign/nivo_arrows.png" alt="" ng-click="goForward()">
+                <img src="http://print-oboi.com.ua/public/img/redesign/nivo_arrows.png" alt="" ng-click="goForward('fliz')">
             </div>
         </div>
         <div class="text-center">
-            <span><strong>{{vinilName}}</strong></span>
-            <span class="pull-right">{{currentSlide}} / {{totalSlides}}</span>
+            <span><strong>{{flizelinName}}</strong></span>
+            <span class="pull-right">{{currentFlizelinSlide}} / {{totalFlizSlides}}</span>
         </div>
 
         <div class="col-md-12 characteristics">
@@ -104,13 +104,13 @@
                 <div class="features">
                     <div class="pull-left icon feature1">
                         <p class="text">
-                            A asdka asdj ald ladfgdfg dgdfg si  wef dsfsdfwe
+                            {{$root.LANG.flizelinFeature1[$root.curLang]}}
                         </p>
                     </div>
 
                     <div class="pull-left icon feature2">
                         <p class="text">
-                            A asdka asdjf dsfsdfwe
+                            {{$root.LANG.flizelinFeature2[$root.curLang]}}
                         </p>
                     </div>
 
@@ -120,21 +120,20 @@
                 <div class="features">
                     <div class="pull-left icon feature4">
                         <p class="text">
-                            A asdka asdj ald ladfgdfg dgdfg si  wef dsfsdfwe
+                            {{$root.LANG.flizelinFeature3[$root.curLang]}}
                         </p>
                     </div>
 
                     <div class="pull-left icon feature6">
                         <p class="text">
-                            A asdka asdjf dsfsdfwe
+                            {{$root.LANG.flizelinFeature4[$root.curLang]}}
                         </p>
                     </div>
-
-
                 </div>
             </div>
         </div>
-
     </div>
+
+    <hr class="divider_shadow">
 
 </div>

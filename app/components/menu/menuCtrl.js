@@ -32,6 +32,12 @@ angular.module('app')
                 $scope.$broadcast('remove', item);
             };
 
+            $scope.saveArc = function () {
+                //TODO:
+            };
+
+
+
             $scope.sendToFriend = function () {
                 var modalInstance = $uibModal.open({
                     animation: true,
@@ -40,8 +46,34 @@ angular.module('app')
                     templateUrl: './app/components/menu/modals/sendToFriend.html',
                     controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
 
+                        $scope.send = function () {
+                            //TODO
+                            $uibModalInstance.close();
+                        };
 
-                        $scope.ok = function () {
+                        $scope.cancel = function () {
+                            $uibModalInstance.dismiss('cancel');
+                        };
+                    }]
+
+                });
+                modalInstance.result.then(function (selectedItem) {
+
+                }, function () {
+
+                });
+            };
+
+            $scope.recall = function () {
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    ariaLabelledBy: 'modal-title',
+                    ariaDescribedBy: 'modal-body',
+                    templateUrl: './app/components/menu/modals/recall.html',
+                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+
+                        $scope.send = function () {
+                            //TODO
                             $uibModalInstance.close();
                         };
 

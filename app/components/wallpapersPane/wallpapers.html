@@ -4,22 +4,22 @@
         <div class="sort-buttons">
             <a href="" ng-click="fastSort(null)" ng-class="{active : activeMenu == null}">
                 <i class="fa fa-asterisk"></i>
-                <span>All</span>
+                <span>{{$root.LANG.all[$root.curLang]}}</span>
             </a>
             <a href="" ng-click="fastSort('h')" ng-class="{active : activeMenu === 'h'}">
                 <i class="fa fa-bars"></i>
-                <span>Horizontal</span>
+                <span>{{$root.LANG.horizontal[$root.curLang]}}</span>
             </a>
             <a href="" ng-click="fastSort('v')" ng-class="{active : activeMenu === 'v'}">
                 <i class="fa fa-bars fa-rotate-90"></i>
-                <span>Vertical</span>
+                <span>{{$root.LANG.vertical[$root.curLang]}}</span>
             </a>
             <a href="" ng-click="fastSort('p')" ng-class="{active : activeMenu === 'p'}">
                 <i class="fa fa-money"></i>
-                <span>Panorama</span>
+                <span>{{$root.LANG.panorama[$root.curLang]}}</span>
             </a>
         </div>
-        <button type="button" class="btn selection-button" ng-click="modalOpen()">Open modal!</button>
+        <button type="button" class="btn selection-button" ng-click="modalOpen()">{{$root.LANG.selectionHelp[$root.curLang]}}</button>
     </div>
 
     <div class="row" ng-hide="isLoading">

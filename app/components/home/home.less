@@ -1,150 +1,136 @@
 @font_size_title: 22px;
 @font_weight_title: 500;
 @font_size_inner_text: 12px;
-@font_family: "Open Sans";
+@font_family: Ubuntu, 'Open Sans', Arial, sans-serif;
+;
 @right_col_padding_right: 0;
 @right_col_padding_left: 0;
 @inner_text_margin_bottom: 10px;
 
 body {
-  font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
+  font-family: @font_family;
 }
 
-  .body {
-    position: absolute;
-    width: 100%;
-    padding: 0;
-    min-height: 100%;
-    color: #475360;
-    font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
-    font-size: 13px;
-    background: url(http://print-oboi.com.ua/public/img/redesign/body_bg.jpg) repeat !important;
 
-  }
 
-  .right_side_block {
-    width: 760px;
-  }
+.home {
+  .banner {
+    margin-right: -10px !important;
 
-  .small_icon {
-    float: left;
-    width: 27px;
-    height: 25px;
-    display: inline-block;
-    position: relative;
+    .banner_holder {
+      //width: 655px;
+      height: 435px;
+      background-image: url(http://print-oboi.com.ua/public/img/redesign/home/main_banner.png);
+      border-radius: 12px;
 
-  }
+      .pic_over_banner {
+        position: absolute;
+        top: 200px;
+        background-color: rgba(255, 255, 255, 0.85);
+        width: 600px;
+        height: 100px;
 
- .small_icon_banner {
-    top: 10px;
-    right: -30px;
-    float: left;
-    width: 27px;
-    height: 25px;
-    display: inline-block;
-    position: relative;
+        p {
+          font-size: @font_size_title + 4;
+          font-weight: @font_weight_title;
+          margin: 0;
+          padding-left: 60px;
 
-}
+        }
 
-  .banner_holder {
-
-    //width: 655px;
-    height: 435px;
-    background-image: url(http://print-oboi.com.ua/public/img/redesign/home/main_banner.png);
-    border-radius: 12px;
-  }
-
-.pic_over_banner {
-  position: absolute;
-  top: 200px;
-  background-color: rgba(255,255,255,0.85);
-  width: 600px;
-  height: 100px;
-
-    p {
-      font-size: @font_size_title + 4;
-      font-weight: @font_weight_title;
-      margin: 0;
-
-      padding-left: 60px;
-
-    }
-}
-
-  .row {
-    margin-right: -15px;
-
-    .col-md-7{
-      padding-right: @right_col_padding_right + 10px;
-      padding-left: @right_col_padding_left;
-    }
-
-    .col-md-5 {
-      padding-right: @right_col_padding_right;
-      padding-left: @right_col_padding_left;
-      }
-
-    .title_text {
-      margin-top: 10px;
-      font-size: @font_size_title;
-      font-weight: @font_weight_title;
-      font-family: @font_family;
-      color: #337ab7;
-    }
-    .inner_text{
-      font-size: @font_size_inner_text;
-      padding-right: 15px !important;
-      font-family: @font_family;
-      margin: 0px;
-      margin-bottom: @inner_text_margin_bottom;
-      text-align: left;
-      margin-right: -15px;
-         }
-}
-
-.eco_blocks {
-  width: 140px !important;
-  margin-left: -10px;
-
-}
-
-  .left-side-block {
-    margin-top: 50px;
-    margin-left: 0px;
-    width: 230px;
-
-    .block-item {
-      position: relative;
-      border-radius: 10px;
-      background-image: -webkit-linear-gradient(90deg, rgb(238, 243, 249) 0%, rgb(255, 255, 255) 32%, rgb(255, 255, 255) 75%, rgb(239, 244, 250) 100%);
-      box-shadow: 2px 3px 10px 0px rgba(110, 114, 124, .5);
-      margin-bottom: 25px;
-      padding-bottom: 10px;
-
-      .name {
-        padding: 10px 0;
-        color: #f59912;
-        margin-bottom: -5px;
-        &:after {
-          display: block;
-          content: '';
-          background: url(http://print-oboi.com.ua/public/img/redesign/sidebar_divider.png) no-repeat;
-          width: 200px;
-          height: 19px;
-          margin-bottom: 10px;
+        .small-icon-banner {
+          top: 10px;
+          right: -30px;
+          float: left;
+          position: relative;
         }
       }
     }
   }
 
-  .plates {
-    padding-left: 0;
+  .block {
+    .small-icon {
+      float: left;
+      display: inline-block;
+      position: relative;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .left-side {
+      padding-left: @right_col_padding_left;
+
+      .myCarousel {
+        border-color: white;
+        border-radius: 10px;
+        border-width: 5px;
+        width: 50%;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 25px;
+
+        .carousel-inner {
+          border-radius: 10px;
+          border-width: 5px;
+          border-color: #ffffff;
+          border-style: solid;
+        }
+
+        .right.carousel-control, .left.carousel-control {
+          display: none;
+        }
+
+        .carousel-indicators {
+          bottom: -40px !important;
+          // background-image: url(./app/components/pics/nivoslider.png);
+          .active {
+            width: 18px !important;
+            height: 18px !important;
+            border: 5px solid gray !important;
+            background-color: #ffca0a !important;
+          }
+
+          li {
+            width: 15px !important;
+            height: 15px !important;
+            border: 5px solid gray !important;
+          }
+        }
+      }
+    }
+
+    .right-side {
+      padding-right: @right_col_padding_right;
+      padding-left: @right_col_padding_left;
+    }
+
+    .title_text {
+      margin-top: 10px;
+      font-size: @font_size_title;
+      font-weight: @font_weight_title;
+      color: #337ab7;
+    }
+    .inner_text {
+      font-size: @font_size_inner_text;
+      padding-right: 15px;
+      margin: 0 -15px 10px 0;
+      text-align: left;
+    }
+    .embed-responsive {
+      margin-left: -15px;
+      //width: 560px;
+      height: 380px !important;
+      //height: 68% !important;
+    }
+    .eco-blocks {
+      margin-left: -10px;
+    }
   }
 
-
-  ul, li {
-    list-style-type: none !important;
-    z-index: 15;
+  li {
+    z-index: 2;
   }
 
   .divider_shadow {
@@ -153,67 +139,7 @@ body {
     height: 30px;
     display: block;
     border: none;
-
   }
-
-  .side_blocks {
-    font-size: 12px;
-    margin-top: 0px !important;
-  }
-
-  .carousel-indicators {
-    bottom: -5px !important;
-    // background-image: url(./app/components/pics/nivoslider.png);
-         .active {
-           width: 18px !important;
-           height: 18px !important;
-           border: 5px solid gray !important;
-           background-color: #ffca0a !important;
-
-    }
-  }
-
-  .carousel-indicators li {
-    width: 15px !important;
-    height: 15px !important;
-    border: 5px solid gray !important;
-
-  }
-
-  .embed-responsive {
-    margin-left: -15px;
-    //width: 560px;
-    height: 380px !important;
-    //height: 68% !important;
-  }
-
-  .float_block_left {
-    float: left;
-
-  }
-
-  .myCarousel {
-    border-color: white;
-    border-radius: 10px;
-    border-width: 5px;
-    width: 50%;
-    float: left;
-    margin-right: 10px;
-    }
-
-  .right.carousel-control, .left.carousel-control {
-    display: none;
-  }
-
-  .carousel-inner {
-
-    border-radius: 10px;
-    border-width: 5px;
-    border-color: #ffffff;
-    border-style: solid;
-      }
+}
 
 
-  .carousel {
-    height: 180px;
-  }
