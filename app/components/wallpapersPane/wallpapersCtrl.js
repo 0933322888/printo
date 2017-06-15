@@ -5,19 +5,30 @@ angular.module('app')
         function ($scope, $rootScope, $state, $stateParams, Image, $uibModal) {
             $scope.categoryName = $stateParams.name;
             $scope.categoryId = $stateParams.id;
+            $scope.categoryType = $stateParams.type;
             $scope.displayList = [];
             $scope.sortedList = [];
-            $rootScope.favorites = [];
-            $scope.favoritesForClass = [];
+            $rootScope.favorites = $rootScope.favorites || [];
+            $rootScope.favoritesForClass = $rootScope.favoritesForClass || [];
             var fullList = [];
-            var filter = {
-                where: {
-                    categories: $scope.categoryId
+            var getFilter = function () {
+                if ($scope.categoryType === 'color') {
+                    return {
+                        where: {
+                            color: $scope.categoryId
+                        }
+                    };
+                } else {
+                    return {
+                        where: {
+                            categories: $scope.categoryId
+                        }
+                    };
                 }
             };
 
             $scope.isLoading = true;
-            Image.getCollection(filter).then(function (result) {
+            Image.getCollection(getFilter()).then(function (result) {
                 fullList = result;
                 $scope.displayList = fullList.slice(0,12);
                 $scope.isLoading = false;
@@ -89,18 +100,40 @@ angular.module('app')
                     ariaLabelledBy: 'modal-title',
                     ariaDescribedBy: 'modal-body',
                     templateUrl: './app/components/wallpapersPane/modals/openPhoto.html',
-                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
-
-                        $scope.id = item.id;
-                        $scope.name = item['name_' + $rootScope.curLang];
+                    controller: ['$uibModalInstance', '$scope', '$rootScope', 'Image',
+                        function ($uibModalInstance, $scope, $rootScope, Image) {
+                        $scope.item = item;
+                        var currentIndex = function (item) {
+                            return fullList.indexOf(item);
+                        };
 
                         $scope.ok = function () {
                             $uibModalInstance.close();
                         };
 
+                        $scope.addToFavs = function (item) {
+                            $scope.$emit('addToFavs', item);
+                        };
+
+                        $scope.previous = function () {
+                            var prevItem = currentIndex($scope.item) === 0 ? fullList.length - 1 : currentIndex($scope.item) - 1;
+                            $scope.item = fullList[prevItem];
+                        };
+
+                        $scope.next = function () {
+                            var nextItem = currentIndex($scope.item) === fullList.length - 1 ? 0 : currentIndex($scope.item) + 1;
+                            $scope.item = fullList[nextItem];
+                        };
+
                         $scope.cancel = function () {
                             $uibModalInstance.dismiss('cancel');
                         };
+
+                        Image.getImage($scope.id).then(function (data) {
+                            $scope.tags = data.tags
+                        }, function (err) {
+                            console.log(err)
+                        })
                     }]
 
                 });
@@ -114,10 +147,14 @@ angular.module('app')
             $scope.$on('remove', function (event, data) {
                 if (data === "all") {
                     $rootScope.favorites = [];
-                    $scope.favoritesForClass = [];
+                    $rootScope.favoritesForClass = [];
                 } else {
                     $scope.addToFavorites (data);
                 }
+            });
+
+            $rootScope.$on("addToFavs", function (event, data) {
+                $scope.addToFavorites(data);
             });
 
             $scope.addToFavorites = function (item) {
@@ -127,10 +164,10 @@ angular.module('app')
                 //if not null, then delete from favorites
                 if (alreadyInIndex >= 0) {
                     $rootScope.favorites.splice(alreadyInIndex, 1);
-                    $scope.favoritesForClass[item.id] = null;
+                    $rootScope.favoritesForClass[item.id] = null;
                 } else {
                     $rootScope.favorites.push(item);
-                    $scope.favoritesForClass[item.id] = item;
+                    $rootScope.favoritesForClass[item.id] = item;
                 }
             }
 

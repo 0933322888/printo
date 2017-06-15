@@ -1,5 +1,9 @@
 <div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="row grid-container">
     <div class="category-name">{{categoryName}}</div>
+    <p class="inner_text" ng-show="categoryType === 'color'">{{$root.LANG[categoryId + "-1"][$root.curLang]}}</p>
+    <p class="inner_text" ng-show="categoryType === 'color'">{{$root.LANG[categoryId+ "-2"][$root.curLang]}}</p>
+    <p class="inner_text" ng-show="categoryType === 'color'">{{$root.LANG[categoryId+ "-3"][$root.curLang]}}</p>
+
     <div class="fast-search">
         <div class="sort-buttons">
             <a href="" ng-click="fastSort(null)" ng-class="{active : activeMenu == null}">
@@ -33,8 +37,8 @@
                     <div class="actions">
                         {{$root.curLang == 'ru' ? item.name_ru : item.name_ua}}
 
-                        <a href="#" title="Add To Favourites" ng-click="addToFavorites(item)">
-                            <span class="fa " ng-class="{'fa-star': favoritesForClass[item.id], 'fa-star-o': !favoritesForClass[item.id]}"></span>
+                        <a href="#" title="{{$root.LANG.addToFav[$root.curLang]}}" ng-click="addToFavorites(item)">
+                            <span class="fa " ng-class="{'fa-star': $root.favoritesForClass[item.id], 'fa-star-o': !$root.favoritesForClass[item.id]}"></span>
                         </a>
                     </div>
                 </div>

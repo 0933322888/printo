@@ -11,9 +11,9 @@ angular.module('app')
 
 
             $scope.slides = [
-                {"image": './app/components/pics/detskiye_fotooboi.jpg', "text": 'Hello', "id": 0},
-                {"image": './app/components/pics/fotooboi_dlya_kukhni.jpg', "text": 'Hello', "id": 1},
-                {"image": './app/components/pics/fotooboi_dlya_ofisa.jpg', "text": 'Hello', "id": 2}
+                {"image": 'http://print-oboi.com.ua/public/pictures/maintext/zakaz_fotooboyev.jpg', "id": 0},
+                {"image": 'http://print-oboi.com.ua/public/pictures/maintext/fotooboi_na_zakaz.jpg', "id": 1},
+                {"image": 'http://print-oboi.com.ua/public/pictures/maintext/zakazat_fotooboi.jpg', "id": 2}
             ];
 
 

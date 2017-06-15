@@ -23,7 +23,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
             controller: 'wallpapersCtrl',
             params: {
                 id: null,
-                name: null
+                name: null,
+                type: null
             }
         })
         .state('app.gluing', {

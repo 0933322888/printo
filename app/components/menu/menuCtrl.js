@@ -23,9 +23,9 @@ angular.module('app')
                 getCategories();
             };
 
-            $scope.goToCateg = function (id, name) {
+            $scope.goToCateg = function (id, name, type) {
                 $scope.radioModel = null;
-                $state.go('app.wallpapers', {id: id, name: name})
+                $state.go('app.wallpapers', {id: id, name: name, type: type})
             };
 
             $scope.removeFav = function (item) {
@@ -33,7 +33,7 @@ angular.module('app')
             };
 
             $scope.saveArc = function () {
-                //TODO:
+                //TODO: save arc
             };
 
 
@@ -41,13 +41,12 @@ angular.module('app')
             $scope.sendToFriend = function () {
                 var modalInstance = $uibModal.open({
                     animation: true,
-                    ariaLabelledBy: 'modal-title',
                     ariaDescribedBy: 'modal-body',
                     templateUrl: './app/components/menu/modals/sendToFriend.html',
                     controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
 
                         $scope.send = function () {
-                            //TODO
+                            //TODO: send data to endpoint
                             $uibModalInstance.close();
                         };
 
@@ -73,7 +72,7 @@ angular.module('app')
                     controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
 
                         $scope.send = function () {
-                            //TODO
+                            //TODO: send data to endpoint
                             $uibModalInstance.close();
                         };
 
@@ -89,6 +88,33 @@ angular.module('app')
 
                 });
             };
+
+            $scope.loadOwn = function () {
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    size: 'lg',
+                    ariaDescribedBy: 'modal-body',
+                    templateUrl: './app/components/menu/modals/loadOwn.html',
+                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+
+                        $scope.orderCalc = function () {
+                            //TODO: send data to endpoint
+                            $uibModalInstance.close();
+                        };
+
+                        $scope.cancel = function () {
+                            $uibModalInstance.dismiss('cancel');
+                        };
+                    }]
+
+                });
+                modalInstance.result.then(function (selectedItem) {
+
+                }, function () {
+
+                });
+            };
+
 
             var getCategories = function () {
                 $http.get('dist/categories.json').then(function (resp) {

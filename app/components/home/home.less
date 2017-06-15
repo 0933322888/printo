@@ -2,16 +2,20 @@
 @font_weight_title: 500;
 @font_size_inner_text: 12px;
 @font_family: Ubuntu, 'Open Sans', Arial, sans-serif;
-;
 @right_col_padding_right: 0;
 @right_col_padding_left: 0;
 @inner_text_margin_bottom: 10px;
+.title-text {
+  margin-top: 10px;
+  font-size: @font_size_title;
+  font-weight: @font_weight_title;
+  color: #1F4590;
+}
+
 
 body {
   font-family: @font_family;
 }
-
-
 
 .home {
   .banner {
@@ -84,7 +88,6 @@ body {
 
         .carousel-indicators {
           bottom: -40px !important;
-          // background-image: url(./app/components/pics/nivoslider.png);
           .active {
             width: 18px !important;
             height: 18px !important;
@@ -134,12 +137,10 @@ body {
   }
 
   .divider_shadow {
-    background-image: url(../../../app/components/pics/content_divider.png);
+    background-image: url(http://print-oboi.com.ua/public/img/redesign/content_divider.png);
     width: 100%;
     height: 30px;
     display: block;
     border: none;
   }
 }
-
-

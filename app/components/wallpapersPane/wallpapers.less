@@ -27,7 +27,7 @@
       background-image: -webkit-linear-gradient( 90deg, rgb(209,220,236) 0%, rgb(251,252,253) 100%);
       background-image: -ms-linear-gradient( 90deg, rgb(209,220,236) 0%, rgb(251,252,253) 100%);
       box-shadow: 0px 2px 1px 0px rgb( 159, 171, 186 );
-      width: 185px;
+      width: 180px;
       color: #214477;
       text-align: center;
       outline: none;
@@ -212,4 +212,92 @@
 
 .no-padding-right {
   padding-right: 0 !important;
+}
+
+//MODALS
+#openPhoto {
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #4f6b79;
+
+  .name {
+    color: #4f6b79;
+    font-size: 23px;
+    font-weight: normal;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .left-half {
+    width: 50%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+  }
+  .right-half {
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    position: absolute;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 55%;
+    display: block;
+    width: 36px;
+    height: 38px;
+    color: #fff;
+    font-size: 22px;
+    line-height: 36px;
+    border: 2px solid #fff;
+    text-align: center;
+    background: #000;
+    margin-top: -18px;
+    cursor: pointer;
+    z-index: 16;
+    border-radius: 50%;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    &.left-arrow {
+      left: 5px;
+    }
+    &.right-arrow {
+      right: 20px;
+    }
+  }
+  .left-half:hover .navigation,
+  .right-half:hover .navigation {
+    visibility: visible;
+  }
+
+  .tags {
+    position: relative;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+    a {
+      display: inline-block;
+      padding: 3px 7px;
+      background: #b34238;
+      border-radius: 4px;
+      color: #fff;
+      margin: 0px 2px;
+      font-size: 11px;
+      text-decoration: none;
+    }
+  }
+
+  .modal-footer {
+    .fav, .interior {
+      margin-bottom: 0;
+      padding: 0 15px;
+      font-size: 21px;
+    }
+  }
 }

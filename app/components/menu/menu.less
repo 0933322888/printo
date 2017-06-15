@@ -11,274 +11,351 @@ html, body {
 }
 
 .header {
-  width: 100%;
-  margin: 0 auto;
-  padding-top: 15px;
-  color: #49515e;
-  padding-bottom: 10px;
+  .container {
+    margin-left: 0;
+    margin-right: 0;
 
-  .logo {
-    padding-left: 0;
-  }
+    width: 100%;
+    //margin: auto;
+    padding-top: 15px;
+    color: #1F4590;
+    padding-bottom: 10px;
 
-  .lang {
-    position: relative;
-    //right: 35px;
-    top: 5px;
-    .menu-lang {
-      list-style-type: none;
-      padding-left: 0 !important;
-      a {
-        font-family: sans-serif;
-        color: #49515e;
-        font-weight: bold;
-        &:hover, &:active, &.active {
-          color: limegreen;
-          text-decoration: none;
+    .logo {
+      padding-left: 0;
+    }
+
+    .lang {
+      position: relative;
+      //right: 35px;
+      top: 5px;
+      .menu-lang {
+        list-style-type: none;
+        padding-left: 0 !important;
+        a {
+          font-family: sans-serif;
+          color: #1F4590;
+          font-weight: bold;
+          &:hover, &:active, &.active {
+            color: limegreen;
+            text-decoration: none;
+          }
         }
       }
     }
-  }
 
-  .search {
-    padding-right: 0px !important;
-    text-align: end;
-    color: inherit;
-    .input-group {
-      right: 75px;
-      width: 240px;
+    .search {
+      padding-right: 0px !important;
+      text-align: end;
+      .input-group {
+        right: 75px;
+        width: 240px;
 
-      .form-control {
-        height: 45px;
-      }
-      .btn-default {
-        height: 45px;
-        width: 40px;
-        padding: 0;
+        .form-control {
+          height: 45px;
+        }
+        .btn-default {
+          height: 45px;
+          width: 40px;
+          padding: 0;
+        }
       }
     }
-  }
 
-  .hours {
-    padding-right: 0 !important;
-    text-align: end;
-    .phone_num {
-      color: inherit;
-      font-weight: 700;
-      font-size: 20px;
+    .hours {
+
+      padding-right: 0 !important;
+      text-align: end;
+      .phone_num {
+        color: #1F4590;
+        font-weight: 700;
+        font-size: 20px;
+      }
     }
-  }
-  .recall {
-    text-align: end;
+    .recall {
+      text-align: end;
+      padding-right: 5px;
+      //  TODO: padding-right 0; + top menu width
+
+      .btn-recall {
+        width: 200px;
+        color: #FFF;
+        text-shadow: 0.5px 0.87px 1px #31b031;
+        background: linear-gradient(#9eff9e, #31b031);
+        height: 45px;
+        font-weight: 700;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        box-shadow: rgba(0, 77, 0, 0.7) 0px 2px;
+        outline: none;
+        &:active, &:focus {
+          outline: none;
+        }
+        i {
+          font-size: 22px;
+          position: relative;
+          top: 3px;
+          right: 3px;
+        }
+      }
+    }
   }
 }
 
 .body {
-  position: relative;
-  width: 100%;
-  padding-bottom: 20px;
-  margin-top: 20px;
-  background: url(http://print-oboi.com.ua/public/img/redesign/body_bg.jpg) repeat !important;
-  min-height: 100%;
-  color: #475360;
-  font-family: @font_family;
-  font-size: 13px;
 
-  .btn-group {
-    width: 100%;
-    top: -16px;
-    z-index: 1;
-    height: 65px;
-    display: inline-block !important;
-
-    .btn-menu {
-      //height: 43px;
-      background: linear-gradient(#bbbbbb, #8f8f8f);
-      width: 16.65%;
-      height: 45px;
-      color: white;
-      //font-size: 13px;
-      //font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
-      border-right: 2px solid gray;
-      padding-top: 12px;
-      font-weight: bold;
-      &:first-child {
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-
-      }
-      &:last-child {
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        border-right: none;
-      }
-
-      &:hover, &.active {
-        background: linear-gradient(#8f8f8f, #bbbbbb);
-        text-decoration: none;
-        color: white;
-      }
-    }
-  }
-  .plates {
-    margin-top: -20px !important;
-  }
-
-  .left-side-block {
-    font-weight: bold;
-    margin-top: -20px;
+  .container {
     margin-left: 0;
-    //width: 230px;
-    padding-left: 0 !important;
-    padding-right: 5px !important;
+    margin-right: 0;
 
-    .favorites {
-      width: 95%;
+    position: relative;
+    width: 100%;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    background: url(http://print-oboi.com.ua/public/img/redesign/body_bg.jpg) repeat !important;
+    min-height: 100%;
+    color: #475360;
+    font-family: @font_family;
+    font-size: 13px;
 
-      button {
-        color: #FFF;
-        text-shadow: 0.5px 0.866px 1px rgb(229, 138, 0);
-        background: linear-gradient(#ffcb72, #ff9700);
-        height: 55px;
-        width: 100%;
+    .btn-group {
+      width: 100%;
+      top: -16px;
+      z-index: 1;
+      height: 65px;
+      display: inline-block !important;
+
+      .btn-menu {
+        //height: 43px;
+        background: linear-gradient(#bbbbbb, #8f8f8f);
+        width: 16.65%;
+        height: 45px;
+        color: white;
+        //font-size: 13px;
+        //font-family: Ubuntu, 'Open Sans', Arial, sans-serif;
+        border-right: 2px solid gray;
+        padding-top: 12px;
         font-weight: bold;
-        text-align: left;
-        border-radius: 10px;
-        padding: 0;
-        margin-bottom: 10px;
+        &:first-child {
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
 
-        &:active, &:focus {
-          outline: none;
-          color: #FFF;
+        }
+        &:last-child {
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          border-right: none;
         }
 
-        .text {
-          padding: 17px;
-          height: 100%;
-          display: inline-block;
-        }
-        .fa {
-          float: right;
-          height: 100%;
-          font-size: 21px;
-          padding: 15px 20px;
-          border-left: 1px solid lightcoral;
-        }
-      }
-
-      .fav-photo-plates {
-        .fav-item {
-          padding: 3px;
-          display: inline-block;
-          position: relative;
-          .fa-times {
-            color: white;
-            position: absolute;
-            top: 4px;
-            right: 5px;
-            cursor: pointer;
-          }
+        &:hover, &.active {
+          background: linear-gradient(#8f8f8f, #bbbbbb);
+          text-decoration: none;
+          color: white;
         }
       }
     }
+    .plates {
+      margin-top: -20px !important;
+    }
 
-    .block-item {
-      width: 95% !important;
-      min-width: 185px;
-      position: relative;
-      border-radius: 10px;
-      background-image: -webkit-linear-gradient(90deg, rgb(238, 243, 249) 0%, rgb(255, 255, 255) 32%, rgb(255, 255, 255) 75%, rgb(239, 244, 250) 100%);
-      box-shadow: 2px 3px 10px 0px rgba(110, 114, 124, .5);
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      padding-top: 10px;
+    .left-side-block {
+      font-weight: bold;
+      margin-top: -20px;
+      margin-left: 0;
+      //width: 230px;
+      padding-left: 0 !important;
+      padding-right: 5px !important;
 
-      .name {
-        padding: 10px 0;
-        color: #f59912;
-        margin-bottom: -5px;
-        &:after {
-          display: block;
-          content: '';
-          background: url(http://print-oboi.com.ua/public/img/redesign/sidebar_divider.png) no-repeat;
-          width: 200px;
-          height: 19px;
-          margin-bottom: 15px;
-        }
-      }
-      li {
-        line-height: 24px;
-        list-style-type: disc;
-      }
+      .favorites {
+        width: 95%;
 
-      &.own-photo {
-        #ownPhoto {
-          position: absolute;
-          top: -12px;
-          left: -26px;
-        }
-
-        p {
-          padding: 0 20px;
-          font-size: 12px;
-          font-weight: normal;
-        }
-
-        .btn.btn-photo {
+        button {
+          color: #FFF;
+          text-shadow: 0.5px 0.866px 1px rgb(229, 138, 0);
+          background: linear-gradient(#ffcb72, #ff9700);
+          height: 50px;
+          width: 100%;
+          font-weight: bold;
+          text-align: left;
           border-radius: 10px;
-          background-image: -webkit-linear-gradient(90deg, rgb(160, 186, 67) 0%, rgb(201, 233, 87) 100%);
-          box-shadow: 0px 2px 2px 0px rgb(81, 101, 8);
-          border: none;
-          font-size: 12px;
-          font-weight: 100;
-          text-shadow: 0.5px 0.866px 2px rgb(118, 134, 60);
-          margin: 0px 20px;
-          display: inline-block;
-          padding: 8px 22px;
-          color: white !important;
+          padding: 0;
+          margin-bottom: 10px;
+
+          &:active, &:focus {
+            outline: none;
+            color: #FFF;
+          }
+
+          .text {
+            padding: 15px;
+            height: 100%;
+            display: inline-block;
+          }
+          .fa {
+            float: right;
+            height: 100%;
+            font-size: 21px;
+            padding: 15px 20px;
+            border-left: 1px solid lightcoral;
+          }
         }
-      }
 
-      &.images {
-        ul li {
-          list-style-type: none !important;
-
-          strong {
-            margin-left: -15px
+        .fav-photo-plates {
+          .fav-item {
+            padding: 2px;
+            display: inline-block;
+            position: relative;
+            .fa-times {
+              color: white;
+              position: absolute;
+              top: 4px;
+              right: 5px;
+              cursor: pointer;
+            }
           }
         }
       }
 
-      &.colors {
-        .color-box {
-          padding: 0 10px;
-          margin: auto;
-          text-align: center;
+      .block-item {
+        width: 95% !important;
+        min-width: 185px;
+        position: relative;
+        border-radius: 10px;
+        background-image: -webkit-linear-gradient(90deg, rgb(238, 243, 249) 0%, rgb(255, 255, 255) 32%, rgb(255, 255, 255) 75%, rgb(239, 244, 250) 100%);
+        box-shadow: 2px 3px 10px 0px rgba(110, 114, 124, .5);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        padding-top: 10px;
 
-          .item {
-            display: inline-block;
-            font-size: 0;
-            line-height: 0 !important;
-            margin-bottom: 3px;
+        .name {
+          padding: 10px 0;
+          color: #f59912;
+          margin-bottom: -5px;
+          &:after {
+            display: block;
+            content: '';
+            background: url(http://print-oboi.com.ua/public/img/redesign/sidebar_divider.png) no-repeat;
+            width: 200px;
+            height: 19px;
+            margin-bottom: 15px;
           }
+        }
+        li {
+          line-height: 24px;
+          list-style-type: disc;
 
-          a.color-item {
-            display: inline-block;
-            width: 29px;
-            height: 29px;
-            border-radius: 4px;
+          .category-item {
+            color: #1F4590 !important;
             cursor: pointer;
+          }
+        }
 
-            &.a {background: #cc0000}
-            &.b {background: #006600}
-            &.c {background: #000099}
-            &.d {background: #ff9900}
-            &.e {background: #663300}
-            &.f {background: #000000}
-            &.g {background: #ff99cc}
-            &.h {background: #00ff33}
-            &.i {background: #00ffff}
-            &.j {background: #ffff00}
+        &.own-photo {
+          #ownPhoto {
+            position: absolute;
+            top: -12px;
+            left: -26px;
+          }
+
+          p {
+            padding: 0 20px;
+            font-size: 12px;
+            font-weight: normal;
+          }
+
+          .btn.btn-photo {
+            width: 180px;
+            display: block;
+            margin: 10px auto;
+            color: #FFF;
+            text-shadow: 0.5px 0.87px 1px #31b031;
+            background: linear-gradient(#9eff9e, #31b031);
+            height: 45px;
+            font-weight: 100;
+            border: none;
+            border-radius: 5px;
+            box-shadow: rgba(0, 77, 0, 0.7) 0 2px;
+            outline: none;
+            &:active, &:focus {
+              outline: none;
+            }
+            .plus-sign {
+              font-size: 25px;
+              position: absolute;
+              left: 32px;
+              bottom: 24px;
+            }
+            .text {
+              position: relative;
+              left: 10px;
+              font-size: 13px;
+              font-weight: bold;
+            }
+          }
+        }
+
+        &.images {
+          ul li {
+            list-style-type: none !important;
+
+            strong {
+              margin-left: -15px
+            }
+          }
+        }
+
+        &.colors {
+          .color-box {
+            padding: 0 10px;
+            margin: auto;
+            text-align: center;
+
+            .item {
+              display: inline-block;
+              font-size: 0;
+              line-height: 0 !important;
+              margin-bottom: 3px;
+            }
+
+            a.color-item {
+              display: inline-block;
+              width: 29px;
+              height: 29px;
+              border-radius: 4px;
+              cursor: pointer;
+
+              &.a {
+                background: #cc0000
+              }
+              &.b {
+                background: #006600
+              }
+              &.c {
+                background: #000099
+              }
+              &.d {
+                background: #ff9900
+              }
+              &.e {
+                background: #663300
+              }
+              &.f {
+                background: #000000
+              }
+              &.g {
+                background: #ff99cc
+              }
+              &.h {
+                background: #00ff33
+              }
+              &.i {
+                background: #00ffff
+              }
+              &.j {
+                background: #ffff00
+              }
+            }
           }
         }
       }
@@ -303,11 +380,16 @@ html, body {
       padding-left: 0;
     }
   }
+  .footer-first {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .footer-last {
-    background: url(http://print-oboi.com.ua/public/img/redesign/footer_bg.png) repeat !important;
+    background-color: #1F4391;
+    margin: 0;
 
     .footer-links p {
-      width: 19%;
+      width: 16%;
       display: inline-block;
       text-align: center;
       padding-top: 5px;
@@ -315,6 +397,55 @@ html, body {
 
       a {
         color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+//MODALS
+#sendToFriend, #recall, #loadOwn {
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #4f6b79;
+
+  .modal-header {
+    font-size: 23px;
+  }
+
+  .modal-body {
+
+    label {
+      font-weight: 400;
+    }
+  }
+}
+
+#loadOwn {
+  .modal-body {
+    height: 280px;
+
+    .orderprice-preview {
+      background-color: #FFF;
+
+      & > #myphoto_img {
+        border: 1px solid lightgray;
+
+        img {
+          display: block;
+          margin: 10px auto;
+        }
+        & > .help {
+          text-align: center;
+        }
+        & > input {
+          position: absolute;
+          right: 0;
+          top: 0;
+          cursor: pointer;
+          opacity: 0;
+          height: 215px;
+        }
       }
     }
   }

@@ -5,6 +5,7 @@ angular.module('app')
         function ($scope, $rootScope, $state) {
 
             $scope.findOrder = function () {
+                //TODO: call to endpoint
                 console.log("call to find order API")
             }
         }
