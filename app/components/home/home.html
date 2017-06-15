@@ -13,7 +13,7 @@
         <p class="title_text">{{$root.LANG.pHomePhotozakazTitle[$root.curLang]}}</p>
         <p class="inner_text">{{$root.LANG.pHomePhotozakaz[$root.curLang]}}</p>
 
-        <img ng-src="./app/components/pics/icons.png">
+        <!--<img ng-src="./app/components/pics/icons.png"> TODO: no icons as should be accordingly to design-->
 
         <p class="title_text">{{$root.LANG.pHomGreenTech[$root.curLang]}}</p>
         <p class="inner_text">{{$root.LANG.pHomGreenTechWeUse[$root.curLang]}}</p>
@@ -43,7 +43,7 @@
             <div class="myCarousel">
                 <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                     <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                        <img ng-src="{{slide.image}}" style="margin:auto;">
+                        <img ng-src="{{slide.image}}" style="margin:auto; width: 100%; height: auto">
                     </div>
                 </div>
             </div>
@@ -72,8 +72,8 @@
             <div>
                 <div class="myCarousel">
                     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-                        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                        <div uib-slide ng-repeat="slide in slides2 track by slide.id" index="slide.id">
+                            <img ng-src="{{slide.image}}" style="margin:auto; width: 100%; height: auto">
                         </div>
                     </div>
                 </div>
@@ -104,8 +104,8 @@
             <div>
                 <div class="myCarousel">
                     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-                        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                        <div uib-slide ng-repeat="slide in slides3 track by slide.id" index="slide.id">
+                            <img ng-src="{{slide.image}}" style="margin:auto; width: 100%; height: auto">
                         </div>
                     </div>
                 </div>
@@ -138,8 +138,8 @@
             <div>
                 <div class="myCarousel">
                     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-                        <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                        <div uib-slide ng-repeat="slide in slides2 track by slide.id" index="slide.id">
+                            <img ng-src="{{slide.image}}" style="margin:auto; width: 100%; height: auto">
                         </div>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
             <br>
             <p class="inner_text">{{$root.LANG.pHomGoodPrice3[$root.curLang]}}</p>
 
-            <ul class="inner_text">
+            <ul class="inner_text wallpaper-types">
                 <li>{{$root.LANG.pHomGoodPrice4[$root.curLang]}}</li>
                 <li>{{$root.LANG.pHomGoodPrice5[$root.curLang]}}</li>
                 <li>{{$root.LANG.pHomGoodPrice6[$root.curLang]}}</li>
@@ -175,7 +175,7 @@
                 <div class="myCarousel">
                     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
                         <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                            <img ng-src="{{slide.image}}" style="margin:auto; width: 100%; height: auto">
                         </div>
                     </div>
                 </div>
