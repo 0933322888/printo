@@ -1,94 +1,279 @@
-<div class="header">
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-2">Logo</div>
-        <div class="col-md-1">
-            <ul>
-                <li><img ng-src="./app/components/pics/ua.png"/><a href="#" ng-click="setLanguage('ua')"> UA</a></li>
-                <li><img ng-src="./app/components/pics/rus.png"/><a href="#" ng-click="setLanguage('ru')"> RU</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
-                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="fa fa-search" aria-hidden="true"></span></button>
-                            </span>
+<div id="container">
+
+    <div class="header">
+        <div class="row container">
+            <div class="col-md-2 empty"></div>
+            <div class="col-md-2 logo">
+                <a href=""><img src="http://print-oboi.com.ua/public/img/redesign/logo.png" ng-click="goToMenu('home')"/></a>
             </div>
-        </div>
-        <div class="col-md-2">
-            <ul>
-                <li>{{$root.LANG.weWork[$root.curLang]}}</li>
-                <li>9:00-18:00</li>
-                <li>{{$root.LANG.weWorkDays[$root.curLang]}}</li>
-            </ul>
-        </div>
-        <div class="col-md-2">
-            <span style="font-family: Arial; font-size: 18px; color: #515865">(044)221-33-03 &nbsp;  </span>
-            <img ng-src="./app/components/pics/btn-recall_{{$root.curLang}}.png" />
-        </div>
+            <div class="col-md-1 lang">
+                <ul class="menu-lang">
+                    <li>
+                        <a href="#" ng-click="setLanguage('ua')" ng-class="{active : $root.curLang == 'ua'}">UA</a>
+                    </li>
+                    <li>
+                        <a href="#" ng-click="setLanguage('ru')" ng-class="{active : $root.curLang == 'ru'}">RU</a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="col-md-1"></div>
+            <div class="col-md-1 search">
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="searchText" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="search()">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-2 hours">
+                <span class="phone_num">(044)221-33-03</span>
+                <p>ПН - ПТ | 9:00-18:00</p>
+            </div>
+            <div class="col-md-2 recall">
+                <button class="btn btn-recall" type="submit" ng-click="recall()">
+                    <i class="fa fa-phone"></i>
+                    <span class="text">{{$root.LANG.recallRequest[$root.curLang] | uppercase}}</span>
+                </button>
+            </div>
 
+            <div class="col-md-2 empty"></div>
+        </div>
     </div>
-</div>
-<div class="body">
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
 
-            <div class="row">
 
-                    <div class="btn-group">
-                        <label class="btn btn-menu separator" ng-model="radioModel" uib-btn-radio="'adhence'" uncheckable>{{$root.LANG.adhence[$root.curLang]}}</label>
-                        <i class="button-plus"></i>
-                        <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'textures'" uncheckable>{{$root.LANG.textures[$root.curLang]}}</label>
-                        <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'services'" uncheckable>{{$root.LANG.services[$root.curLang]}}</label>
-                        <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'delivery'" uncheckable>{{$root.LANG.delivery[$root.curLang]}}</label>
-                        <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'contacts'" uncheckable>{{$root.LANG.contacts[$root.curLang]}}</label>
-                        <label class="btn btn-menu" ng-model="radioModel" uib-btn-radio="'pay'" uncheckable>{{$root.LANG.pay[$root.curLang]}}</label>
+    <div class="body">
+        <div class="row container">
+            <div class="col-md-2"></div>
+
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="btn-group ">
+                        <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
+                               uib-btn-radio="'gluing'">{{$root.LANG.gluing[$root.curLang] | uppercase}}</label>
+                        <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
+                               uib-btn-radio="'textures'">{{$root.LANG.textures[$root.curLang] | uppercase}}</label>
+                        <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
+                               uib-btn-radio="'services'">{{$root.LANG.services[$root.curLang] | uppercase}}</label>
+                        <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
+                               uib-btn-radio="'delivery'">{{$root.LANG.delivery[$root.curLang] | uppercase}}</label>
+                        <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
+                               uib-btn-radio="'contacts'">{{$root.LANG.contacts[$root.curLang] | uppercase}}</label>
+                        <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
+                               uib-btn-radio="'payment'">{{$root.LANG.payment[$root.curLang] | uppercase}}</label>
                     </div>
+                </div>
 
+                <!--left side menu-->
 
-            </div>
+                <div class="row">
+                    <div class="col-md-3 left-side-block">
+                        <div class="favorites" ng-if="$root.favorites.length">
 
-            <div class="row">
-                <div class="col-md-2 left-side-block">
-                    <div class="block-item">
-                        <div class="name text-center">{{$root.LANG.popularCat[$root.curLang]}}</div>
+                            <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">
+                                <span class="text">
+                                    {{$root.LANG.favorites[$root.curLang] | uppercase}}
+                                </span>
+                                <i class="fa "
+                                   ng-class="{'fa-long-arrow-down': !isCollapsed, 'fa-long-arrow-up': isCollapsed}"
+                                   aria-hidden="true"></i>
+                            </button>
+
+                            <div uib-collapse="isCollapsed">
+
+                                <div class="fav-photo-plates">
+                                    <div class="fav-item" ng-repeat="favItem in $root.favorites track by $index">
+                                        <img ng-src="http://foto-oboi.com.ua/images/wp/{{favItem.id+'/63x63.jpg'}}"
+                                             alt="">
+                                        <i class="fa fa-times" aria-hidden="true" ng-click="removeFav(favItem)"></i>
+                                    </div>
+                                </div>
+
+                                <div class="fav-photo-menu">
+                                    <div>
+                                        <i class="fa fa-trash" aria-hidden="true" ng-click="removeFav('all')">
+                                            <a href="">{{$root.LANG.deleteAll[$root.curLang]}}</a>
+                                        </i>
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-envelope" aria-hidden="true" ng-click="sendToFriend()">
+                                            <a href="">{{$root.LANG.sendToFriend[$root.curLang]}}</a>
+                                        </i>
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-save" aria-hidden="true" ng-click="saveArc()">
+                                            <a href="">{{$root.LANG.saveArchive[$root.curLang]}}</a>
+                                        </i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="block-item">
+                            <div class="name text-center">{{$root.LANG.popularCat[$root.curLang] | uppercase }}</div>
 
                             <ul>
                                 <li ng-repeat="item in popular track by $index">
-                                    <a href="#" ng-click="goToCateg(item.id, item.name)"> {{item.name }}</a>
+                                    <a class="category-item" ng-click="goToCateg(item.id, item.name, 'popular')"> {{item.name }}</a>
                                 </li>
                             </ul>
 
-                    </div>
+                        </div>
 
-                    <div class="block-item">
-                        <div class="name text-center">{{$root.LANG.categoriesCat[$root.curLang]}}</div>
+                        <div class="block-item">
+                            <div class="name text-center">{{$root.LANG.categoriesCat[$root.curLang] | uppercase }}</div>
 
-                        <ul>
+                            <ul>
                                 <li ng-repeat="item in categories track by $index">
-                                    <a href="#" ng-click="goToCateg(item.id, item.name)"> {{item.name }}</a>
+                                    <a class="category-item" ng-click="goToCateg(item.id, item.name, 'categories')"> {{item.name }}</a>
                                 </li>
 
-                        </ul>
+                            </ul>
+                        </div>
+
+                        <div class="block-item">
+                            <div class="name text-center">{{$root.LANG.interiorsCat[$root.curLang] | uppercase}}</div>
+
+                            <ul>
+                                <li ng-repeat="item in interiors track by $index">
+                                    <a class="category-item" ng-click="goToCateg(item.id, item.name, 'interiors')"> {{item.name }}</a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="block-item colors">
+                            <div class="name text-center">{{$root.LANG.selectColorsCat[$root.curLang] | uppercase}}
+                            </div>
+
+                            <ul class="color-box">
+                                <li class="item">
+                                    <a class="color-item a" ng-click="goToCateg(13, $root.LANG.selectColorsRed[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsRed[$root.curLang]}}></a>
+                                </li>
+                                <li class="item">
+                                    <a class="color-item b" ng-click="goToCateg(4, $root.LANG.selectColorsGreen[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsGreen[$root.curLang]}}></a>
+                                </li>
+                                <li class="item">
+                                    <a class="color-item c" ng-click="goToCateg(2, $root.LANG.selectColorsBlue[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsBlue[$root.curLang]}}></a>
+                                </li>
+                                <li class="item">
+                                    <a class="color-item d" ng-click="goToCateg(12, $root.LANG.selectColorsOrange[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsOrange[$root.curLang]}}></a>
+                                </li>
+                                <li class="item">
+                                    <a class="color-item e" ng-click="goToCateg(9, $root.LANG.selectColorsBrown[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsBrown[$root.curLang]}}></a>
+                                </li>
+                            </ul>
+                            <ul class="color-box">
+                                <li class="item">
+                                    <a class="color-item f" ng-click="goToCateg(17, $root.LANG.selectColorsBlack[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsBlack[$root.curLang]}}></a>
+                                </li>
+                                <li class="item">
+                                    <a class="color-item g" ng-click="goToCateg(14, $root.LANG.selectColorsPink[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsPink[$root.curLang]}}></a>
+                                </li>
+                                <li class="item">
+                                    <a class="color-item h" ng-click="goToCateg(8, $root.LANG.selectColorsCyan[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsCyan[$root.curLang]}}></a>
+                                </li>
+                                <li class="item">
+                                    <a class="color-item i" ng-click="goToCateg(6, $root.LANG.selectColorsPearl[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsPearl[$root.curLang]}}></a>
+                                </li>
+                                <li class="item">
+                                    <a class="color-item j" ng-click="goToCateg(16, $root.LANG.selectColorsYellow[$root.curLang], 'color')"
+                                       title={{$root.LANG.selectColorsYellow[$root.curLang]}}></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="block-item own-photo">
+                            <div class="name text-center">
+                                <img id="ownPhoto" ng-src="http://print-oboi.com.ua/public/img/redesign/box-upload-title.png">{{$root.LANG.ownPhoto[$root.curLang]
+                                | uppercase}}
+                            </div>
+                            <p>{{$root.LANG.ownPhoto1[$root.curLang]}}</p>
+                            <button class="btn btn-photo" ng-click="loadOwn()">
+                                <span class="plus-sign">+</span>
+                                <span class="text">{{$root.LANG.ownPhotoLoad[$root.curLang] | uppercase}}</span>
+                            </button>
+                        </div>
+
+                        <div class="block-item images">
+                            <div class="name text-center">{{$root.LANG.picturesBox[$root.curLang] | uppercase}}</div>
+
+                            <ul>
+                                <li><a class="category-item" ng-click="goToCateg(item.id, item.name, 'categoriesSelection')">
+                                    <strong>›&nbsp</strong>
+                                    {{$root.LANG.picturesBox1[$root.curLang]}}</a>
+                                </li>
+                                <li><a class="category-item" ng-click="goToCateg(item.id, item.name, 'premisesSelection')">
+                                    <strong>›&nbsp</strong>
+                                    {{$root.LANG.picturesBox2[$root.curLang]}}
+                                </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 right_side_block">
+                        <div class="plates">
+                            <ui-view></ui-view>
+                        </div>
                     </div>
 
                 </div>
-                <div class="col-md-10">Main part</div>
-
             </div>
-
-
+            <div class="col-md-2"></div>
         </div>
-
-
-        <div class="col-md-1"></div>
     </div>
 
-</div>
-<div class="footer">
-    <div class="row">Here will be counters etc.</div>
+    <div class="footer">
+        <div class="row footer-first">
+            <div class="col-md-2"></div>
+            <div class="col-md-10 mid-content">
+                <div class="col-md-4">
+                    <ul>
+                        <li><b>(044)&nbsp;221-33-03</b></li>
+                        <li>09:00-18:00 пн-пт</li>
+                        <li>© 2012–2017 <a href="#">{{$root.LANG.photoOboi[$root.curLang]}}</a> —
+                            «{{$root.LANG.printOboi[$root.curLang]}}».
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-5">
+                    <!--STATS GO HERE-->
+                </div>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <div class="row footer-last">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 footer-links">
+                <p><a ng-click="goToMenu()" ng-model="radioModel"
+                      uib-btn-radio="'gluing'">{{$root.LANG.gluing[$root.curLang]}}</a></p>
+                <p><a ng-click="goToMenu()" ng-model="radioModel"
+                      uib-btn-radio="'textures'">{{$root.LANG.textures[$root.curLang]}}</a></p>
+                <p><a ng-click="goToMenu()" ng-model="radioModel"
+                      uib-btn-radio="'services'">{{$root.LANG.services[$root.curLang]}}</a></p>
+                <p><a ng-click="goToMenu()" ng-model="radioModel"
+                      uib-btn-radio="'delivery'">{{$root.LANG.delivery[$root.curLang]}}</a></p>
+                <p><a ng-click="goToMenu()" ng-model="radioModel"
+                      uib-btn-radio="'contacts'">{{$root.LANG.contacts[$root.curLang]}}</a></p>
+                <p><a ng-click="goToMenu()" ng-model="radioModel"
+                      uib-btn-radio="'payment'">{{$root.LANG.payment[$root.curLang]}}</a></p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+    </div>
 </div>

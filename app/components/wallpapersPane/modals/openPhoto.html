@@ -1,0 +1,32 @@
+<div id="openPhoto">
+    <div class="modal-body" id="modal-body">
+        <p class="name"> {{item['name_' + $root.curLang]}} (#{{item.id}}) </p>
+
+        <img class="image" ng-src="http://foto-oboi.com.ua/images/wp/{{item.id +'/580b480.jpg'}}" alt="{{item['name_' + $root.curLang]}}">
+
+        <div class="left-half" ng-click="previous()">
+            <span class="fa fa-arrow-left navigation left-arrow"></span>
+        </div>
+
+        <div class="right-half" ng-click="next()">
+            <span class="fa fa-arrow-right navigation right-arrow"></span>
+        </div>
+    </div>
+
+    <div class="tags">
+        <a ng-repeat="tag in tags track by $index"
+           ng-href="http://print-oboi.com.ua/wallpapers/category/{{tag.cat_id}}">{{tag['name_' +
+            $root.curLang]}}</a>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-success" type="button" ng-click="inputSizes()">OK</button>
+        <button class="btn btn-link pull-left fav"
+                type="button"
+                ng-click="addToFavs(item)"
+                uib-tooltip="{{$root.LANG.addToFav[$root.curLang]}}">
+            <span class="fa " ng-class="{'fa-star': $root.favoritesForClass[item.id], 'fa-star-o': !$root.favoritesForClass[item.id]}"></span>
+        </button>
+        <button class="btn btn-link pull-left interior" type="button" ng-click="inputSizes()" uib-tooltip="{{$root.LANG.seeInInterior[$root.curLang]}}"><span class="fa fa-eye"></span></button>
+    </div>
+</div>

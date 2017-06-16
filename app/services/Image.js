@@ -3,11 +3,14 @@
 angular.module('app')
     .service('Image', ['$q', '$http', 'BASE_URL', '$httpParamSerializerJQLike', function ($q, $http, BASE_URL, $httpParamSerializerJQLike) {
 
-        var url = BASE_URL + 'catalog/wallpapers';
+        var collectionUrl = BASE_URL + 'catalog/wallpapers';
+        var searchCollectionUrl = BASE_URL + 'catalog/wallpapers/search';
+        var instanceUrl = BASE_URL + 'catalog/wallpaper/';
 
-        var _get = function () {
+        var _get = function (id) {
             var deferred = $q.defer();
-            $http.get(url).then(function (result) {
+            var fullUrl = instanceUrl + id;
+            $http.get(fullUrl).then(function (result) {
                 deferred.resolve(result.data);
             }, function (e) {
                 deferred.reject(e);
@@ -15,11 +18,10 @@ angular.module('app')
             return deferred.promise;
         };
 
-
         var _getCollection = function (params) {
             var deferred = $q.defer();
             $http({
-                url: url,
+                url: collectionUrl,
                 method: "POST",
                 data: $httpParamSerializerJQLike(params),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded, charset=UTF-8'}
@@ -33,7 +35,7 @@ angular.module('app')
 
         var _delete = function (deletionData) {
             var deferred = $q.defer();
-            $http.post(url + '/delete', deletionData).then(function (result) {
+            $http.post(collectionUrl + '/delete', deletionData).then(function (result) {
                 deferred.resolve(result.data);
             }, function (e) {
                 deferred.reject(e);
@@ -42,8 +44,8 @@ angular.module('app')
         };
 
         return {
-            getImage: function () {
-                return _get();
+            getImage: function (id) {
+                return _get(id);
             },
             getCollection: function (collectionParams) {
                 return _getCollection(collectionParams)

@@ -1,0 +1,75 @@
+<div id="selectionHelp">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">{{$root.LANG.selectionHelpImage[$root.curLang]}}</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <h4>
+            {{$root.LANG.selectionHelpDescription[$root.curLang]}}
+        </h4>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">{{$root.LANG.yourName[$root.curLang]}}:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Phone" class="col-sm-3 control-label">
+                    <span class="text-danger">*</span>{{$root.LANG.phone[$root.curLang]}}:</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="Phone" placeholder="0931234567" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-3 control-label">
+                    <span class="text-danger">*</span>Email:</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="width" class="col-sm-3 control-label">
+                    {{$root.LANG.suggestedSize[$root.curLang]}}:</label>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" id="width">
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-4">
+                    <input type="number" class="form-control" id="heigh">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="thema" class="col-sm-3 control-label">
+                    {{$root.LANG.thema[$root.curLang]}}:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="thema">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="shades" class="col-sm-3 control-label">
+                    {{$root.LANG.shades[$root.curLang]}}:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="shades">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="room" class="col-sm-3 control-label">
+                    {{$root.LANG.room[$root.curLang]}}:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="room">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="comment" class="col-sm-3 control-label">{{$root.LANG.additionalDescription[$root.curLang]}}:</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" id="comment" rows="3"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" type="button" ng-click="ok()">OK</button>
+        <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</div>

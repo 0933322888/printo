@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router',  'ui.bootstrap', 'infinite-scroll']);
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'infinite-scroll', 'ngSanitize']);
 
 app.constant('BASE_URL', 'http://foto-oboi.com.ua/');
 
@@ -23,7 +23,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
             controller: 'wallpapersCtrl',
             params: {
                 id: null,
-                name: null
+                name: null,
+                type: null
             }
         })
         .state('app.gluing', {
@@ -36,10 +37,10 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
             templateUrl: "./app/components/textures/textures.html",
             controller: 'texturesCtrl'
         })
-        .state('app.service', {
-            url: "/service",
-            templateUrl: "./app/components/service/service.html",
-            controller: 'serviceCtrl'
+        .state('app.services', {
+            url: "/services",
+            templateUrl: "./app/components/service/services.html",
+            controller: 'servicesCtrl'
         })
         .state('app.delivery', {
             url: "/delivery",

@@ -1,3 +1,54 @@
+@import "../app/components/home/home.less";
+    .title_text {
+      .title-text
+    }
+
 .gluing {
 
+   .block {
+    background: #e6ebf6;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.11);
+    padding: 10px;
+
+    .content {
+      display: inline-block;
+      background: #FFF;
+      padding: 20px;
+      border-radius: 10px;
+
+      .glueSelectionImage {
+        width: 100%;
+      }
+      &.prepare-surface {
+        p {
+          margin: 0 !important;
+        }
+      }
+
+      .gluing__instruments {
+        padding-left: 0;
+
+        li {
+          display: inline-block;
+          width: 265px;
+          vertical-align: top;
+          margin-right: 30px;
+          margin-bottom: 15px;
+          b {
+            display: inline-block;
+            margin-right: 5px;
+          }
+          .gluing__instruments-img {
+            display: block;
+            text-align: center;
+          }
+        }
+        .gluing__instruments li:nth-child(even) {
+          margin-right: 0 !important;
+        }
+      }
+    }
+
+  }
 }

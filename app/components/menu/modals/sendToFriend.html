@@ -1,0 +1,30 @@
+<div id="sendToFriend">
+    <div class="modal-body" id="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">{{$root.LANG.yourName[$root.curLang]}}:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-3 control-label">
+                    <span class="text-danger">*</span>{{$root.LANG.friendsEmail[$root.curLang]}}:</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comment" class="col-sm-3 control-label">{{$root.LANG.comment[$root.curLang]}}:</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" id="comment" rows="3"></textarea>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" type="button" ng-click="cancel()">{{$root.LANG.cancel[$root.curLang]}}</button>
+        <button class="btn btn-success" type="button" ng-click="send()">{{$root.LANG.send[$root.curLang]}}</button>
+    </div>
+</div>

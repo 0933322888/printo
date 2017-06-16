@@ -1,0 +1,151 @@
+@font_size_title: 22px;
+@font_weight_title: 500;
+@font_size_inner_text: 12px;
+@font_family: Ubuntu, 'Open Sans', Arial, sans-serif;
+@right_col_padding_right: 0;
+@right_col_padding_left: 0;
+@inner_text_margin_bottom: 10px;
+.title-text {
+  margin-top: 10px;
+  font-size: @font_size_title;
+  font-weight: @font_weight_title;
+  color: #1F4590;
+}
+
+
+body {
+  font-family: @font_family;
+}
+
+.home {
+  .banner {
+    margin-right: -10px !important;
+
+    .banner_holder {
+      //width: 655px;
+      height: 435px;
+      background-image: url(http://print-oboi.com.ua/public/img/redesign/home/main_banner.png);
+      border-radius: 12px;
+
+      .pic_over_banner {
+        position: absolute;
+        top: 200px;
+        background-color: rgba(255, 255, 255, 0.85);
+        width: 600px;
+        height: 100px;
+
+        p {
+          font-size: @font_size_title + 4;
+          font-weight: @font_weight_title;
+          margin: 0;
+          padding-left: 60px;
+
+        }
+
+        .small-icon-banner {
+          top: 10px;
+          right: -30px;
+          float: left;
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .block {
+    .small-icon {
+      float: left;
+      display: inline-block;
+      position: relative;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .left-side {
+      padding-left: @right_col_padding_left;
+
+      .myCarousel {
+        border-color: white;
+        border-radius: 10px;
+        border-width: 5px;
+        width: 50%;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 25px;
+
+        .carousel-inner {
+          border-radius: 10px;
+          border-width: 5px;
+          border-color: #ffffff;
+          border-style: solid;
+        }
+
+        .right.carousel-control, .left.carousel-control {
+          display: none;
+        }
+
+        .carousel-indicators {
+          bottom: -40px !important;
+          .active {
+            width: 18px !important;
+            height: 18px !important;
+            border: 5px solid gray !important;
+            background-color: #ffca0a !important;
+          }
+
+          li {
+            width: 15px !important;
+            height: 15px !important;
+            border: 5px solid gray !important;
+          }
+        }
+      }
+
+      .wallpaper-types {
+        padding-left: 0;
+
+        & > li {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .right-side {
+      padding-right: @right_col_padding_right;
+      padding-left: @right_col_padding_left;
+    }
+
+    .title_text {
+      .title-text
+    }
+    .inner_text {
+      font-size: @font_size_inner_text;
+      padding-right: 15px;
+      margin: 0 -15px 10px 0;
+      text-align: left;
+    }
+    .embed-responsive {
+      margin-left: -15px;
+      //width: 560px;
+      height: 380px !important;
+      //height: 68% !important;
+    }
+    .eco-blocks {
+      margin-left: -10px;
+    }
+  }
+
+  li {
+    z-index: 2;
+  }
+
+  .divider_shadow {
+    background-image: url(http://print-oboi.com.ua/public/img/redesign/content_divider.png);
+    width: 100%;
+    height: 30px;
+    display: block;
+    border: none;
+  }
+}

@@ -1,1 +1,18 @@
-Payment
+<div class="payment">
+
+    <div class="row">
+        <p class="title_text"><b>{{$root.LANG.payForOrder[$root.curLang]}}</b></p>
+
+        <div class="content">
+            <form class="order_id_form form-inline">
+                <div class="form-group">
+                    <label for="order_id">{{$root.LANG.inputOrderNumber[$root.curLang]}}:</label>
+                    <input type="text" class="form-control" id="order_id">
+                </div>
+                <button type="submit" class="btn btn-default" ng-click="findOrder()">{{$root.LANG.findOrder[$root.curLang]}}</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>

@@ -1,61 +1,161 @@
 "use strict";
 
 angular.module('app')
-    .controller('menuCtrl', ['$scope', '$rootScope', '$state', 'Image', '$http',
-        function ($scope, $rootScope, $state, Image, $http) {
+    .controller('menuCtrl', ['$scope', '$rootScope', '$state', 'Image', '$http', '$uibModal',
+        function ($scope, $rootScope, $state, Image, $http, $uibModal) {
 
             $scope.radioModel = null;
 
-            $scope.goToMenu = function () {
-                var newState = 'app.' + $scope.radioModel;
+            $scope.goToMenu = function (param) {
+                var newState;
+                if (param === 'home') {
+                    $scope.radioModel = null;
+                    newState = 'app.' + param;
+                } else {
+                    newState = 'app.' + $scope.radioModel;
+                }
                 $state.go(newState);
             };
 
             $scope.setLanguage = function (language) {
                 $rootScope.curLang = language;
+                $scope.$broadcast('languageChange', language);
+                getCategories();
             };
 
-            $scope.goToCateg = function (id, name) {
+            $scope.goToCateg = function (id, name, type) {
                 $scope.radioModel = null;
-                $state.go('app.wallpapers', {id: id, name: name})
+                $state.go('app.wallpapers', {id: id, name: name, type: type})
             };
 
-            $http.get('dist/categories.json').then(function (resp) {
-                var categories = resp.data;
+            $scope.removeFav = function (item) {
+                $scope.$broadcast('remove', item);
+            };
 
-                $scope.popular = [
-                    {name: categories[54]["name_" + $rootScope.curLang], id: 54},
-                    {name: categories[70].name_ru, id: 70},
-                    {name: categories[133].name_ru, id: 133},
-                    {name: categories[71].name_ru, id: 71},
-                    {name: categories[18].name_ru, id: 18}
-                ];
+            $scope.saveArc = function () {
+                //TODO: save arc
+            };
+
+            $scope.search = function () {
+                $scope.goToCateg(null, $scope.searchText, 'search');
+            };
+
+            $scope.sendToFriend = function () {
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    ariaDescribedBy: 'modal-body',
+                    templateUrl: './app/components/menu/modals/sendToFriend.html',
+                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+
+                        $scope.send = function () {
+                            //TODO: send to friend API
+                            $uibModalInstance.close();
+                        };
+
+                        $scope.cancel = function () {
+                            $uibModalInstance.dismiss('cancel');
+                        };
+                    }]
+
+                });
+                modalInstance.result.then(function (selectedItem) {
+
+                }, function () {
+
+                });
+            };
+
+            $scope.recall = function () {
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    ariaLabelledBy: 'modal-title',
+                    ariaDescribedBy: 'modal-body',
+                    templateUrl: './app/components/menu/modals/recall.html',
+                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+
+                        $scope.sendRequest = function () {
+                            //TODO: recall request API
+                            $uibModalInstance.close();
+                        };
+
+                        $scope.cancel = function () {
+                            $uibModalInstance.dismiss('cancel');
+                        };
+                    }]
+
+                });
+                modalInstance.result.then(function (selectedItem) {
+
+                }, function () {
+
+                });
+            };
+
+            $scope.loadOwn = function () {
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    size: 'lg',
+                    ariaDescribedBy: 'modal-body',
+                    templateUrl: './app/components/menu/modals/loadOwn.html',
+                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+
+                        $scope.orderCalc = function () {
+                            //TODO: order calculations API
+                            $uibModalInstance.close();
+                        };
+
+                        $scope.cancel = function () {
+                            $uibModalInstance.dismiss('cancel');
+                        };
+                    }]
+
+                });
+                modalInstance.result.then(function (selectedItem) {
+
+                }, function () {
+
+                });
+            };
 
 
-                $scope.categories = [
-                    {name: categories[1587].name_ru, id: 1587},
-                    {name: categories[1588].name_ru, id: 1588},
-                    {name: categories[56].name_ru, id: 56},
-                    {name: categories[60].name_ru, id: 60},
-                    {name: categories[1583].name_ru, id: 1583},
-                    {name: categories[142].name_ru, id: 142},
-                    {name: categories[59].name_ru, id: 59},
-                    {name: categories[69].name_ru, id: 69},
-                    {name: categories[25].name_ru, id: 25},
-                    {name: categories[120].name_ru, id: 120},
-                    {name: categories[1573].name_ru, id: 1573},
-                    {name: categories[132].name_ru, id: 132},
-                    {name: categories[125].name_ru, id: 125},
-                    {name: categories[128].name_ru, id: 128},
-                    {name: categories[118].name_ru, id: 118},
-                    {name: categories[140].name_ru, id: 140},
-                    {name: categories[1586].name_ru, id: 1586},
-                    {name: categories[143].name_ru, id: 143},
-                    {name: categories[134].name_ru, id: 134}
-                ];
+            var getCategories = function () {
+                $http.get('dist/categories.json').then(function (resp) {
+                    var categories = resp.data;
+                    $scope.popular = [
+                        {name: categories[54]["name_" + $rootScope.curLang], id: 54},
+                        {name: categories[70]["name_" + $rootScope.curLang], id: 70},
+                        {name: categories[133]["name_" + $rootScope.curLang], id: 133},
+                        {name: categories[71]["name_" + $rootScope.curLang], id: 71},
+                        {name: categories[18]["name_" + $rootScope.curLang], id: 18}
+                    ];
+                    $scope.categories = [
+                        {name: categories[1587]["name_" + $rootScope.curLang], id: 1587},
+                        {name: categories[1588]["name_" + $rootScope.curLang], id: 1588},
+                        {name: categories[56]["name_" + $rootScope.curLang], id: 56},
+                        {name: categories[60]["name_" + $rootScope.curLang], id: 60},
+                        {name: categories[1583]["name_" + $rootScope.curLang], id: 1583},
+                        {name: categories[142]["name_" + $rootScope.curLang], id: 142},
+                        {name: categories[59]["name_" + $rootScope.curLang], id: 59},
+                        {name: categories[69]["name_" + $rootScope.curLang], id: 69},
+                        {name: categories[25]["name_" + $rootScope.curLang], id: 25},
+                        {name: categories[120]["name_" + $rootScope.curLang], id: 120},
+                        {name: categories[1573]["name_" + $rootScope.curLang], id: 1573},
+                        {name: categories[132]["name_" + $rootScope.curLang], id: 132},
+                        {name: categories[125]["name_" + $rootScope.curLang], id: 125},
+                        {name: categories[128]["name_" + $rootScope.curLang], id: 128},
+                        {name: categories[118]["name_" + $rootScope.curLang], id: 118},
+                        {name: categories[140]["name_" + $rootScope.curLang], id: 140},
+                        {name: categories[1586]["name_" + $rootScope.curLang], id: 1586},
+                        {name: categories[143]["name_" + $rootScope.curLang], id: 143},
+                        {name: categories[134]["name_" + $rootScope.curLang], id: 134}
+                    ];
+                    $scope.interiors = [
+                        {name: categories[1587]["name_" + $rootScope.curLang], id: 1587},
+                        {name: categories[1588]["name_" + $rootScope.curLang], id: 1588}
+                    ];
+                });
+            };
 
-            });
-
-
+            getCategories();
         }
     ]);

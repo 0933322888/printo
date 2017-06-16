@@ -1,41 +1,59 @@
-<div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="grid-container">
-    <div class="category-name">{{categoryName}}</div>
-    <div class="fast-search">
-        <div class="sort-buttons">
-            <a href="">
-                <i class="fa fa-asterisk"></i>
-                <span>All</span>
-            </a>
-            <a href="">
-                <i class="fa fa-bars"></i>
-                <span>Horizontal</span>
-            </a>
-            <a href="">
-                <i class="fa fa-bars fa-rotate-90"></i>
-                <span>Vertical</span>
-            </a>
-            <a href="">
-                <i class="fa fa-money"></i>
-                <span>Panorama</span>
-            </a>
-        </div>
+<div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="row grid-container">
+
+    <div class="category-name" ng-hide="categoryType === 'search'">{{categoryName}}</div>
+    <div class="category-name" ng-show="categoryType === 'search'">
+        {{$root.LANG.perRequest[$root.curLang]}}
+        "{{categoryName}}" {{$root.LANG.found[$root.curLang]}}
+        {{fullList.length}} {{$root.LANG.results[$root.curLang]}}
     </div>
 
-    <ul class="catalog grid">
-        <li class="catalog-item item" ng-repeat="item in list track by $index">
-            <div class="photo">
-                <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}" alt="{{item.name_ru}}">
-            </div>
-            <div class="actions">
-                {{item.name_ru}}
+    <!--Color selection text-->
+    <p class="inner_text" ng-show="categoryType === 'color'">{{$root.LANG[categoryId + "-1"][$root.curLang]}}</p>
+    <p class="inner_text" ng-show="categoryType === 'color'">{{$root.LANG[categoryId+ "-2"][$root.curLang]}}</p>
+    <p class="inner_text" ng-show="categoryType === 'color'">{{$root.LANG[categoryId+ "-3"][$root.curLang]}}</p>
+    <!---->
 
-                <a href="#" title="Add To Favourites">
-                    <span class="fa fa-star-o"></span>
-                </a>
-            </div>
-        </li>
-    </ul>
+    <div class="fast-search">
+        <div class="sort-buttons">
+            <a href="" ng-click="fastSort(null)" ng-class="{active : activeMenu == null}">
+                <i class="fa fa-asterisk"></i>
+                <span>{{$root.LANG.all[$root.curLang]}}</span>
+            </a>
+            <a href="" ng-click="fastSort('h')" ng-class="{active : activeMenu === 'h'}">
+                <i class="fa fa-bars"></i>
+                <span>{{$root.LANG.horizontal[$root.curLang]}}</span>
+            </a>
+            <a href="" ng-click="fastSort('v')" ng-class="{active : activeMenu === 'v'}">
+                <i class="fa fa-bars fa-rotate-90"></i>
+                <span>{{$root.LANG.vertical[$root.curLang]}}</span>
+            </a>
+            <a href="" ng-click="fastSort('p')" ng-class="{active : activeMenu === 'p'}">
+                <i class="fa fa-money"></i>
+                <span>{{$root.LANG.panorama[$root.curLang]}}</span>
+            </a>
+        </div>
+        <button type="button" class="btn selection-button" ng-click="modalOpen()">{{$root.LANG.selectionHelp[$root.curLang]}}</button>
+    </div>
 
+    <div class="row" ng-hide="isLoading">
+        <div class="catalog grid col-md-12">
+            <div class="col-md-4 no-padding-right" ng-repeat="item in displayList track by $index">
+                <div class="catalog-item item">
+                    <div class="photo" ng-click="openPhoto(item)">
+                        <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}"
+                             alt="{{item.name_ru}}">
+                    </div>
+                    <div class="actions">
+                        {{$root.curLang == 'ru' ? item.name_ru : item.name_ua}}
+
+                        <a href="#" title="{{$root.LANG.addToFav[$root.curLang]}}" ng-click="addToFavorites(item)">
+                            <span class="fa " ng-class="{'fa-star': $root.favoritesForClass[item.id], 'fa-star-o': !$root.favoritesForClass[item.id]}"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="spinner" ng-show="isLoading"></div>
 
 </div>
