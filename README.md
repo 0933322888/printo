@@ -1,9 +1,7 @@
 # printo
-npm i -g http-server [, bower, gulp];
+npm i bower;
 
 npm install;
 bower install;
-in command line: http-server (will start local server on port 8080);
 
-gulp build;
-whenever there is a change: gulp (for preparation of js(dev) + less files only) or gulp build (for js(full)+less+json);
+in cmd: gulp (will run gulp default task: make build + serving on localhost:8080);

@@ -48,7 +48,7 @@ angular.module('app')
                     controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
 
                         $scope.send = function () {
-                            //TODO: send data to endpoint
+                            //TODO: send to friend API
                             $uibModalInstance.close();
                         };
 
@@ -73,8 +73,8 @@ angular.module('app')
                     templateUrl: './app/components/menu/modals/recall.html',
                     controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
 
-                        $scope.send = function () {
-                            //TODO: send data to endpoint
+                        $scope.sendRequest = function () {
+                            //TODO: recall request API
                             $uibModalInstance.close();
                         };
 
@@ -100,7 +100,7 @@ angular.module('app')
                     controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
 
                         $scope.orderCalc = function () {
-                            //TODO: send data to endpoint
+                            //TODO: order calculations API
                             $uibModalInstance.close();
                         };
 
