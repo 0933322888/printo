@@ -19,9 +19,9 @@
 
             <div class="col-md-1 search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
+                    <input type="text" class="form-control" ng-model="searchText" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
+                        <button class="btn btn-default" type="button" ng-click="search()">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
                     </span>

@@ -4,6 +4,7 @@ angular.module('app')
     .service('Image', ['$q', '$http', 'BASE_URL', '$httpParamSerializerJQLike', function ($q, $http, BASE_URL, $httpParamSerializerJQLike) {
 
         var collectionUrl = BASE_URL + 'catalog/wallpapers';
+        var searchCollectionUrl = BASE_URL + 'catalog/wallpapers/search';
         var instanceUrl = BASE_URL + 'catalog/wallpaper/';
 
         var _get = function (id) {
@@ -16,7 +17,6 @@ angular.module('app')
             });
             return deferred.promise;
         };
-
 
         var _getCollection = function (params) {
             var deferred = $q.defer();

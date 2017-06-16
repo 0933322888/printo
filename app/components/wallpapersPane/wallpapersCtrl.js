@@ -10,12 +10,19 @@ angular.module('app')
             $scope.sortedList = [];
             $rootScope.favorites = $rootScope.favorites || [];
             $rootScope.favoritesForClass = $rootScope.favoritesForClass || [];
-            var fullList = [];
+            $scope.fullList = [];
             var getFilter = function () {
                 if ($scope.categoryType === 'color') {
                     return {
                         where: {
                             color: $scope.categoryId
+                        }
+                    };
+                } else if ($scope.categoryType === 'search') {
+                    //TODO: search API
+                    return {
+                        where: {
+                            search: $scope.categoryName
                         }
                     };
                 } else {
@@ -29,8 +36,8 @@ angular.module('app')
 
             $scope.isLoading = true;
             Image.getCollection(getFilter()).then(function (result) {
-                fullList = result;
-                $scope.displayList = fullList.slice(0,12);
+                $scope.fullList = result;
+                $scope.displayList = $scope.fullList.slice(0,12);
                 $scope.isLoading = false;
             }, function (err) {
                 console.log(err);
@@ -39,10 +46,10 @@ angular.module('app')
 
             $scope.loadMore = function() {
                 var last = $scope.displayList.length;
-                var limit = fullList.length;
+                var limit = $scope.fullList.length;
                 var loadItems = limit - last < 12 ? limit - last : 12;
                 for(var i = 0; i < loadItems; i++) {
-                    $scope.displayList.push(fullList[last+i]);
+                    $scope.displayList.push($scope.fullList[last+i]);
                 }
             };
 
@@ -60,8 +67,8 @@ angular.module('app')
                 if (param === null) delete filter.where.ratio;
 
                 Image.getCollection(filter).then(function (result) {
-                    fullList = result;
-                    $scope.displayList = fullList.slice(0,12);
+                    $scope.fullList = result;
+                    $scope.displayList = $scope.fullList.slice(0,12);
                     $scope.isLoading = false;
                 }, function (err) {
                     console.log(err);
@@ -104,7 +111,7 @@ angular.module('app')
                         function ($uibModalInstance, $scope, $rootScope, Image) {
                         $scope.item = item;
                         var currentIndex = function (item) {
-                            return fullList.indexOf(item);
+                            return $scope.fullList.indexOf(item);
                         };
 
                         $scope.ok = function () {
@@ -116,13 +123,13 @@ angular.module('app')
                         };
 
                         $scope.previous = function () {
-                            var prevItem = currentIndex($scope.item) === 0 ? fullList.length - 1 : currentIndex($scope.item) - 1;
-                            $scope.item = fullList[prevItem];
+                            var prevItem = currentIndex($scope.item) === 0 ? $scope.fullList.length - 1 : currentIndex($scope.item) - 1;
+                            $scope.item = $scope.fullList[prevItem];
                         };
 
                         $scope.next = function () {
-                            var nextItem = currentIndex($scope.item) === fullList.length - 1 ? 0 : currentIndex($scope.item) + 1;
-                            $scope.item = fullList[nextItem];
+                            var nextItem = currentIndex($scope.item) === $scope.fullList.length - 1 ? 0 : currentIndex($scope.item) + 1;
+                            $scope.item = $scope.fullList[nextItem];
                         };
 
                         $scope.cancel = function () {

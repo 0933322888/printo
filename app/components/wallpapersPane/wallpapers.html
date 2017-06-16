@@ -1,8 +1,17 @@
 <div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="row grid-container">
-    <div class="category-name">{{categoryName}}</div>
+
+    <div class="category-name" ng-hide="categoryType === 'search'">{{categoryName}}</div>
+    <div class="category-name" ng-show="categoryType === 'search'">
+        {{$root.LANG.perRequest[$root.curLang]}}
+        "{{categoryName}}" {{$root.LANG.found[$root.curLang]}}
+        {{fullList.length}} {{$root.LANG.results[$root.curLang]}}
+    </div>
+
+    <!--Color selection text-->
     <p class="inner_text" ng-show="categoryType === 'color'">{{$root.LANG[categoryId + "-1"][$root.curLang]}}</p>
     <p class="inner_text" ng-show="categoryType === 'color'">{{$root.LANG[categoryId+ "-2"][$root.curLang]}}</p>
     <p class="inner_text" ng-show="categoryType === 'color'">{{$root.LANG[categoryId+ "-3"][$root.curLang]}}</p>
+    <!---->
 
     <div class="fast-search">
         <div class="sort-buttons">

@@ -36,7 +36,9 @@ angular.module('app')
                 //TODO: save arc
             };
 
-
+            $scope.search = function () {
+                $scope.goToCateg(null, $scope.searchText, 'search');
+            };
 
             $scope.sendToFriend = function () {
                 var modalInstance = $uibModal.open({
