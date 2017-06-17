@@ -23,7 +23,7 @@ angular.module('app')
                 },
                 {
                     pic: "http://print-oboi.com.ua/public/img/for/fotooboi_v_prikhozhuyu.jpg",
-                    room: "greeting"
+                    room: "livingroom"
                 },
                 {
                     pic: "http://print-oboi.com.ua/public/img/for/fotooboi_dlya_vannoy.jpg",

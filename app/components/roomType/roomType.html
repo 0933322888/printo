@@ -8,11 +8,11 @@
             <div class="catalog grid col-md-12">
                 <div class="col-md-4 no-padding-right" ng-repeat="item in displayList track by $index">
                     <div class="catalog-item item">
-                        <div class="photo" ui-sref="app.roomstype({roomType: item.room})">
-                            <img ng-src="{{item.pic}}">
+                        <div class="photo">
+                            <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}">
                         </div>
                         <div class="name">
-                            {{$root.LANG[item.room][$root.curLang]}}
+                            {{$root.LANG.order[$root.curLang]}}
                         </div>
                     </div>
                 </div>

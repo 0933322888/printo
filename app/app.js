@@ -66,6 +66,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
                 url: "/rooms/{roomType}",
                 templateUrl: "./app/components/roomType/roomType.html",
                 controller: 'roomTypeCtrl'
+            })
+            .state('app.crop', {
+                url: "/crop",
+                templateUrl: "./app/components/crop/crop.html",
+                controller: 'cropCtrl'
             });
 
         $locationProvider.html5Mode(true);

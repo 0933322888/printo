@@ -115,7 +115,9 @@
 
                             <ul>
                                 <li ng-repeat="item in popular track by $index">
-                                    <a class="category-item" ng-click="goToCateg(item.id, item.name, 'popular')"> {{item.name }}</a>
+                                    <a class="category-item" ng-click="goToCateg(id, $root.LANG.categories[item][$root.curLang], 'popular')">
+                                        {{$root.LANG.categories[item][$root.curLang]}}
+                                    </a>
                                 </li>
                             </ul>
 
@@ -126,22 +128,25 @@
 
                             <ul>
                                 <li ng-repeat="item in categories track by $index">
-                                    <a class="category-item" ng-click="goToCateg(item.id, item.name, 'categories')"> {{item.name }}</a>
+                                    <a class="category-item" ng-click="goToCateg(id, $root.LANG.categories[item][$root.curLang], 'categories')">
+                                        {{$root.LANG.categories[item][$root.curLang]}}
+                                    </a>
                                 </li>
 
                             </ul>
                         </div>
 
-                        <div class="block-item">
-                            <div class="name text-center">{{$root.LANG.interiorsCat[$root.curLang] | uppercase}}</div>
+                        <!--TODO: when interiors API is present-->
+                        <!--<div class="block-item">-->
+                            <!--<div class="name text-center">{{$root.LANG.interiorsCat[$root.curLang] | uppercase}}</div>-->
 
-                            <ul>
-                                <li ng-repeat="item in interiors track by $index">
-                                    <a class="category-item" ng-click="goToCateg(item.id, item.name, 'interiors')"> {{item.name }}</a>
-                                </li>
+                            <!--<ul>-->
+                                <!--<li ng-repeat="item in interiors track by $index">-->
+                                    <!--<a class="category-item" ng-click="goToCateg(item.id, item.name, 'interiors')"> {{item.name }}</a>-->
+                                <!--</li>-->
 
-                            </ul>
-                        </div>
+                            <!--</ul>-->
+                        <!--</div>-->
 
                         <div class="block-item colors">
                             <div class="name text-center">{{$root.LANG.selectColorsCat[$root.curLang] | uppercase}}
