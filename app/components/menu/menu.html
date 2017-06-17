@@ -209,11 +209,13 @@
                             <div class="name text-center">{{$root.LANG.picturesBox[$root.curLang] | uppercase}}</div>
 
                             <ul>
-                                <li><a class="category-item" ng-click="goToCateg(item.id, item.name, 'categoriesSelection')">
+                                <li><a class="category-item" ng-model="radioModel"
+                                       uib-btn-radio="'byCategories'" ng-click="goToMenu()">
                                     <strong>›&nbsp</strong>
                                     {{$root.LANG.picturesBox1[$root.curLang]}}</a>
                                 </li>
-                                <li><a class="category-item" ng-click="goToCateg(item.id, item.name, 'premisesSelection')">
+                                <li><a class="category-item" ng-model="radioModel"
+                                       uib-btn-radio="'rooms'" ng-click="goToMenu()">
                                     <strong>›&nbsp</strong>
                                     {{$root.LANG.picturesBox2[$root.curLang]}}
                                 </a>

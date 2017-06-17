@@ -136,7 +136,7 @@ angular.module('app')
                             $uibModalInstance.dismiss('cancel');
                         };
 
-                        Image.getImage($scope.id).then(function (data) {
+                        Image.getImage($scope.item.id).then(function (data) {
                             $scope.tags = data.tags
                         }, function (err) {
                             console.log(err)
