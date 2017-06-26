@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('app')
-    .controller('wallpapersCtrl', ['$scope', '$rootScope', '$state', '$stateParams', 'Image', '$uibModal',
-        function ($scope, $rootScope, $state, $stateParams, Image, $uibModal) {
+    .controller('wallpapersCtrl', ['$scope', '$rootScope', '$state', '$stateParams', 'Image', '$uibModal', 'SITEID',
+        function ($scope, $rootScope, $state, $stateParams, Image, $uibModal, SITEID) {
             $scope.categoryName = $stateParams.name;
             $scope.categoryId = $stateParams.id;
             $scope.categoryType = $stateParams.type;
@@ -18,13 +18,6 @@ angular.module('app')
                             color: $scope.categoryId
                         }
                     };
-                } else if ($scope.categoryType === 'search') {
-                    //TODO: search API
-                    return {
-                        where: {
-                            search: $scope.categoryName
-                        }
-                    };
                 } else {
                     return {
                         where: {
@@ -35,14 +28,29 @@ angular.module('app')
             };
 
             $scope.isLoading = true;
-            Image.getCollection(getFilter()).then(function (result) {
-                $scope.fullList = result;
-                $scope.displayList = $scope.fullList.slice(0,12);
-                $scope.isLoading = false;
-            }, function (err) {
-                console.log(err);
-                $scope.isLoading = false;
-            });
+            if ($scope.categoryType === 'search') {
+                var searchQuerry = {
+                    q: $scope.categoryName,
+                    siteid: SITEID
+                };
+                Image.search(searchQuerry).then(function (result) {
+                    $scope.fullList = result;
+                    $scope.displayList = $scope.fullList.slice(0, 12);
+                    $scope.isLoading = false;
+                }, function (err) {
+                    console.log(err);
+                    $scope.isLoading = false;
+                })
+            } else {
+                Image.getCollection(getFilter()).then(function (result) {
+                    $scope.fullList = result;
+                    $scope.displayList = $scope.fullList.slice(0, 12);
+                    $scope.isLoading = false;
+                }, function (err) {
+                    console.log(err);
+                    $scope.isLoading = false;
+                });
+            }
 
             $scope.loadMore = function() {
                 var last = $scope.displayList.length;
@@ -118,8 +126,8 @@ angular.module('app')
                             $uibModalInstance.close();
                         };
 
-                        $scope.addToFavs = function (item) {
-                            $scope.$emit('addToFavs', item);
+                        $scope.toggleFavs = function (item) {
+                            $scope.$emit('toggleFavs', item);
                         };
 
                         $scope.previous = function () {
@@ -156,15 +164,15 @@ angular.module('app')
                     $rootScope.favorites = [];
                     $rootScope.favoritesForClass = [];
                 } else {
-                    $scope.addToFavorites (data);
+                    $scope.toggleFavorites (data);
                 }
             });
 
-            $rootScope.$on("addToFavs", function (event, data) {
-                $scope.addToFavorites(data);
+            $rootScope.$on("toggleFavs", function (event, data) {
+                $scope.toggleFavorites(data);
             });
 
-            $scope.addToFavorites = function (item) {
+            $scope.toggleFavorites = function (item) {
                 var alreadyInIndex = $rootScope.favorites.findIndex(function (ele, ind) {
                     return ele.id === item.id
                 });

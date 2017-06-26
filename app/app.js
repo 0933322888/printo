@@ -1,16 +1,24 @@
 var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'infinite-scroll', 'ngSanitize']);
 
 app.constant('BASE_URL', 'http://foto-oboi.com.ua/');
+app.constant('SITEID', 'poua');
 
 app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
         $urlRouterProvider.otherwise("/home");
+        var categories = ['Categories', function (Categories) {
+            //TODO: API for popular and regular categories
+            return Categories.getCategories().then(function (result) {
+                return result
+            })
+        }];
 
         $stateProvider
             .state('app', {
                 abstract: true,
                 templateUrl: "./app/components/menu/menu.html",
-                controller: 'menuCtrl'
+                controller: 'menuCtrl',
+                resolve: categories
             })
             .state('app.home', {
                 url: "/home",

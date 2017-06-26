@@ -115,7 +115,7 @@
 
                             <ul>
                                 <li ng-repeat="item in popular track by $index">
-                                    <a class="category-item" ng-click="goToCateg(id, $root.LANG.categories[item][$root.curLang], 'popular')">
+                                    <a class="category-item" ng-click="goToCateg(item, $root.LANG.categories[item][$root.curLang], 'popular')">
                                         {{$root.LANG.categories[item][$root.curLang]}}
                                     </a>
                                 </li>
@@ -128,7 +128,7 @@
 
                             <ul>
                                 <li ng-repeat="item in categories track by $index">
-                                    <a class="category-item" ng-click="goToCateg(id, $root.LANG.categories[item][$root.curLang], 'categories')">
+                                    <a class="category-item" ng-click="goToCateg(item, $root.LANG.categories[item][$root.curLang], 'categories')">
                                         {{$root.LANG.categories[item][$root.curLang]}}
                                     </a>
                                 </li>

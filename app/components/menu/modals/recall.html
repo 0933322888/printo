@@ -3,38 +3,47 @@
         {{$root.LANG.recall[$root.curLang]}}
     </div>
     <div class="modal-body" id="modal-body">
-        <form class="form-horizontal">
+        <form class="form-horizontal" ng-hide="requestSent">
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">{{$root.LANG.yourName[$root.curLang]}}:</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" ng-model="name" id="name">
                 </div>
             </div>
             <div class="form-group">
                 <label for="phone" class="col-sm-3 control-label">
                     <span class="text-danger">*</span>{{$root.LANG.phone[$root.curLang]}}:</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="phone" placeholder="0931234567" required>
+                    <input type="text" class="form-control" ng-model="phone" id="phone" placeholder="0931234567"
+                           required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail" class="col-sm-3 control-label">
                     Email:</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="example@mail.com">
+                    <input type="email" class="form-control" ng-model="email" id="inputEmail"
+                           placeholder="example@mail.com">
                 </div>
             </div>
             <div class="form-group">
                 <label for="comment" class="col-sm-3 control-label">{{$root.LANG.comment[$root.curLang]}}:</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control" id="comment" rows="3"></textarea>
+                    <textarea class="form-control" ng-model="comment" id="comment" rows="3"></textarea>
                 </div>
             </div>
         </form>
-
+        <div ng-show="requestSent">
+            <p>Spasibo, vashe soobschenie otpravleno</p>
+        </div>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-danger" type="button" ng-click="cancel()">{{$root.LANG.cancel[$root.curLang]}}</button>
-        <button class="btn btn-success" type="button" ng-click="sendRequest()">{{$root.LANG.send[$root.curLang]}}</button>
+        <button class="btn btn-danger" type="button" ng-click="cancel()">
+            <span ng-hide="requestSent">{{$root.LANG.cancel[$root.curLang]}}</span>
+            <span ng-show="requestSent">{{$root.LANG.close[$root.curLang]}}</span>
+        </button>
+        <button class="btn btn-success" type="button" ng-click="sendRequest()" ng-hide="requestSent">
+            {{$root.LANG.send[$root.curLang]}}
+        </button>
     </div>
 </div>

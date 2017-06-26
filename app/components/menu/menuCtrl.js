@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('app')
-    .controller('menuCtrl', ['$scope', '$rootScope', '$state', 'Image', '$http', '$uibModal',
-        function ($scope, $rootScope, $state, Image, $http, $uibModal) {
+    .controller('menuCtrl', ['$scope', '$rootScope', '$state', '$http', '$uibModal',
+        function ($scope, $rootScope, $state, $http, $uibModal) {
 
             $scope.radioModel = null;
             $scope.popular = [54, 70, 133, 71, 18];
@@ -75,11 +75,22 @@ angular.module('app')
                     ariaLabelledBy: 'modal-title',
                     ariaDescribedBy: 'modal-body',
                     templateUrl: './app/components/menu/modals/recall.html',
-                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+                    controller: ['$uibModalInstance', '$scope', 'Requests', '$timeout',
+                        function ($uibModalInstance, $scope, Requests, $timeout) {
 
+                        $scope.requestSent = false;
                         $scope.sendRequest = function () {
-                            //TODO: recall request API
-                            $uibModalInstance.close();
+                            var data = {
+                                name: $scope.name,
+                                phone: $scope.phone,
+                                email: $scope.email,
+                                comment: $scope.comment
+                            };
+                            Requests.recall(data);
+                            $scope.requestSent = true;
+                            $timeout(function () {
+                                $uibModalInstance.close();
+                            }, 2500);
                         };
 
                         $scope.cancel = function () {
