@@ -9,12 +9,52 @@
                     <label for="order_id">{{$root.LANG.inputOrderNumber[$root.curLang]}}:</label>
                     <input type="text" class="form-control" ng-model="orderId" id="order_id">
                 </div>
-                <button type="submit" class="btn btn-default" ng-click="findOrder()">{{$root.LANG.findOrder[$root.curLang]}}</button>
+                <button type="submit" class="btn btn-default" ng-click="findOrder()">
+                    {{$root.LANG.findOrder[$root.curLang]}}
+                </button>
             </form>
         </div>
 
         <div class="text-danger text-center search-results" ng-show="searchResult==='notFound'"><b>NOT FOUND</b></div>
-        <div class="text-success text-center search-results" ng-show="searchResult==='found'"><b>Your order is paid</b></div>
+        <div class="text-success text-center search-results" ng-show="searchResult==='found'"><b>Your order is paid</b>
+        </div>
+        <div class="search-results" ng-show="searchResult==='foundNotPaid'">
+            <div class="contacts-list">
+                <p class="name">{{$root.LANG.client[$root.curLang]}}: <strong>{{orderData.klient.name}}</strong></p>
+                <p class="phone">{{$root.LANG.phone[$root.curLang]}}: <strong>{{orderData.klient.phone}}</strong></p>
+                <p class="email">E-mail: <strong>{{orderData.klient.email}}</strong></p>
+                <p class="address">
+                    <strong>Адрес доставки: </strong>
+                    {{orderData.klient.city + ", " + orderData.klient.deliverie + ", " + orderData.klient.address }}</p>
+            </div>
+
+            <div class="price col-md-12">
+                <div class="col-md-5 left-block">
+                    <div class="amount">
+                        <div>{{$root.LANG.price[$root.curLang]}}:</div>
+                        <div><strong>{{orderData.amount + " " + orderData.currency}}</strong></div>
+                    </div>
+                </div>
+                <div class="col-md-7 right-block">
+                    <button class="makePayment" ng-click="payInvoice(orderData.fakeid)">Оплата квитанции в любом банке</button>
+
+                    <form method="POST" accept-charset="utf-8" action="https://www.liqpay.com/api/pay">
+                        <input type="hidden" name="public_key" value="i24850937938">
+                        <input type="hidden" name="amount" value="{{orderData.amount}}">
+                        <input type="hidden" name="currency" value="{{orderData.currency}}">
+                        <input type="hidden" name="description" value="{{'Order #' + orderData.fakeid}}">
+                        <input type="hidden" name="type" value="buy">
+                        <input type="hidden" name="language" value="{{$root.curLang}}">
+                        <input type="hidden" name="order_id" value="{{$root.fakeid}}">
+                        <input type="hidden" name="server_url" value="http://foto-oboi.com.ua/bills/payment_status/liqpay2">
+                        <!--TODO RESULT URL page-->
+                        <input type="hidden" name="result_url" value="http://print-oboi.com.ua/?paid=1">
+                        <input type="hidden" name="signature" value="AG1QVG53DR9CB91hpiUBBs8wV84=">
+                        <button class="makePayment card">Оплатить через Visa / MasterCard</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

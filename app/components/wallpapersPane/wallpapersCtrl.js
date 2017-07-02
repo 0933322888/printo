@@ -7,10 +7,11 @@ angular.module('app')
             $scope.categoryId = $stateParams.id;
             $scope.categoryType = $stateParams.type;
             $scope.displayList = [];
-            $scope.sortedList = [];
+            $scope.activeMenu = 'fullList';
             $rootScope.favorites = $rootScope.favorites || [];
             $rootScope.favoritesForClass = $rootScope.favoritesForClass || [];
             $scope.fullList = [];
+
             var getFilter = function () {
                 if ($scope.categoryType === 'color') {
                     return {
@@ -45,6 +46,7 @@ angular.module('app')
                 Image.getCollection(getFilter()).then(function (result) {
                     $scope.fullList = result;
                     $scope.displayList = $scope.fullList.slice(0, 12);
+                    makeSortedList(result);
                     $scope.isLoading = false;
                 }, function (err) {
                     console.log(err);
@@ -52,36 +54,32 @@ angular.module('app')
                 });
             }
 
-            $scope.loadMore = function() {
+            $scope.loadMore = function () {
                 var last = $scope.displayList.length;
-                var limit = $scope.fullList.length;
+                var limit = $scope[$scope.activeMenu].length;
                 var loadItems = limit - last < 12 ? limit - last : 12;
-                for(var i = 0; i < loadItems; i++) {
-                    $scope.displayList.push($scope.fullList[last+i]);
+                for (var i = 0; i < loadItems; i++) {
+                    $scope.displayList.push($scope[$scope.activeMenu][last + i]);
                 }
             };
 
-            // would be good to update backend for not get pics from the same collection
-            $scope.fastSort = function (param) {
-                $scope.isLoading = true;
-                $scope.activeMenu = param;
-                var filter = {
-                    where: {
-                        categories: $scope.categoryId,
-                        ratio: param
+            var makeSortedList = function (data) {
+                $scope.vertical = [];
+                $scope.horizontal = [];
+                $scope.panoramic = [];
+
+                data.forEach(function (ele) {
+                    if (ele.ratio <= 100) {
+                        $scope.vertical.push(ele);
+                    } else {
+                        ele.ratio > 180 ? $scope.panoramic.push(ele) : $scope.horizontal.push(ele);
                     }
-                };
+                })
+            };
 
-                if (param === null) delete filter.where.ratio;
-
-                Image.getCollection(filter).then(function (result) {
-                    $scope.fullList = result;
-                    $scope.displayList = $scope.fullList.slice(0,12);
-                    $scope.isLoading = false;
-                }, function (err) {
-                    console.log(err);
-                    $scope.isLoading = false;
-                });
+            $scope.fastSort = function (param) {
+                $scope.activeMenu = param;
+                $scope.displayList = $scope[param].slice(0, 12);
             };
 
             $scope.modalOpen = function () {
@@ -117,39 +115,39 @@ angular.module('app')
                     templateUrl: './app/components/wallpapersPane/modals/openPhoto.html',
                     controller: ['$uibModalInstance', '$scope', '$rootScope', 'Image',
                         function ($uibModalInstance, $scope, $rootScope, Image) {
-                        $scope.item = item;
-                        var currentIndex = function (item) {
-                            return $scope.fullList.indexOf(item);
-                        };
+                            $scope.item = item;
+                            var currentIndex = function (item) {
+                                return $scope.fullList.indexOf(item);
+                            };
 
-                        $scope.ok = function () {
-                            $uibModalInstance.close();
-                        };
+                            $scope.ok = function () {
+                                $uibModalInstance.close();
+                            };
 
-                        $scope.toggleFavs = function (item) {
-                            $scope.$emit('toggleFavs', item);
-                        };
+                            $scope.toggleFavs = function (item) {
+                                $scope.$emit('toggleFavs', item);
+                            };
 
-                        $scope.previous = function () {
-                            var prevItem = currentIndex($scope.item) === 0 ? $scope.fullList.length - 1 : currentIndex($scope.item) - 1;
-                            $scope.item = $scope.fullList[prevItem];
-                        };
+                            $scope.previous = function () {
+                                var prevItem = currentIndex($scope.item) === 0 ? $scope.fullList.length - 1 : currentIndex($scope.item) - 1;
+                                $scope.item = $scope.fullList[prevItem];
+                            };
 
-                        $scope.next = function () {
-                            var nextItem = currentIndex($scope.item) === $scope.fullList.length - 1 ? 0 : currentIndex($scope.item) + 1;
-                            $scope.item = $scope.fullList[nextItem];
-                        };
+                            $scope.next = function () {
+                                var nextItem = currentIndex($scope.item) === $scope.fullList.length - 1 ? 0 : currentIndex($scope.item) + 1;
+                                $scope.item = $scope.fullList[nextItem];
+                            };
 
-                        $scope.cancel = function () {
-                            $uibModalInstance.dismiss('cancel');
-                        };
+                            $scope.cancel = function () {
+                                $uibModalInstance.dismiss('cancel');
+                            };
 
-                        Image.getImage($scope.item.id).then(function (data) {
-                            $scope.tags = data.tags
-                        }, function (err) {
-                            console.log(err)
-                        })
-                    }]
+                            Image.getImage($scope.item.id).then(function (data) {
+                                $scope.tags = data.tags
+                            }, function (err) {
+                                console.log(err)
+                            })
+                        }]
 
                 });
                 modalInstance.result.then(function (selectedItem) {
@@ -158,13 +156,13 @@ angular.module('app')
 
                 });
             };
-            
+
             $scope.$on('remove', function (event, data) {
                 if (data === "all") {
                     $rootScope.favorites = [];
                     $rootScope.favoritesForClass = [];
                 } else {
-                    $scope.toggleFavorites (data);
+                    $scope.toggleFavorites(data);
                 }
             });
 
@@ -184,7 +182,7 @@ angular.module('app')
                     $rootScope.favorites.push(item);
                     $rootScope.favoritesForClass[item.id] = item;
                 }
-            }
+            };
 
         }
     ]);

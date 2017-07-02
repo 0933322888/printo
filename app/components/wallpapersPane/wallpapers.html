@@ -15,19 +15,19 @@
 
     <div class="fast-search">
         <div class="sort-buttons">
-            <a href="" ng-click="fastSort(null)" ng-class="{active : activeMenu == null}">
+            <a href="" ng-click="fastSort('fullList')" ng-class="{active : activeMenu == 'fullList'}">
                 <i class="fa fa-asterisk"></i>
                 <span>{{$root.LANG.all[$root.curLang]}}</span>
             </a>
-            <a href="" ng-click="fastSort('h')" ng-class="{active : activeMenu === 'h'}">
+            <a href="" ng-click="fastSort('horizontal')" ng-class="{active : activeMenu === 'horizontal'}">
                 <i class="fa fa-bars"></i>
                 <span>{{$root.LANG.horizontal[$root.curLang]}}</span>
             </a>
-            <a href="" ng-click="fastSort('v')" ng-class="{active : activeMenu === 'v'}">
+            <a href="" ng-click="fastSort('vertical')" ng-class="{active : activeMenu === 'vertical'}">
                 <i class="fa fa-bars fa-rotate-90"></i>
                 <span>{{$root.LANG.vertical[$root.curLang]}}</span>
             </a>
-            <a href="" ng-click="fastSort('p')" ng-class="{active : activeMenu === 'p'}">
+            <a href="" ng-click="fastSort('panoramic')" ng-class="{active : activeMenu === 'panoramic'}">
                 <i class="fa fa-money"></i>
                 <span>{{$root.LANG.panorama[$root.curLang]}}</span>
             </a>

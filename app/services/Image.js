@@ -35,13 +35,25 @@ angular.module('app')
             };
 
             var _search = function (querry) {
-                //TODO DOES NOT RETURN RESULTS
+                //TODO DOES NOT RETURN RESULTS. RESPONSE IS
+
+                // "<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+                //
+                // <h4>A PHP Error was encountered</h4>
+                //
+                // <p>Severity: Notice</p>
+                // <p>Message:  Undefined variable: colors</p>
+                // <p>Filename: controllers/catalog.php</p>
+                // <p>Line Number: 62</p>
+                //
+                // </div>"
+
                 var deferred = $q.defer();
 
                 $http({
                     url: searchCollectionUrl,
-                    method: "GET",
-                    params: querry
+                    method: "POST",
+                    data: $httpParamSerializerJQLike(querry)
                 }).then(function (result) {
                     deferred.resolve(result.data);
                 }, function (e) {
