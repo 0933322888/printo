@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('app')
-    .controller('menuCtrl', ['$scope', '$rootScope', '$state', '$http', '$uibModal',
-        function ($scope, $rootScope, $state, $http, $uibModal) {
+    .controller('menuCtrl', ['$scope', '$rootScope', '$state', 'interiors', '$http', '$uibModal',
+        function ($scope, $rootScope, $state, interiors, $http, $uibModal) {
 
             $scope.radioModel = null;
             $scope.popular = [54, 70, 133, 71, 18];

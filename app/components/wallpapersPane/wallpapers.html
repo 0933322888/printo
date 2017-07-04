@@ -46,7 +46,7 @@
                     <div class="actions">
                         {{$root.curLang == 'ru' ? item.name_ru : item.name_ua}}
 
-                        <a href="#" title="{{$root.LANG.addToFav[$root.curLang]}}" ng-click="addToFavorites(item)">
+                        <a href="#" title="{{$root.LANG.addToFav[$root.curLang]}}" ng-click="toggleFavorites(item)">
                             <span class="fa " ng-class="{'fa-star': $root.favoritesForClass[item.id], 'fa-star-o': !$root.favoritesForClass[item.id]}"></span>
                         </a>
                     </div>

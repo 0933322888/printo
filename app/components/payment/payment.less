@@ -24,56 +24,87 @@
   }
 
   .search-results {
-    padding: 15px 35px;
+    padding: 10px 30px;
+    width: 80%;
+    margin: auto;
+
+    .order-preview {
+      margin-bottom: 15px;
+    }
+
+    .paid-message {
+      color: #0c0;
+      margin: 0px 5px 20px;
+      text-align: center;
+      border: 1px solid #0c0;
+      border-radius: 3px;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+    .unpaid-message{
+      color: red;
+      font-weight: bold;
+      margin: 0px 5px 20px;
+      text-align: center;
+      border: 1px solid red;
+      border-radius: 3px;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+
     .contacts-list {
-      & .name {
+      .name {
         &:before {
           content: '';
-          position: absolute;
-          left: 12px;
-          top: 108px;
+          display: inline-block;
           width: 22px;
           height: 22px;
           background: url(http://print-oboi.com.ua/public/img/sprite-contacts.png) no-repeat 0 2px;
           background-position: 0 -86px;
+          top: 7px;
+          right: 0px;
+          position: relative;
         }
       }
 
-      & .phone {
+      .phone {
         &:before {
           content: '';
-          position: absolute;
-          left: 12px;
-          top: 136px;
+          display: inline-block;
           width: 22px;
           height: 22px;
           background: url(http://print-oboi.com.ua/public/img/sprite-contacts.png) no-repeat 0 2px;
+          top: 7px;
+          right: 0px;
+          position: relative;
         }
       }
 
       .email {
         &:before {
           content: '';
-          position: absolute;
-          left: 12px;
-          top: 165px;
+          display: inline-block;
           width: 22px;
           height: 22px;
           background: url(http://print-oboi.com.ua/public/img/sprite-contacts.png) no-repeat 0 2px;
           background-position: 0 -20px;
+          top: 7px;
+          right: 0px;
+          position: relative;
         }
       }
 
       .address {
         &:before {
           content: '';
-          position: absolute;
-          left: 12px;
-          top: 190px;
+          display: inline-block;
           width: 22px;
           height: 22px;
           background: url(http://print-oboi.com.ua/public/img/sprite-contacts.png) no-repeat 0 2px;
           background-position: 0px -62px;
+          top: 7px;
+          right: 0px;
+          position: relative;
         }
       }
     }

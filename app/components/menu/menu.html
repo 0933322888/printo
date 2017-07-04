@@ -19,7 +19,7 @@
 
             <div class="col-md-1 search">
                 <div class="input-group">
-                    <input type="text" class="form-control" ng-model="searchText" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
+                    <input type="text" ng-keypress="$event.keyCode == 13 ? search() : null" class="form-control" ng-model="searchText" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button" ng-click="search()">
                             <i class="fa fa-search" aria-hidden="true"></i>
@@ -136,17 +136,16 @@
                             </ul>
                         </div>
 
-                        <!--TODO: when interiors API is present-->
-                        <!--<div class="block-item">-->
-                            <!--<div class="name text-center">{{$root.LANG.interiorsCat[$root.curLang] | uppercase}}</div>-->
+                        <div class="block-item">
+                            <div class="name text-center">{{$root.LANG.interiorsCat[$root.curLang] | uppercase}}</div>
 
-                            <!--<ul>-->
-                                <!--<li ng-repeat="item in interiors track by $index">-->
-                                    <!--<a class="category-item" ng-click="goToCateg(item.id, item.name, 'interiors')"> {{item.name }}</a>-->
-                                <!--</li>-->
+                            <ul>
+                                <li ng-repeat="item in interiors track by $index">
+                                    <a class="category-item" ng-click="goToCateg(item.id, item.name, 'interiors')"> {{item.name }}</a>
+                                </li>
 
-                            <!--</ul>-->
-                        <!--</div>-->
+                            </ul>
+                        </div>
 
                         <div class="block-item colors">
                             <div class="name text-center">{{$root.LANG.selectColorsCat[$root.curLang] | uppercase}}

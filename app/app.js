@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'infinite-scroll', 'ngSanitize']);
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'infinite-scroll', 'ngSanitize', 'ngJcrop']);
 
 app.constant('BASE_URL', 'http://foto-oboi.com.ua/');
 app.constant('SITEID', 'poua');
@@ -6,10 +6,11 @@ app.constant('SITEID', 'poua');
 app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
         $urlRouterProvider.otherwise("/home");
-        var categories = ['Categories', function (Categories) {
+
+        var getInteriors = ['$http', function ($http) {
             //TODO: API for popular and regular categories
-            return Categories.getCategories().then(function (result) {
-                return result
+            return $http.get('http://foto-oboi.com.ua/catalog/interiors').then(function (result) {
+                return result.data;
             })
         }];
 
@@ -18,7 +19,9 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
                 abstract: true,
                 templateUrl: "./app/components/menu/menu.html",
                 controller: 'menuCtrl',
-                resolve: categories
+                resolve: {
+                    interiors: getInteriors
+                }
             })
             .state('app.home', {
                 url: "/home",

@@ -20,9 +20,8 @@ angular.module('app')
 
             var _pay = function (id) {
                 var deferred = $q.defer();
-                //TODO: CORS!
                 $http({
-                    url: paymentUrl2 + id,
+                    url: paymentUrl + id,
                     method: "POST"
                 }).then(function (result) {
                     deferred.resolve(result.data);

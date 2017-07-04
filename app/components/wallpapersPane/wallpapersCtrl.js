@@ -30,11 +30,11 @@ angular.module('app')
 
             $scope.isLoading = true;
             if ($scope.categoryType === 'search') {
-                var searchQuerry = {
+                var searchParams = {
                     q: $scope.categoryName,
                     siteid: SITEID
                 };
-                Image.search(searchQuerry).then(function (result) {
+                Image.search(searchParams).then(function (result) {
                     $scope.fullList = result;
                     $scope.displayList = $scope.fullList.slice(0, 12);
                     $scope.isLoading = false;
@@ -88,11 +88,13 @@ angular.module('app')
                     ariaLabelledBy: 'modal-title',
                     ariaDescribedBy: 'modal-body',
                     templateUrl: './app/components/wallpapersPane/modals/selectionHelp.html',
-                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+                    controller: ['$uibModalInstance', '$rootScope', '$scope',
+                        function ($uibModalInstance, $rootScope, $scope) {
 
                         $scope.ok = function () {
                             $uibModalInstance.close();
                         };
+                        $scope.similarPicText = $rootScope.LANG.similarPicText[$rootScope.curLang];
 
                         $scope.cancel = function () {
                             $uibModalInstance.dismiss('cancel');
@@ -183,6 +185,7 @@ angular.module('app')
                     $rootScope.favoritesForClass[item.id] = item;
                 }
             };
+
 
         }
     ]);
