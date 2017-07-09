@@ -4,57 +4,60 @@
         <div class="cut-paper2">
             <div class="cut-title">Укажите необходимые Вам размеры или передвиньте рамку</div>
 
-            <div class="paper-crop">
-                <div ng-jcrop="obj.src" ng-jcrop-config-name="poConfig" selection="obj.selection"
-                     thumbnail="obj.thumbnail"></div>
-            </div>
 
-            <div class="details">
-                <div class="parametres">
-
-                    <div class="width">
-                        <h4>Ширина, см.</h4>
-                        <span class="form-input form-input-text min">
-						<input type="text" class="i" id="width" value="480">
-					</span>
+            <div class="col-md-12">
+                <div class="col-md-9">
+                    <div class="paper-crop" ng-class="{'no-v-line': noVLine, 'no-h-line': noHLine}">
+                        <div ng-jcrop="obj.src" ng-jcrop-config-name="poConfig" selection="obj.selection"
+                             thumbnail="obj.thumbnail"></div>
                     </div>
-
-                    <div class="height">
-                        <h4>Высота, см.</h4>
-                        <span class="form-input form-input-text min">
-						<input type="text" class="i" id="height" value="270">
-					</span>
-                    </div>
-
-                    <div class="sum">
-                        Площадь:
-                        <span id="square">12.96</span> кв.м.
-                    </div>
-
-                    <div class="divider"></div>
-                    <div class="ico-bw" id="f_grayscale"><span class="plink">черно-белое</span></div>
-                    <div class="ico-mirror" id="f_flip"><span class="plink">отзеркалить</span></div>
-                    <div class="ico-sepia" id="f_sepia"><span class="plink">сепия</span></div>
-
-                    <div class="area">
-
-                    </div>
-
-
                 </div>
 
+                <div class="col-md-3">
+                    <div class="details">
+                        <div class="parametres">
+
+                            <div class="width">
+                                <h4>Ширина, см.</h4>
+                                <span class="">
+						<input type="text" class="size width form-control" id="width" ng-model="photoWidth">
+					</span>
+                            </div>
+
+                            <div class="height">
+                                <h4>Высота, см.</h4>
+                                <span class="">
+						<input type="text" class="size height form-control" id="height" ng-model="photoHeight">
+					</span>
+                            </div>
+
+                            <div class="square">
+                                Площадь:
+                                <span id="square">{{square}}</span> кв.м.
+                            </div>
+
+                            <div class="divider"></div>
+                            <div class="ico-bw" id="f_grayscale"><span class="plink">черно-белое</span></div>
+                            <div class="ico-mirror" id="f_flip"><span class="plink">отзеркалить</span></div>
+                            <div class="ico-sepia" id="f_sepia"><span class="plink">сепия</span></div>
+
+                            <div class="area">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="clear">&nbsp;</div>
 
             <div class="tags">
-                <i class="fa fa-tags fa-flip-horizontal"></i>&nbsp;
-                <a href="/wallpapers/category/1599">Для кабинета</a> , &nbsp;
-                <a href="/wallpapers/category/1596">В прихожую</a> , &nbsp;
-                <a href="/wallpapers/category/1593">В гостиную</a> , &nbsp;
-                <a href="/wallpapers/category/1587">3D-обои</a> , &nbsp;
-                <a href="/wallpapers/category/1556">абстрактное 3Д</a> , &nbsp;
-                <a href="/wallpapers/category/54">Абстракция</a> , &nbsp;
+                <div class="col-md-12">
+                    <i class="fa fa-tags fa-flip-horizontal"></i>&nbsp;
+                    <a ng-repeat="tag in item.tags track by $index"
+                       ng-href="http://print-oboi.com.ua/wallpapers/category/{{tag.cat_id}}">{{tag['name_' +
+                        $root.curLang]}}&nbsp;</a>
+                </div>
             </div>
 
             <div class="clear">&nbsp;</div>
