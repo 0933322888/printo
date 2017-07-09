@@ -5,6 +5,7 @@ app.constant('SITEID', 'poua');
 
 app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',
     function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+
         $urlRouterProvider.otherwise("/home");
 
         var getInteriors = ['$http', function ($http) {
@@ -81,12 +82,25 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
             .state('app.crop', {
                 url: "/crop",
                 templateUrl: "./app/components/crop/crop.html",
-                controller: 'cropCtrl'
+                controller: 'cropCtrl',
+                params: {
+                    photo: null
+                }
             });
 
         $locationProvider.html5Mode(true);
         $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
         // $httpProvider.interceptors.push('Interceptor');
+    }])
+    .config(['ngJcropConfigProvider', function (ngJcropConfigProvider) {
+
+        //jCrop config
+        ngJcropConfigProvider.setJcropConfig('poConfig', {
+            bgColor: 'black',
+            bgOpacity: .4,
+            aspectRatio: null
+        });
+
     }])
     .run(['$rootScope', '$state', '$http',
         function ($rootScope, $state, $http) {

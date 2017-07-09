@@ -21,7 +21,7 @@ var paths = {
             './bower_components/bootstrap/dist/js/bootstrap.min.js',
             './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
             './bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js',
-            './bower_components/jcrop/js/jquery.Jcrop.min.js',
+            './bower_components/jcrop/js/jquery.Jcrop.js',
             './bower_components/ng-jcrop/ng-jcrop.js',
             './node_modules/angular-crop/lib/angular-crop.js',
             './bower_components/angular-sanitize/angular-sanitize.min.js'

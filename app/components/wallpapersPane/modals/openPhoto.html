@@ -14,13 +14,13 @@
     </div>
 
     <div class="tags">
-        <a ng-repeat="tag in tags track by $index"
+        <a ng-repeat="tag in photo.tags track by $index"
            ng-href="http://print-oboi.com.ua/wallpapers/category/{{tag.cat_id}}">{{tag['name_' +
             $root.curLang]}}</a>
     </div>
 
     <div class="modal-footer">
-        <button class="btn btn-success" type="button" ng-click="inputSizes()">OK</button>
+        <button class="btn btn-success" type="button" ng-click="inputSizes()">Ввести размеры</button>
         <button class="btn btn-link pull-left fav"
                 type="button"
                 ng-click="toggleFavs(item)"

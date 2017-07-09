@@ -122,8 +122,13 @@ angular.module('app')
                                 return $scope.fullList.indexOf(item);
                             };
 
-                            $scope.ok = function () {
+                            // $scope.ok = function () {
+                            //     $uibModalInstance.close();
+                            // };
+
+                            $scope.inputSizes = function () {
                                 $uibModalInstance.close();
+                                $state.go('app.crop', {photo: $scope.photo});
                             };
 
                             $scope.toggleFavs = function (item) {
@@ -145,7 +150,7 @@ angular.module('app')
                             };
 
                             Image.getImage($scope.item.id).then(function (data) {
-                                $scope.tags = data.tags
+                                $scope.photo = data;
                             }, function (err) {
                                 console.log(err)
                             })
