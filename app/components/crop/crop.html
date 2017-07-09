@@ -20,14 +20,21 @@
                             <div class="width">
                                 <h4>Ширина, см.</h4>
                                 <span class="">
-						<input type="text" class="size width form-control" id="width" ng-model="photoWidth">
+						<input type="text" class="size width form-control"
+                               id="width"
+                               ng-model-options="{debounce: 500}"
+                               ng-change="updateSize('w')"
+                               ng-model="photoWidth">
 					</span>
                             </div>
 
                             <div class="height">
                                 <h4>Высота, см.</h4>
                                 <span class="">
-						<input type="text" class="size height form-control" id="height" ng-model="photoHeight">
+						<input type="text" class="size height form-control"
+                               id="height"
+                               ng-change="updateSize('h')"
+                               ng-model="photoHeight">
 					</span>
                             </div>
 
