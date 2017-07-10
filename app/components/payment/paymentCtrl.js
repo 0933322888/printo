@@ -13,7 +13,6 @@ angular.module('app')
                     if(!result.status || result.status === '3' || (paytime > 0 && paytime < expireDate)) {
                         $scope.searchResult = "notFound";
                     } else {
-                        //TODO what is payment default page?
                         // TODO how is delivery address is formed? what if there is flat number?
                         result.status === '1' ? $scope.searchResult = "found" : $scope.searchResult = "foundNotPaid";
                     }

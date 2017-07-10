@@ -4,8 +4,8 @@
 // https://www.npmjs.com/package/cropperjs
 
 angular.module('app')
-    .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', "$timeout",
-        function ($scope, $stateParams, $rootScope, $state, $timeout) {
+    .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', "Order",
+        function ($scope, $stateParams, $rootScope, $state, Order) {
             $scope.item = $stateParams.photo;
 
             // removes dragging vertical/horizontal lines if true
@@ -68,6 +68,33 @@ angular.module('app')
                     $scope.photoWidth = selectedW;
                     $scope.photoHeight = selectedH;
                 }
-            }, true)
+            }, true);
+
+            $scope.sendOrder = function () {
+                var adjustedSelection = $scope.obj.selection.map(function (coord, index) {
+                    return index%2 == 0 ? coord/$scope.wCoef : coord/$scope.hCoef;
+                });
+
+                var orderModel = {
+                    wpId:$scope.item.id,
+                    image: [$scope.item.realWidth,$scope.item.realHeight],
+                    trueDimensions: [$scope.item.realWidth, $scope.item.realHeight],
+                    crop: adjustedSelection,
+                    texture: 2,
+                    filters: [],
+                    robot_id: 116849,
+                    manager:34,
+                    name: "test",
+                    phone:"0931234567",
+                    email: "test@test",
+                    comment: "test"
+                };
+
+                Order.sendOrder(orderModel).then(function (response) {
+                    console.log(response)
+                }, function (err) {
+                    console.log(err)
+                })
+            }
         }
     ]);
