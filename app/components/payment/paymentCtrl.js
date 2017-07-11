@@ -22,14 +22,12 @@ angular.module('app')
             };
 
             $scope.payInvoice = function(id) {
-                var url = "http://print-oboi.com.ua/payment/invoice/" + id;
-                $window.open(url, '_blank');
-                // TODO switch to service when backend is ready
-                // Payment.payOrder(id).then(function (res) {
-                //     console.log(res);
-                // }, function (err) {
-                //     console.log(err)
-                // })
+                Payment.payOrder(id).then(function (res) {
+                    //TODO replace with file download
+                    $window.open(res.config.url, '_blank');
+                }, function (err) {
+                    console.log(err)
+                })
             }
         }
     ]);

@@ -1,29 +1,19 @@
 "use strict";
 
 angular.module('app')
-    .controller('roomTypeCtrl', ['$scope', '$rootScope', '$state', '$stateParams', 'Image',
-        function ($scope, $rootScope, $state, $stateParams, Image) {
+    .controller('roomTypeCtrl', ['$scope', '$rootScope', '$state', '$stateParams', 'Image', 'interiors',
+        function ($scope, $rootScope, $state, $stateParams, Image, interiors) {
             $scope.displayList = [];
             $scope.fullList = [];
-            $scope.roomName = $stateParams.roomType;
+            $scope.roomName = $stateParams.name;
 
-            //TODO: interiors categories API
+            var categIndex = interiors.linkid[$scope.roomName];
 
-            var getRoomId = function (id) {
-                return {
-                    where: {
-                        categories: [id]
-                    }
-                };
-            };
 
-            Image.getCollection(getRoomId(roomCategories[$scope.roomName])).then(function (result) {
-                $scope.fullList = result;
+
+                $scope.fullList = interiors.categories[categIndex].interiors;
                 $scope.displayList = $scope.fullList.slice(0, 12);
-                $scope.isLoading = false;
-            }, function (err) {
-                console.log(err);
-            });
+
 
             $scope.loadMore = function () {
                 var last = $scope.displayList.length;

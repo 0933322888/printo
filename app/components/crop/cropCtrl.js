@@ -4,8 +4,8 @@
 // https://www.npmjs.com/package/cropperjs
 
 angular.module('app')
-    .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', "Order",
-        function ($scope, $stateParams, $rootScope, $state, Order) {
+    .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', 'Order', 'Textures',
+        function ($scope, $stateParams, $rootScope, $state, Order, Textures) {
             $scope.item = $stateParams.photo;
 
             // removes dragging vertical/horizontal lines if true
@@ -69,6 +69,13 @@ angular.module('app')
                     $scope.photoHeight = selectedH;
                 }
             }, true);
+
+            Textures.getTextures().then(function (responce) {
+               console.log(responce)
+                // Andrey
+            }, function (error) {
+                console.log(error)
+            });
 
             $scope.sendOrder = function () {
                 var adjustedSelection = $scope.obj.selection.map(function (coord, index) {

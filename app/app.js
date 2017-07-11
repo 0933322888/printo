@@ -10,7 +10,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
 
         var getInteriors = ['$http', function ($http) {
             //TODO: API for popular and regular categories
-            return $http.get('http://foto-oboi.com.ua/catalog/interiors').then(function (result) {
+            return $http.get('http://foto-oboi.com.ua/v2/catalog/interiors').then(function (result) {
                 return result.data;
             })
         }];
@@ -75,9 +75,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
                 controller: 'roomsCtrl'
             })
             .state('app.roomstype', {
-                url: "/rooms/{roomType}",
+                url: "/rooms/{name}",
                 templateUrl: "./app/components/roomType/roomType.html",
-                controller: 'roomTypeCtrl'
+                controller: 'roomTypeCtrl',
+                resolve: {
+                    interiors: getInteriors
+                }
             })
             .state('app.crop', {
                 url: "/crop",

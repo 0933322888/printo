@@ -4,8 +4,7 @@ angular.module('app')
     .service('Payment', ['$q', '$http', 'BASE_URL',
         function ($q, $http, BASE_URL) {
             var orderUrl = BASE_URL + 'bills/get/';
-            var paymentUrl = BASE_URL + 'payment/invoice/';
-            var paymentUrl2 = 'http://print-oboi.com.ua/' + 'payment/invoice/';
+            var paymentUrl = BASE_URL + 'v2/invoice/create/';
 
             var _get = function (id) {
                 var deferred = $q.defer();
@@ -22,9 +21,9 @@ angular.module('app')
                 var deferred = $q.defer();
                 $http({
                     url: paymentUrl + id,
-                    method: "POST"
+                    method: "GET"
                 }).then(function (result) {
-                    deferred.resolve(result.data);
+                    deferred.resolve(result);
                 }, function (e) {
                     deferred.reject(e);
                 });

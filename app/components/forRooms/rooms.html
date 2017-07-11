@@ -6,7 +6,7 @@
         <div class="catalog grid col-md-12">
             <div class="col-md-4 no-padding-right" ng-repeat="item in roomsList track by $index">
                 <div class="catalog-item item">
-                    <div class="photo" ui-sref="app.roomstype({roomType: item.room})">
+                    <div class="photo" ui-sref="app.roomstype({name: item.room})">
                         <img ng-src="{{item.pic}}">
                     </div>
                     <div class="name">

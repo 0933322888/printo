@@ -136,16 +136,16 @@
                             </ul>
                         </div>
 
-                        <!--<div class="block-item">-->
-                            <!--<div class="name text-center">{{$root.LANG.interiorsCat[$root.curLang] | uppercase}}</div>-->
+                        <div class="block-item">
+                            <div class="name text-center">{{$root.LANG.interiorsCat[$root.curLang] | uppercase}}</div>
 
-                            <!--<ul>-->
-                                <!--<li ng-repeat="item in interiors track by $index">-->
-                                    <!--<a class="category-item" ng-click="goToCateg(item.id, item.name, 'interiors')"> {{item.name }}</a>-->
-                                <!--</li>-->
+                            <ul>
+                                <li ng-repeat="(key, value) in interiors.linkid track by $index">
+                                    <a class="category-item" ng-click="goToRoom(key)"> {{ $root.LANG[key][$root.curLang] }}</a>
+                                </li>
 
-                            <!--</ul>-->
-                        <!--</div>-->
+                            </ul>
+                        </div>
 
                         <div class="block-item colors">
                             <div class="name text-center">{{$root.LANG.selectColorsCat[$root.curLang] | uppercase}}

@@ -1,15 +1,14 @@
 <div infinite-scroll='loadMore()' infinite-scroll-distance='1' class="row grid-container">
     <div class="room-type">
 
-        <p class="title_text"><b>{{$root.LANG.roomName[$root.curLang]}}</b></p>
-
+        <p class="title_text"><b>{{$root.LANG[roomName][$root.curLang]}}</b></p>
 
         <div class="row">
             <div class="catalog grid col-md-12">
                 <div class="col-md-4 no-padding-right" ng-repeat="item in displayList track by $index">
                     <div class="catalog-item item">
                         <div class="photo">
-                            <img ng-src="http://foto-oboi.com.ua/images/wp/{{item.id+'/240b240.jpg'}}">
+                            <img ng-src="http://print-oboi.com.ua/uploads/images/interior/poua/{{item.id}}.jpg">
                         </div>
                         <div class="name">
                             {{$root.LANG.order[$root.curLang]}}

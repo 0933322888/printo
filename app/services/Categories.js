@@ -4,7 +4,7 @@ angular.module('app')
     .service('Categories', ['$q', '$http', 'BASE_URL',
         function ($q, $http, BASE_URL) {
             var categoriesUrl = BASE_URL + 'catalog/categories/0';
-            var interiorsUrl = BASE_URL + 'catalog/interiors';
+            var interiorsUrl = BASE_URL + 'v2/catalog/interiors';
 
             var _getCategories = function () {
                 var deferred = $q.defer();

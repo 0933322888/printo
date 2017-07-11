@@ -7,7 +7,7 @@ angular.module('app')
             $scope.roomsList = [
                 {
                     pic: "http://print-oboi.com.ua/public/img/for/detskiye_fotooboi.jpg",
-                    room: "children"
+                    room: "childroom"
                 },
                 {
                     pic: "http://print-oboi.com.ua/public/img/for/fotooboi_dlya_kukhni.jpg",
@@ -19,7 +19,7 @@ angular.module('app')
                 },
                 {
                     pic: "http://print-oboi.com.ua/public/img/for/fotooboi_v_gostinuyu.jpg",
-                    room: "hallway"
+                    room: "hall"
                 },
                 {
                     pic: "http://print-oboi.com.ua/public/img/for/fotooboi_v_prikhozhuyu.jpg",
@@ -36,7 +36,7 @@ angular.module('app')
             ];
 
             $scope.goToRoom = function (room) {
-                $state.go("app.room", room)
+                $state.go("app.roomstype", {room: room})
             }
 
         }
