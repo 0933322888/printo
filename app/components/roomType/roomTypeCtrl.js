@@ -9,11 +9,9 @@ angular.module('app')
 
             var categIndex = interiors.linkid[$scope.roomName];
 
-
-
-                $scope.fullList = interiors.categories[categIndex].interiors;
-                $scope.displayList = $scope.fullList.slice(0, 12);
-
+            $scope.fullList = interiors.categories[categIndex].interiors;
+            $scope.displayList = $scope.fullList.slice(0, 12);
+            $scope.headerText = interiors.categories[categIndex]["text_poua_" + $rootScope.curLang];
 
             $scope.loadMore = function () {
                 var last = $scope.displayList.length;
@@ -22,6 +20,15 @@ angular.module('app')
                 for (var i = 0; i < loadItems; i++) {
                     $scope.displayList.push($scope.fullList[last + i]);
                 }
+            };
+
+            $scope.makeOrder = function (item) {
+                var imgId = item.wpLink.split("_")[1];
+                Image.getImage(imgId).then(function (responce) {
+                    $state.go('app.crop', {photo: responce});
+                }, function (err) {
+                    console.log(err)
+                })
             };
         }
     ]);

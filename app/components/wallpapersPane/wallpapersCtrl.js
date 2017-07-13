@@ -16,13 +16,13 @@ angular.module('app')
                 if ($scope.categoryType === 'color') {
                     return {
                         where: {
-                            color: $scope.categoryId
+                            color: [$scope.categoryId]
                         }
                     };
                 } else {
                     return {
                         where: {
-                            categories: $scope.categoryId
+                            categories: [$scope.categoryId]
                         }
                     };
                 }
