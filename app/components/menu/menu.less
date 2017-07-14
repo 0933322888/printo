@@ -23,19 +23,18 @@ html, body {
 
     .logo {
       padding-left: 0;
-    }
+      padding-right: 0;
 
-    .lang {
-      position: relative;
-      //right: 35px;
-      top: 5px;
       .menu-lang {
-        list-style-type: none;
-        padding-left: 0 !important;
-        a {
+        position: relative;
+        top: 7px;
+        margin-left: 5px;
+        float: right;
+        div {
           font-family: sans-serif;
           color: #1F4590;
           font-weight: bold;
+          cursor: pointer;
           &:hover, &:active, &.active {
             color: limegreen;
             text-decoration: none;
@@ -45,11 +44,9 @@ html, body {
     }
 
     .search {
-      padding-right: 0px !important;
-      text-align: end;
       .input-group {
-        right: 75px;
-        width: 240px;
+        min-width: 240px;
+        width: 100%;
 
         .form-control {
           height: 45px;
@@ -74,7 +71,7 @@ html, body {
     }
     .recall {
       text-align: end;
-      padding-right: 5px;
+      padding-right: 0;
 
       .btn-recall {
         width: 200px;
@@ -118,6 +115,9 @@ html, body {
     font-family: @font_family;
     font-size: 13px;
 
+    .upper-menu {
+      padding-right: 9px;
+    }
     .btn-group {
       width: 100%;
       top: -16px;
@@ -161,10 +161,10 @@ html, body {
     .left-side-block {
       font-weight: bold;
       margin-top: -20px;
-      margin-left: 0;
+      //margin-left: 0;
       //width: 230px;
-      padding-left: 0 !important;
-      padding-right: 5px !important;
+      //padding-left: 0 !important;
+      padding-right: 0px !important;
 
       .favorites {
         width: 95%;
@@ -217,7 +217,6 @@ html, body {
       }
 
       .block-item {
-        width: 95% !important;
         min-width: 185px;
         position: relative;
         border-radius: 10px;

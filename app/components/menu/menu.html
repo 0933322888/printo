@@ -3,41 +3,40 @@
     <div class="header">
         <div class="container">
             <div class="col-md-1 empty"></div>
-            <div class="col-md-3 logo">
-                <a href=""><img src="http://print-oboi.com.ua/public/img/redesign/logo.png" ng-click="goToMenu('home')"/></a>
-            </div>
-            <div class="col-md-1 lang">
-                <ul class="menu-lang">
-                    <li>
-                        <a href="#" ng-click="setLanguage('ua')" ng-class="{active : $root.curLang == 'ua'}">UA</a>
-                    </li>
-                    <li>
-                        <a href="#" ng-click="setLanguage('ru')" ng-class="{active : $root.curLang == 'ru'}">RU</a>
-                    </li>
-                </ul>
-            </div>
+            <div class="col-md-10">
+                <div class="col-md-12">
+                    <div class="col-md-3 logo">
+                        <a href=""><img src="http://print-oboi.com.ua/public/img/redesign/logo.png"
+                                        ng-click="goToMenu('home')"/></a>
+                        <div class="menu-lang">
+                                <div ng-click="setLanguage('ua')" ng-class="{active : $root.curLang == 'ua'}">UA</div>
+                                <div ng-click="setLanguage('ru')" ng-class="{active : $root.curLang == 'ru'}">RU</div>
+                        </div>
+                    </div>
 
-            <div class="col-md-2 search">
-                <div class="input-group">
-                    <input type="text" ng-keypress="$event.keyCode == 13 ? search() : null" class="form-control" ng-model="searchText" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="search()">
-                            <i class="fa fa-search" aria-hidden="true"></i>
+                    <div class="col-md-4 search">
+                        <div class="input-group">
+                            <input type="text" ng-keypress="$event.keyCode == 13 ? search() : null" class="form-control"
+                                   ng-model="searchText" placeholder="{{$root.LANG.searchBox[$root.curLang]}}">
+                            <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="search()">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="col-md-2 hours">
+                        <span class="phone_num">(044)221-33-03</span>
+                        <p>ПН - ПТ | 9:00-18:00</p>
+                    </div>
+                    <div class="col-md-3 recall">
+                        <button class="btn btn-recall" type="submit" ng-click="recall()">
+                            <i class="fa fa-phone"></i>
+                            <span class="text">{{$root.LANG.recallRequest[$root.curLang] | uppercase}}</span>
                         </button>
-                    </span>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-2 hours">
-                <span class="phone_num">(044)221-33-03</span>
-                <p>ПН - ПТ | 9:00-18:00</p>
-            </div>
-            <div class="col-md-2 recall">
-                <button class="btn btn-recall" type="submit" ng-click="recall()">
-                    <i class="fa fa-phone"></i>
-                    <span class="text">{{$root.LANG.recallRequest[$root.curLang] | uppercase}}</span>
-                </button>
-            </div>
-
             <div class="col-md-1 empty"></div>
         </div>
     </div>
@@ -48,8 +47,8 @@
             <div class="col-md-1"></div>
 
             <div class="col-md-10">
-                <div class="">
-                    <div class="btn-group ">
+                <div class="col-md-12 upper-menu">
+                    <div class="btn-group">
                         <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
                                uib-btn-radio="'gluing'">{{$root.LANG.gluing[$root.curLang] | uppercase}}</label>
                         <label class="btn btn-menu" ng-click="goToMenu()" ng-model="radioModel"
@@ -115,7 +114,8 @@
 
                             <ul>
                                 <li ng-repeat="item in popular track by $index">
-                                    <a class="category-item" ng-click="goToCateg(item, $root.LANG.categories[item][$root.curLang], 'popular')">
+                                    <a class="category-item"
+                                       ng-click="goToCateg(item, $root.LANG.categories[item][$root.curLang], 'popular')">
                                         {{$root.LANG.categories[item][$root.curLang]}}
                                     </a>
                                 </li>
@@ -128,7 +128,8 @@
 
                             <ul>
                                 <li ng-repeat="item in categories track by $index">
-                                    <a class="category-item" ng-click="goToCateg(item, $root.LANG.categories[item][$root.curLang], 'categories')">
+                                    <a class="category-item"
+                                       ng-click="goToCateg(item, $root.LANG.categories[item][$root.curLang], 'categories')">
                                         {{$root.LANG.categories[item][$root.curLang]}}
                                     </a>
                                 </li>
@@ -141,7 +142,8 @@
 
                             <ul>
                                 <li ng-repeat="(key, value) in interiors.linkid track by $index">
-                                    <a class="category-item" ng-click="goToRoom(key)"> {{ $root.LANG[key][$root.curLang] }}</a>
+                                    <a class="category-item" ng-click="goToRoom(key)"> {{ $root.LANG[key][$root.curLang]
+                                        }}</a>
                                 </li>
 
                             </ul>
@@ -153,45 +155,55 @@
 
                             <ul class="color-box">
                                 <li class="item">
-                                    <a class="color-item a" ng-click="goToCateg(13, $root.LANG.selectColorsRed[$root.curLang], 'color')"
+                                    <a class="color-item a"
+                                       ng-click="goToCateg(13, $root.LANG.selectColorsRed[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsRed[$root.curLang]}}></a>
                                 </li>
                                 <li class="item">
-                                    <a class="color-item b" ng-click="goToCateg(4, $root.LANG.selectColorsGreen[$root.curLang], 'color')"
+                                    <a class="color-item b"
+                                       ng-click="goToCateg(4, $root.LANG.selectColorsGreen[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsGreen[$root.curLang]}}></a>
                                 </li>
                                 <li class="item">
-                                    <a class="color-item c" ng-click="goToCateg(2, $root.LANG.selectColorsBlue[$root.curLang], 'color')"
+                                    <a class="color-item c"
+                                       ng-click="goToCateg(2, $root.LANG.selectColorsBlue[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsBlue[$root.curLang]}}></a>
                                 </li>
                                 <li class="item">
-                                    <a class="color-item d" ng-click="goToCateg(12, $root.LANG.selectColorsOrange[$root.curLang], 'color')"
+                                    <a class="color-item d"
+                                       ng-click="goToCateg(12, $root.LANG.selectColorsOrange[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsOrange[$root.curLang]}}></a>
                                 </li>
                                 <li class="item">
-                                    <a class="color-item e" ng-click="goToCateg(9, $root.LANG.selectColorsBrown[$root.curLang], 'color')"
+                                    <a class="color-item e"
+                                       ng-click="goToCateg(9, $root.LANG.selectColorsBrown[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsBrown[$root.curLang]}}></a>
                                 </li>
                             </ul>
                             <ul class="color-box">
                                 <li class="item">
-                                    <a class="color-item f" ng-click="goToCateg(17, $root.LANG.selectColorsBlack[$root.curLang], 'color')"
+                                    <a class="color-item f"
+                                       ng-click="goToCateg(17, $root.LANG.selectColorsBlack[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsBlack[$root.curLang]}}></a>
                                 </li>
                                 <li class="item">
-                                    <a class="color-item g" ng-click="goToCateg(14, $root.LANG.selectColorsPink[$root.curLang], 'color')"
+                                    <a class="color-item g"
+                                       ng-click="goToCateg(14, $root.LANG.selectColorsPink[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsPink[$root.curLang]}}></a>
                                 </li>
                                 <li class="item">
-                                    <a class="color-item h" ng-click="goToCateg(8, $root.LANG.selectColorsCyan[$root.curLang], 'color')"
+                                    <a class="color-item h"
+                                       ng-click="goToCateg(8, $root.LANG.selectColorsCyan[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsCyan[$root.curLang]}}></a>
                                 </li>
                                 <li class="item">
-                                    <a class="color-item i" ng-click="goToCateg(6, $root.LANG.selectColorsPearl[$root.curLang], 'color')"
+                                    <a class="color-item i"
+                                       ng-click="goToCateg(6, $root.LANG.selectColorsPearl[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsPearl[$root.curLang]}}></a>
                                 </li>
                                 <li class="item">
-                                    <a class="color-item j" ng-click="goToCateg(16, $root.LANG.selectColorsYellow[$root.curLang], 'color')"
+                                    <a class="color-item j"
+                                       ng-click="goToCateg(16, $root.LANG.selectColorsYellow[$root.curLang], 'color')"
                                        title={{$root.LANG.selectColorsYellow[$root.curLang]}}></a>
                                 </li>
                             </ul>
@@ -199,7 +211,8 @@
 
                         <div class="block-item own-photo">
                             <div class="name text-center">
-                                <img id="ownPhoto" ng-src="http://print-oboi.com.ua/public/img/redesign/box-upload-title.png">{{$root.LANG.ownPhoto[$root.curLang]
+                                <img id="ownPhoto"
+                                     ng-src="http://print-oboi.com.ua/public/img/redesign/box-upload-title.png">{{$root.LANG.ownPhoto[$root.curLang]
                                 | uppercase}}
                             </div>
                             <p>{{$root.LANG.ownPhoto1[$root.curLang]}}</p>
