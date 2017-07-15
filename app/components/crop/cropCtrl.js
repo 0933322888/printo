@@ -13,10 +13,6 @@ angular.module('app')
             $scope.noHLine = false;
 
             $scope.obj = {};
-            //TODO 2 APIs for image get?
-            //https://foto-oboi.com.ua/images/wp/4812/580b480.jpg
-            //https://foto-oboi.com.ua/images/wps/poua580b390/4812.jpg (<=== used for cropping)
-
             $scope.obj.src = 'https://foto-oboi.com.ua/images/wps/poua580b390/' + $scope.item.id + '.jpg';
 
             // Required: The current selection coords. Must be [x, y, x2, y2, w, h]
@@ -70,12 +66,12 @@ angular.module('app')
                 }
             }, true);
 
-            Textures.getTextures().then(function (responce) {
-               console.log(responce)
-                // Andrey
-            }, function (error) {
-                console.log(error)
-            });
+            // Textures.getTextures().then(function (responce) {
+            //    console.log(responce);
+            //
+            // }, function (error) {
+            //     console.log(error)
+            // });
 
             $scope.sendOrder = function () {
                 var adjustedSelection = $scope.obj.selection.map(function (coord, index) {
@@ -83,12 +79,12 @@ angular.module('app')
                 });
 
                 var orderModel = {
-                    wpId:$scope.item.id,
-                    image: [$scope.item.realWidth,$scope.item.realHeight],
-                    trueDimensions: [$scope.item.realWidth, $scope.item.realHeight],
-                    crop: adjustedSelection,
+                    wpId: $scope.item.id,
+                    image: $scope.item.realWidth + "," + $scope.item.realHeight,
+                    trueDimensions: $scope.item.realWidth + "," + $scope.item.realHeight,
+                    crop: adjustedSelection.join(),
                     texture: 2,
-                    filters: [],
+                    filters: '',
                     robot_id: 116849,
                     manager:34,
                     name: "test",

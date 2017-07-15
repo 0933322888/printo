@@ -1,10 +1,9 @@
 'use strict';
 
 angular.module('app')
-    .service('Order', ['$q', '$http', 'BASE_URL', '$httpParamSerializerJQLike',
-        function ($q, $http, BASE_URL, $httpParamSerializerJQLike) {
-            var sendOrderUrl = BASE_URL + 'order';
-            var sendOrderUrl2 = "http://print-oboi.com.ua/" + 'order';
+    .service('Order', ['$q', '$http', 'BASE_URL', 'SITEID', '$httpParamSerializerJQLike',
+        function ($q, $http, BASE_URL, SITEID, $httpParamSerializerJQLike) {
+            var sendOrderUrl = BASE_URL + 'v2/requests/insert/'+ SITEID + '/robot';
 
             var _sendOrder = function (params) {
                 var deferred = $q.defer();
