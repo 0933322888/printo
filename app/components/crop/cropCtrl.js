@@ -7,6 +7,7 @@ angular.module('app')
     .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', 'Order', 'Textures',
         function ($scope, $stateParams, $rootScope, $state, Order, Textures) {
             $scope.item = $stateParams.photo;
+            $scope.textures = [2,8,3,22,11,12,14,9];
 
             // removes dragging vertical/horizontal lines if true
             $scope.noVLine = false;
@@ -66,12 +67,12 @@ angular.module('app')
                 }
             }, true);
 
-            // Textures.getTextures().then(function (responce) {
-            //    console.log(responce);
-            //
-            // }, function (error) {
-            //     console.log(error)
-            // });
+            Textures.getTextures().then(function (responce) {
+               console.log(responce);
+
+            }, function (error) {
+                console.log(error)
+            });
 
             $scope.sendOrder = function () {
                 var adjustedSelection = $scope.obj.selection.map(function (coord, index) {

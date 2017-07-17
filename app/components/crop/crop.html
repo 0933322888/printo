@@ -1,6 +1,7 @@
 <div class="crop">
 
-    <div class="row">
+    <div class="category-name">{{ $root.LANG.cropping[$root.curLang] + " «" + item['name_' + $root.curLang] + ' (#' + item.id + ')» ' + $root.LANG.forYourSize[$root.curLang]}}</div>
+    <div class="">
         <div class="cut-paper2">
             <div class="cut-title">Укажите необходимые Вам размеры или передвиньте рамку</div>
 
@@ -63,12 +64,23 @@
                     <i class="fa fa-tags fa-flip-horizontal"></i>&nbsp;
                     <a ng-repeat="tag in item.tags track by $index"
                        ng-href="http://print-oboi.com.ua/wallpapers/category/{{tag.cat_id}}">{{tag['name_' +
-                        $root.curLang]}}&nbsp;</a>
+                        $root.curLang]}},&nbsp;</a>
                 </div>
             </div>
 
             <div class="clear">&nbsp;</div>
             <button ng-click="sendOrder()">Send</button>
+        </div>
+    </div>
+
+    <div>
+        <p class="title_text">--- Виниловые на бумажной основе (Германия) ---</p>
+
+        <div class="col-md-12 textures-block">
+            <div class="col-md-3 text-center image" ng-repeat="texture in textures track by $index">
+                <img ng-src="https://foto-oboi.com.ua/public/textures/small/{{texture}}.jpg" alt="">
+            </div>
+
         </div>
     </div>
 
