@@ -172,12 +172,75 @@
     }
   }
 
-  .textures-block {
-    background: #ffffff;
-    padding: 0;
+  .textures-container {
+    &:after {
+      content: " ";
+      display: block;
+      clear: both;
+    }
+    padding: 5px;
+    background: #dee6f1;
+    border-radius: 10px;
 
-    .image {
+    .textures-block {
+      background: #ffffff;
       padding: 0;
+      border-radius: 5px;
+
+      .image {
+        padding: 0;
+        //height: 105px;
+        img {
+          padding: 5px 0;
+        }
+
+        .overlay {
+          display: none;
+        }
+        &:hover .overlay {
+          display: block;
+          background: rgba(0, 0, 0, .5);
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          margin: 5px;
+          color: #FFF;
+
+          .texture-name {
+            top: 15px;
+            position: relative;
+          }
+          .icon {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+
+          }
+        }
+      }
+    }
+  }
+
+  .calc-price {
+
+    .green_latex {
+      background: #eef3e4;
+      border-radius: 10px;
+      box-shadow: inset 0px 0px 3px rgba(0,0,0,0.2);
+      .title {
+        font-size: 16px;
+        font-weight: normal;
+        padding-bottom: 10px;
+      }
+
+      .gl-description {
+        font-size: 12px;
+      }
+      .gl-image {
+        margin: 50px 0 10px 0;
+      }
     }
   }
 }

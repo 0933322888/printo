@@ -7,7 +7,8 @@ angular.module('app')
     .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', 'Order', 'Textures',
         function ($scope, $stateParams, $rootScope, $state, Order, Textures) {
             $scope.item = $stateParams.photo;
-            $scope.textures = [2,8,3,22,11,12,14,9];
+            $scope.vinilTextures = [2,8,3,22,11,12,14,9];
+            $scope.flizTextures = [26,25,23,24,27,28,29];
 
             // removes dragging vertical/horizontal lines if true
             $scope.noVLine = false;
@@ -68,8 +69,10 @@ angular.module('app')
             }, true);
 
             Textures.getTextures().then(function (responce) {
-               console.log(responce);
-
+                $scope.texturesCollection = [];
+                responce.forEach(function (item) {
+                    $scope.texturesCollection[item.id] = item;
+               });
             }, function (error) {
                 console.log(error)
             });

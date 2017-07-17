@@ -1,6 +1,8 @@
 <div class="crop">
 
-    <div class="category-name">{{ $root.LANG.cropping[$root.curLang] + " «" + item['name_' + $root.curLang] + ' (#' + item.id + ')» ' + $root.LANG.forYourSize[$root.curLang]}}</div>
+    <div class="category-name">{{ $root.LANG.cropping[$root.curLang] + " «" + item['name_' + $root.curLang] + ' (#' +
+        item.id + ')» ' + $root.LANG.forYourSize[$root.curLang]}}
+    </div>
     <div class="">
         <div class="cut-paper2">
             <div class="cut-title">Укажите необходимые Вам размеры или передвиньте рамку</div>
@@ -75,12 +77,44 @@
 
     <div>
         <p class="title_text">--- Виниловые на бумажной основе (Германия) ---</p>
+        <div class="textures-container">
+            <div class="col-md-12 textures-block">
+                <div class="col-sm-3 text-center image" ng-repeat="texture in vinilTextures track by $index">
+                    <img ng-src="https://foto-oboi.com.ua/public/textures/small/{{texture}}.jpg" alt="">
+                    <div class="overlay">
+                        <p>Shtukaturka</p>
+                        <i class="fa fa-search-plus">Enlarge</i>
+                    </div>
+                </div>
 
-        <div class="col-md-12 textures-block">
-            <div class="col-md-3 text-center image" ng-repeat="texture in textures track by $index">
-                <img ng-src="https://foto-oboi.com.ua/public/textures/small/{{texture}}.jpg" alt="">
             </div>
+        </div>
+    </div>
 
+    <div>
+        <p class="title_text">--- Виниловые на fliz основе (Германия) ---</p>
+        <div class="textures-container">
+            <div class="col-md-12 textures-block">
+                <div class="col-sm-3 text-center image" ng-repeat="texture in flizTextures track by $index">
+                    <img ng-src="https://foto-oboi.com.ua/public/textures/small/{{texture}}.jpg" alt="">
+                    <div class="overlay">
+                        <p class="texture-name">{{texturesCollection[texture]['name_' + $root.curLang]}}</p>
+                        <i class="icon fa fa-search-plus">Enlarge</i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12 calc-price">
+        <div class="col-md-8 left-block"></div>
+
+        <div class="col-md-4 green_latex">
+            <h3 class="title">---- Зеленые технологии HP Latex---</h3>
+            <p class="gl-description">Для изготовления фотообоев наша компания использует только экологичные зеленые технологии HP Latex</p>
+            <img class="gl-image" src="http://print-oboi.com.ua/public/img/content/green.png" alt="">
         </div>
     </div>
 
