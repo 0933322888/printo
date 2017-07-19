@@ -224,22 +224,39 @@
   }
 
   .calc-price {
-
-    .green_latex {
-      background: #eef3e4;
-      border-radius: 10px;
-      box-shadow: inset 0px 0px 3px rgba(0,0,0,0.2);
-      .title {
-        font-size: 16px;
-        font-weight: normal;
-        padding-bottom: 10px;
-      }
-
-      .gl-description {
+    padding: 0;
+    .left-block {
+      padding: 10px 10px 0 0;
+      .text {
+        padding: 11px 3px;
         font-size: 12px;
+        border-top: 1px dotted #c6cdd7;
+        &.surface {
+          border-bottom: 1px dotted #c6cdd7;
+          margin-bottom: 20px;
+        }
       }
-      .gl-image {
-        margin: 50px 0 10px 0;
+    }
+
+    .right-block {
+      padding: 20px 0 0 10px;
+      .green_latex {
+        padding: 10px;
+        background: #eef3e4;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.2);
+        .title {
+          font-size: 16px;
+          font-weight: normal;
+          padding-bottom: 10px;
+        }
+
+        .gl-description {
+          font-size: 12px;
+        }
+        .gl-image {
+          margin: 50px 0 10px 0;
+        }
       }
     }
   }

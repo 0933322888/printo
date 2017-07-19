@@ -4,6 +4,7 @@ angular.module('app')
     .service('Order', ['$q', '$http', 'BASE_URL', 'SITEID', '$httpParamSerializerJQLike',
         function ($q, $http, BASE_URL, SITEID, $httpParamSerializerJQLike) {
             var sendOrderUrl = BASE_URL + 'v2/requests/insert/'+ SITEID + '/robot';
+            var displayOrderUrl = BASE_URL + 'orders/get/';
 
             var _sendOrder = function (params) {
                 var deferred = $q.defer();
@@ -20,9 +21,25 @@ angular.module('app')
                 return deferred.promise;
             };
 
+            var _displayOrder = function (id) {
+                var deferred = $q.defer();
+                $http({
+                    url: displayOrderUrl + id,
+                    method: "GET"
+                }).then(function (result) {
+                    deferred.resolve(result.data);
+                }, function (e) {
+                    deferred.reject(e);
+                });
+                return deferred.promise;
+            };
+
             return {
                 sendOrder: function (data) {
                     return _sendOrder(data);
+                },
+                displayOrder: function (id) {
+                    return _displayOrder(id);
                 }
             }
         }]);

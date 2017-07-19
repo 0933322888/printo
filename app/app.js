@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'infinite-scroll', 'ngSanitize', 'ngJcrop']);
 
-app.constant('BASE_URL', 'http://foto-oboi.com.ua/');
+app.constant('BASE_URL', 'https://foto-oboi.com.ua/');
 app.constant('SITEID', 'poua');
 
 app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationProvider',

@@ -68,11 +68,13 @@ angular.module('app')
                 }
             }, true);
 
+            //TODO move it to app.js or texturex controller
             Textures.getTextures().then(function (responce) {
                 $scope.texturesCollection = [];
                 responce.forEach(function (item) {
                     $scope.texturesCollection[item.id] = item;
                });
+                localStorage.setItem("textures", JSON.stringify(responce))
             }, function (error) {
                 console.log(error)
             });
@@ -98,9 +100,20 @@ angular.module('app')
                 };
 
                 Order.sendOrder(orderModel).then(function (response) {
-                    console.log(response)
+                    displayOrder(response.id);
                 }, function (err) {
+                    var response = JSON.parse(localStorage.getItem("orderResult"))
+                    displayOrder(response.id);
                     console.log(err)
+                });
+            };
+
+            var displayOrder = function (id) {
+                Order.displayOrder(id).then(function (response) {
+                    var link = 'API' + 'images/robots/' + response.cropcode + '.jpg';
+
+                }, function (err) {
+                    console.log(err);
                 })
             }
         }

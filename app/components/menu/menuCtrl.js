@@ -1,8 +1,8 @@
 "use strict";
 
 angular.module('app')
-    .controller('menuCtrl', ['$scope', '$rootScope', '$state', 'interiors', '$http', '$uibModal', '$location', '$anchorScroll', 'Image', '$timeout',
-        function ($scope, $rootScope, $state, interiors, $http, $uibModal, $location, $anchorScroll, Image, $timeout) {
+    .controller('menuCtrl', ['$scope', '$rootScope', 'Categories','$state', 'interiors', '$http', '$uibModal', '$location', '$anchorScroll', 'Image', '$timeout',
+        function ($scope, $rootScope, Categories, $state, interiors, $http, $uibModal, $location, $anchorScroll, Image, $timeout) {
 
             $scope.radioModel = null;
             $scope.popular = [54, 70, 133, 71, 18];
@@ -26,7 +26,7 @@ angular.module('app')
             $scope.setLanguage = function (language) {
                 $rootScope.curLang = language;
                 $scope.$broadcast('languageChange', language);
-                getCategories();
+                Categories.getCategories();
             };
 
             $scope.goToCateg = function (id, name, type) {
