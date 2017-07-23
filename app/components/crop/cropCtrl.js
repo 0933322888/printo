@@ -79,6 +79,8 @@ angular.module('app')
                 console.log(error)
             });
 
+
+
             $scope.sendOrder = function () {
                 var adjustedSelection = $scope.obj.selection.map(function (coord, index) {
                     return index%2 == 0 ? coord/$scope.wCoef : coord/$scope.hCoef;
@@ -91,8 +93,8 @@ angular.module('app')
                     crop: adjustedSelection.join(),
                     texture: 2,
                     filters: '',
-                    robot_id: 116849,
-                    manager:34,
+                    robot_id: '',
+                    manager: '',
                     name: "test",
                     phone:"0931234567",
                     email: "test@test",
@@ -100,21 +102,32 @@ angular.module('app')
                 };
 
                 Order.sendOrder(orderModel).then(function (response) {
-                    displayOrder(response.id);
+                    var robotId = response.id;
+                    displayOrder(robotId);
                 }, function (err) {
-                    var response = JSON.parse(localStorage.getItem("orderResult"))
+                    //TODO: dev-data, remove
+                    var response = JSON.parse(localStorage.getItem("orderResult"));
                     displayOrder(response.id);
                     console.log(err)
                 });
             };
 
             var displayOrder = function (id) {
-                Order.displayOrder(id).then(function (response) {
-                    var link = 'API' + 'images/robots/' + response.cropcode + '.jpg';
+                Order.getRobotData(id).then(function (response) {
+
+                    var link = 'API' + 'images/robots/' + response.s_data.crop.code + '.jpg';
+                    $state.go('app.order', {'order': response});
 
                 }, function (err) {
                     console.log(err);
-                })
+                });
+
+                // Order.displayOrder(id).then(function (response) {
+                //     var link = 'API' + 'images/robots/' + response.cropcode + '.jpg';
+                //
+                // }, function (err) {
+                //     console.log(err);
+                // })
             }
         }
     ]);

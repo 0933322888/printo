@@ -89,6 +89,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
                 params: {
                     photo: null
                 }
+            })
+            .state('app.order', {
+                url: "/order",
+                templateUrl: "./app/components/order/order.html",
+                controller: 'orderCtrl',
+                params: {
+                    order: null
+                }
             });
 
         $locationProvider.html5Mode(true);
