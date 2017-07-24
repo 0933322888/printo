@@ -114,6 +114,7 @@ angular.module('app')
                     animation: true,
                     ariaLabelledBy: 'modal-title',
                     ariaDescribedBy: 'modal-body',
+                    scope: $scope,
                     templateUrl: './app/components/wallpapersPane/modals/openPhoto.html',
                     controller: ['$uibModalInstance', '$scope', '$rootScope', 'Image',
                         function ($uibModalInstance, $scope, $rootScope, Image) {

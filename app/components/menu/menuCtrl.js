@@ -39,6 +39,11 @@ angular.module('app')
                 $state.go('app.roomstype', {name: name})
             };
 
+            $scope.goToCrop = function (wp) {
+                $scope.radioModel = null;
+                $state.go('app.crop', {photo: wp});
+            };
+
             $scope.removeFav = function (item) {
                 $scope.$broadcast('remove', item);
             };

@@ -8,7 +8,7 @@
             <div class="cut-title">Укажите необходимые Вам размеры или передвиньте рамку</div>
 
 
-            <div class="col-md-12">
+            <div class="col-md-12 pic">
                 <div class="col-md-9">
                     <div class="paper-crop" ng-class="{'no-v-line': noVLine, 'no-h-line': noHLine}">
                         <div ng-jcrop="obj.src" ng-jcrop-config-name="poConfig" selection="obj.selection"
@@ -23,22 +23,22 @@
                             <div class="width">
                                 <h4>Ширина, см.</h4>
                                 <span class="">
-						<input type="text" class="size width form-control"
-                               id="width"
-                               ng-model-options="{debounce: 500}"
-                               ng-change="updateSize('w')"
-                               ng-model="photoWidth">
-					</span>
+                                    <input type="text" class="size width form-control"
+                                       id="width"
+                                       ng-model-options="{debounce: 500}"
+                                       ng-change="updateSize('w')"
+                                       ng-model="photoWidth">
+					            </span>
                             </div>
 
                             <div class="height">
                                 <h4>Высота, см.</h4>
                                 <span class="">
-						<input type="text" class="size height form-control"
-                               id="height"
-                               ng-change="updateSize('h')"
-                               ng-model="photoHeight">
-					</span>
+						            <input type="text" class="size height form-control"
+                                           id="height"
+                                           ng-change="updateSize('h')"
+                                           ng-model="photoHeight">
+                                </span>
                             </div>
 
                             <div class="square">
@@ -47,13 +47,20 @@
                             </div>
 
                             <div class="divider"></div>
-                            <div class="ico-bw" id="f_grayscale"><span class="plink">черно-белое</span></div>
-                            <div class="ico-mirror" id="f_flip"><span class="plink">отзеркалить</span></div>
-                            <div class="ico-sepia" id="f_sepia"><span class="plink">сепия</span></div>
 
-                            <div class="area">
+                            <div class="ico-bw"
+                                 ng-click="setFilter('g')"
+                                 ng-class="{'active': filters.g}"
+                                 id="f_grayscale"><span class="plink">черно-белое</span></div>
+                            <div class="ico-mirror"
+                                 ng-click="setFilter('f')"
+                                 ng-class="{'active': filters.f}"
+                                 id="f_flip"><span class="plink">отзеркалить</span></div>
+                            <div class="ico-sepia"
+                                 ng-click="setFilter('s')"
+                                 ng-class="{'active': filters.s}"
+                                 id="f_sepia"><span class="plink">сепия</span></div>
 
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,13 +72,13 @@
                 <div class="col-md-12">
                     <i class="fa fa-tags fa-flip-horizontal"></i>&nbsp;
                     <a ng-repeat="tag in item.tags track by $index"
-                       ng-href="http://print-oboi.com.ua/wallpapers/category/{{tag.cat_id}}">{{tag['name_' +
-                        $root.curLang]}},&nbsp;</a>
+                       ng-click="goToCateg(tag.cat_id, tag['name_' + $root.curLang], 'categories')">
+                        {{tag['name_' + $root.curLang]}},&nbsp;
+                    </a>
                 </div>
             </div>
 
             <div class="clear">&nbsp;</div>
-            <button ng-click="sendOrder()">Send</button>
         </div>
     </div>
 
@@ -81,7 +88,9 @@
             <div class="col-md-12 textures-block">
                 <div class="col-sm-3 text-center image" ng-repeat="texture in vinilTextures track by $index">
                     <img ng-src="https://foto-oboi.com.ua/public/textures/small/{{texture}}.jpg" alt="">
-                    <div class="overlay">
+                    <div ng-class="{'selected': selectedTexture == texture}"
+                         class="overlay"
+                         ng-click="selectTexture(texture)">
                         <p class="texture-name">{{texturesCollection[texture]['name_' + $root.curLang]}}</p>
                         <i class="icon fa fa-search-plus">Enlarge</i>
                     </div>
@@ -97,7 +106,9 @@
             <div class="col-md-12 textures-block">
                 <div class="col-sm-3 text-center image" ng-repeat="texture in flizTextures track by $index">
                     <img ng-src="https://foto-oboi.com.ua/public/textures/small/{{texture}}.jpg" alt="">
-                    <div class="overlay">
+                    <div ng-class="{'selected': selectedTexture == texture}"
+                         class="overlay"
+                         ng-click="selectTexture(texture)">
                         <p class="texture-name">{{texturesCollection[texture]['name_' + $root.curLang]}}</p>
                         <i class="icon fa fa-search-plus">Enlarge</i>
                     </div>
@@ -112,33 +123,35 @@
         <div class="col-md-8 left-block">
 
             <h3>Рассчитать стоимость фотообоев</h3>
-            <div class="text size">Размер: {{'450x300'}} см.</div>
-            <div class="text surface ">Выберите фактуру: {{'Декоративная штукатурка'}}</div>
+            <div class="text size">Размер: {{photoWidth +'x' + photoHeight}} см.</div>
+            <div class="text surface ">Выберите фактуру: {{texturesCollection[selectedTexture]['name_' +
+                $root.curLang]}}
+            </div>
 
-            <div class="col-sm-12">
-                <div class="col-sm-6">
+            <div class="col-sm-12 text-forms">
+                <div class="col-sm-6 left">
                     <form>
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name">
-                    </div>
+                        <div class="form-group">
+                            <label for="name">Name*:</label>
+                            <input type="text" ng-model="clientName" class="form-control" id="name">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="phone">Phone:</label>
-                        <input type="text" class="form-control" id="phone">
-                    </div>
+                        <div class="form-group">
+                            <label for="phone">Phone*:</label>
+                            <input type="text" ng-model="clientPhone" class="form-control" id="phone">
+                        </div>
 
-                    <div class="form-group">
-                        <label for="inputEmail">Email address:</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
+                        <div class="form-group">
+                            <label for="inputEmail">Email address:</label>
+                            <input type="email" ng-model="clientEmail" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+
+                        <button class="btn btn-success" ng-click="sendOrder()">Send</button>
                     </form>
                 </div>
-                <div class="col-sm-6">
-                    <div>
-                        Комментарий:
-                    </div>
-                    <textarea rows="8"></textarea>
+                <div class="col-sm-6 right">
+                    <label for="comment">Комментарий:</label>
+                    <textarea id="comment" ng-model='clientComment' class="form-control" rows="8" cols="10"></textarea>
                 </div>
             </div>
 
@@ -146,9 +159,10 @@
 
         <div class="col-md-4 right-block">
             <div class="green_latex">
-            <h3 class="title">---- Зеленые технологии HP Latex---</h3>
-            <p class="gl-description">Для изготовления фотообоев наша компания использует только экологичные зеленые технологии HP Latex</p>
-            <img class="gl-image" src="http://print-oboi.com.ua/public/img/content/green.png" alt="">
+                <h3 class="title">---- Зеленые технологии HP Latex---</h3>
+                <p class="gl-description">Для изготовления фотообоев наша компания использует только экологичные зеленые
+                    технологии HP Latex</p>
+                <img class="gl-image" src="http://print-oboi.com.ua/public/img/content/green.png" alt="">
             </div>
         </div>
     </div>

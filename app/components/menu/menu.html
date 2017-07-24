@@ -84,6 +84,7 @@
                                 <div class="fav-photo-plates">
                                     <div class="fav-item" ng-repeat="favItem in $root.favorites track by $index">
                                         <img ng-src="http://foto-oboi.com.ua/images/wp/{{favItem.id+'/63x63.jpg'}}"
+                                             ng-click="goToCrop(favItem)"
                                              alt="">
                                         <i class="fa fa-times" aria-hidden="true" ng-click="removeFav(favItem)"></i>
                                     </div>

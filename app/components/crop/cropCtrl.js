@@ -4,11 +4,30 @@
 // https://www.npmjs.com/package/cropperjs
 
 angular.module('app')
-    .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', 'Order', 'Textures',
-        function ($scope, $stateParams, $rootScope, $state, Order, Textures) {
+    .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', 'Order', 'Textures', 'Image',
+        function ($scope, $stateParams, $rootScope, $state, Order, Textures, Image) {
             $scope.item = $stateParams.photo;
             $scope.vinilTextures = [2,8,3,22,11,12,14,9];
             $scope.flizTextures = [26,25,23,24,27,28,29];
+            $scope.filters = {
+                g: false,
+                f: false,
+                s: false
+            };
+
+            // this part is because of different image models. Select several favorite
+            // images and click on them from favorite section in left menu. The model
+            // will be not the same as on big pics from wp pane (no realHeight
+            var getImageData = function () {
+                Image.getImage($scope.item.id).then(function (result) {
+                    $scope.item = result;
+                    $scope.photoWidth = Math.round($scope.item.realWidth);
+                    $scope.photoHeight = Math.round($scope.item.realHeight);
+                }, function (err) {
+                    console.log(err)
+                })
+            };
+            if (!$scope.item.realWidth) getImageData();
 
             // removes dragging vertical/horizontal lines if true
             $scope.noVLine = false;
@@ -74,12 +93,38 @@ angular.module('app')
                 responce.forEach(function (item) {
                     $scope.texturesCollection[item.id] = item;
                });
-                localStorage.setItem("textures", JSON.stringify(responce))
+                localStorage.setItem("textures", JSON.stringify(responce));
+                //find first non empty index in array
+                $scope.selectedTexture = $scope.texturesCollection.findIndex(function (ele) {
+                    return ele != undefined;
+                })
             }, function (error) {
                 console.log(error)
             });
 
+            $scope.selectTexture = function (texture) {
+                $scope.selectedTexture = texture;
+            };
 
+            //TODO: method duplication. Original method is in menuCtrl. Refactor logic
+            $scope.goToCateg = function (id, name, type) {
+                $state.go('app.wallpapers', {id: id, name: name, type: type})
+            };
+
+            $scope.setFilter = function (type) {
+                $scope.filters[type] = !$scope.filters[type];
+
+                if (type == "g" && $scope.filters.s == true) $scope.filters.s = false;
+                if (type == "s" && $scope.filters.g == true) $scope.filters.g = false;
+
+                $scope.chosenFilters = '';
+                angular.forEach($scope.filters, function (value, key) {
+                   if (value) $scope.chosenFilters += key;
+                });
+
+                $scope.obj.src = 'https://foto-oboi.com.ua/poua/images/wp/' + $scope.item.id + '/' + '580b390' + $scope.chosenFilters + '.jpg';
+
+            };
 
             $scope.sendOrder = function () {
                 var adjustedSelection = $scope.obj.selection.map(function (coord, index) {
@@ -91,14 +136,14 @@ angular.module('app')
                     image: $scope.item.realWidth + "," + $scope.item.realHeight,
                     trueDimensions: $scope.item.realWidth + "," + $scope.item.realHeight,
                     crop: adjustedSelection.join(),
-                    texture: 2,
-                    filters: '',
+                    texture: $scope.selectedTexture,
+                    filters: $scope.chosenFilters,
                     robot_id: '',
                     manager: '',
-                    name: "test",
-                    phone:"0931234567",
-                    email: "test@test",
-                    comment: "test"
+                    name: $scope.clientName,
+                    phone: $scope.clientPhone,
+                    email: $scope.clientEmail,
+                    comment: $scope.clientComment
                 };
 
                 Order.sendOrder(orderModel).then(function (response) {
@@ -115,19 +160,12 @@ angular.module('app')
             var displayOrder = function (id) {
                 Order.getRobotData(id).then(function (response) {
 
-                    var link = 'API' + 'images/robots/' + response.s_data.crop.code + '.jpg';
                     $state.go('app.order', {'order': response});
 
                 }, function (err) {
                     console.log(err);
                 });
 
-                // Order.displayOrder(id).then(function (response) {
-                //     var link = 'API' + 'images/robots/' + response.cropcode + '.jpg';
-                //
-                // }, function (err) {
-                //     console.log(err);
-                // })
             }
         }
     ]);

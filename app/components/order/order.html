@@ -20,42 +20,50 @@
         <tr></tr>
         <tr>
             <td>Номер заказа:</td>
-            <td>{{order.parent_id}}</td>
-            <!--TODO: check that parent_id is order_id  %)-->
+            <td><b>{{order.parent_id}}</b></td>
         </tr>
         <tr>
             <td>Сюжет:</td>
-            <td>{{order.s_data.wp["name_" + $root.curLang]}}</td>
+            <td><b>{{order.s_data.wp["name_" + $root.curLang]}}</b></td>
         </tr>
         <tr>
             <td>ID изображения:</td>
-            <td>{{order.s_data.wp.id}}</td>
+            <td><b>{{order.s_data.wp.id}}</b></td>
         </tr>
         <tr>
             <td>Исходный размер:</td>
             <!--TODO: check is true width or just width should be used-->
-            <td>{{order.s_data.image.true_width}} x {{order.s_data.image.true_height}}</td>
+            <td><b>{{order.s_data.image.true_width}} x {{order.s_data.image.true_height}}</b></td>
         </tr>
         <tr>
             <td>Итоговый размер:</td>
-            <td>{{order.s_data.crop.width}} x {{order.s_data.crop.height}}</td>
+            <td><b>{{order.s_data.crop.width}} x {{order.s_data.crop.height}}</b></td>
         </tr>
         <tr>
             <td>Схема обрезки:</td>
             <td>
+                <b>
                 <div ng-if="isVertical">top: {{order.s_data.crop.top}} sm, bottom: {{order.s_data.crop.bottom}} sm</div>
                 <div ng-if="!isVertical">left: {{order.s_data.crop.left}}, right: {{order.s_data.crop.right}}</div>
+                </b>
             </td>
         </tr>
         <tr>
             <td>Фильтры:</td>
-            <td>{{filters.length == 0 ? "None" : filters.toString()}}</td>
+            <td>
+                <b>
+                    <span ng-if="filters.length == 0">{{$root.LANG.none[$root.curLang]}}</span>
+                    <span ng-if="filters.desaturate">{{$root.LANG.desaturate[$root.curLang]}} </span>
+                    <span ng-if="filters.flip">{{$root.LANG.flip[$root.curLang]}} </span>
+                    <span ng-if="filters.sepia">{{$root.LANG.sepia[$root.curLang]}}</span>
+                </b>
+            </td>
         </tr>
         <tr>
             <td>Фактура обоев:</td>
             <td>
                 <img ng-src="https://foto-oboi.com.ua/public/textures/small/{{order.s_data.texture.id}}.jpg" alt="">
-                <div>"{{order.s_data.texture["name_" + $root.curLang]}}"</div>
+                <div><b>"{{order.s_data.texture["name_" + $root.curLang]}}"</b></div>
             </td>
         </tr>
         

@@ -12,6 +12,9 @@
     border-radius: 10px;
     background: #eef3e4;
     box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.11);
+    .pic {
+      padding: 0;
+    }
     .cut-title {
       padding: 7px 0 7px 10px;
       font-size: 18px;
@@ -133,8 +136,7 @@
 
     .details {
       width: 105px;
-      float: right;
-      margin: 0 0 0 0;
+      margin: 0 auto;
 
       .size {
         border-radius: 10px;
@@ -157,7 +159,42 @@
         display: block;
         background: url(http://print-oboi.com.ua/public/img/redesign/crop_divider.png) center no-repeat;
         height: 19px;
-        margin: 15px 0;
+        margin: 15px -15px;
+      }
+
+      .ico-bw, .ico-mirror, .ico-sepia {
+        background: url(http://print-oboi.com.ua/public/img/ico-cut.png) no-repeat;
+        line-height: 25px;
+        margin-bottom: 8px;
+        padding-left: 42px;
+        padding-top: 4px;
+        min-width: 130px;
+      }
+      .ico-bw.active {
+        background-position: 0 -112px;
+      }
+
+      .ico-mirror {
+        background-position: 0px -40px;
+        &.active {
+          background-position: 0 -152px;
+        }
+      }
+
+      .ico-sepia {
+        background-position: 0 -76px;
+        &.active {
+          background-position: 0 -188px;
+        }
+      }
+
+      .plink {
+        color: #214477 !important;
+        border-color: #214477 !important;
+        font-size: 15px;
+        padding-bottom: 2px;
+        border-bottom: 1px dashed #3A87AD;
+        cursor: pointer;
       }
     }
   }
@@ -197,7 +234,8 @@
         .overlay {
           display: none;
         }
-        &:hover .overlay {
+        &:hover .overlay,
+        .selected.overlay {
           display: block;
           background: rgba(0, 0, 0, .5);
           position: absolute;
@@ -225,6 +263,8 @@
 
   .calc-price {
     padding: 0;
+
+
     .left-block {
       padding: 10px 10px 0 0;
       .text {
@@ -234,6 +274,17 @@
         &.surface {
           border-bottom: 1px dotted #c6cdd7;
           margin-bottom: 20px;
+        }
+      }
+
+      .text-forms {
+        padding: 0;
+        .left {
+          padding-left: 0;
+        }
+
+        .right {
+          padding-right: 0;
         }
       }
     }
