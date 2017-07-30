@@ -4,8 +4,8 @@
 // https://www.npmjs.com/package/cropperjs
 
 angular.module('app')
-    .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', 'Order', 'Textures', 'Image',
-        function ($scope, $stateParams, $rootScope, $state, Order, Textures, Image) {
+    .controller('cropCtrl', ['$scope', '$stateParams', '$rootScope', '$state', 'Order', 'Textures', 'Image', '$uibModal',
+        function ($scope, $stateParams, $rootScope, $state, Order, Textures, Image, $uibModal) {
             $scope.item = $stateParams.photo;
             $scope.vinilTextures = [2,8,3,22,11,12,14,9];
             $scope.flizTextures = [26,25,23,24,27,28,29];
@@ -102,6 +102,44 @@ angular.module('app')
                 console.log(error)
             });
 
+            $scope.openTexture = function (texture) {
+                //TODO: API for textures samples. Currently the first pic is on another url
+
+                $scope.textureId = texture;
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    size: 'lg',
+                    windowClass: 'textureWidth',
+                    ariaDescribedBy: 'modal-body',
+                    scope: $scope,
+                    templateUrl: './app/components/crop/modals/openTexture.html',
+                    controller: ['$uibModalInstance', '$scope', function ($uibModalInstance, $scope) {
+
+
+                        $scope.counter = 1;
+                        $scope.next = function () {
+                            $scope.counter++;
+                            if ($scope.counter > 5) $scope.counter = 1;
+                        };
+
+                        $scope.previous = function () {
+                            $scope.counter--;
+                            if ($scope.counter < 1) $scope.counter = 5;
+                        };
+
+                        $scope.cancel = function () {
+                            $uibModalInstance.dismiss('cancel');
+                        };
+                    }]
+
+                });
+                modalInstance.result.then(function (selectedItem) {
+
+                }, function () {
+
+                });
+            };
+
             $scope.selectTexture = function (texture) {
                 $scope.selectedTexture = texture;
             };
@@ -137,13 +175,13 @@ angular.module('app')
                     trueDimensions: $scope.item.realWidth + "," + $scope.item.realHeight,
                     crop: adjustedSelection.join(),
                     texture: $scope.selectedTexture,
-                    filters: $scope.chosenFilters,
+                    filters: $scope.chosenFilters || '',
                     robot_id: '',
                     manager: '',
                     name: $scope.clientName,
                     phone: $scope.clientPhone,
-                    email: $scope.clientEmail,
-                    comment: $scope.clientComment
+                    email: $scope.clientEmail || '',
+                    comment: $scope.clientComment || ''
                 };
 
                 Order.sendOrder(orderModel).then(function (response) {

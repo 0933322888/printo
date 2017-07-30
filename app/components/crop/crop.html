@@ -92,7 +92,7 @@
                          class="overlay"
                          ng-click="selectTexture(texture)">
                         <p class="texture-name">{{texturesCollection[texture]['name_' + $root.curLang]}}</p>
-                        <i class="icon fa fa-search-plus">Enlarge</i>
+                        <i class="icon fa fa-search-plus" ng-click="openTexture(texture)"> Увеличить</i>
                     </div>
                 </div>
 
@@ -110,7 +110,7 @@
                          class="overlay"
                          ng-click="selectTexture(texture)">
                         <p class="texture-name">{{texturesCollection[texture]['name_' + $root.curLang]}}</p>
-                        <i class="icon fa fa-search-plus">Enlarge</i>
+                        <i class="icon fa fa-search-plus" ng-click="openTexture(texture)"> Увеличить</i>
                     </div>
                 </div>
 
