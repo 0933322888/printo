@@ -31,6 +31,7 @@ angular.module('app')
 
             $scope.goToCateg = function (id, name, type) {
                 $scope.radioModel = null;
+                sessionStorage.setItem("lastCategory", JSON.stringify({id: id, name: name, type: type}));
                 $state.go('app.wallpapers', {id: id, name: name, type: type})
             };
 

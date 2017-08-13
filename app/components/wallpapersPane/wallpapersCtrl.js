@@ -131,6 +131,10 @@ angular.module('app')
                                 $uibModalInstance.close();
                                 $state.go('app.crop', {photo: $scope.photo});
                             };
+                            $scope.seeInInterior = function () {
+                                $uibModalInstance.close();
+                                $state.go('app.interior', {item: $scope.photo});
+                            };
 
                             $scope.toggleFavs = function (item) {
                                 $scope.$emit('toggleFavs', item);

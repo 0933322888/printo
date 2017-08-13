@@ -1,157 +1,204 @@
 .interior {
 
-  .visualization {
-    position: relative;
-    width: 780px;
-    height: 451px;
-    overflow: hidden;
-    margin-bottom: 40px;
+  .red-line {
+    border-bottom: 1px solid red;
+    padding-bottom: 25px;
+  }
 
-    #room {
-      width: 780px;
-      height: 451px;
-      z-index: 100;
-      position: relative;
+  .room-perspective {
+    .col-md-12.block {
+      padding-left: 0;
+      padding-right: 0;
     }
 
-    #wall-top {
-      background: url(http://print-oboi.com.ua/public/img/bg-room-wall-top.png) no-repeat;
-      width: 780px;
-      height: 21px;
-      position: absolute;
-      left: 0;
-      top: 0;
-      z-index: 400;
+    .clear-room {
+      cursor: pointer;
+      color: #c00;
     }
+    & .actions {
 
-    #wall-left-gr, #wall-right-gr, #wall-left, #wall-right {
-      position: absolute;
-      top: 20px;
-      height: 383px;
-      width: 58px;
-      z-index: 200;
-      background: #fff;
-    }
-
-    #wall-right-top, #wall-right-bot, #wall-right, #wall-right-gr {
-      right: 0;
-    }
-
-    #wall-left-gr {
-      background: url(http://print-oboi.com.ua/public/img/bg-room-wall-left.png) 100% 2px repeat-y;
-      z-index: 300;
-
-    }
-
-    #wall-right-gr {
-      background: url(http://print-oboi.com.ua/public/img/bg-room-wall-right.png) 0 2px repeat-y;
-      z-index: 300;
-      right: 0;
-
-    }
-
-    #wall-left-gr, #wall-right-gr {
-      opacity: 0.5;
-      top: 0;
-      height: 452px;
-    }
-
-    #wall-left-top {
-      top: 0;
-      bottom: auto;
-      border-bottom: 65px solid #fff;
-      border-right: 188px solid transparent;
-      left: 0;
-      border-bottom-color: rgb(255, 255, 255);
-    }
-
-    #wall-left-bot {
-      border-top: 65px solid #fff;
-      border-right: 77px solid transparent;
-      border-top-color: rgb(255, 255, 255);
-      bottom: 0;
-    }
-
-    #wall-left-top, #wall-right-top, #wall-left-bot, #wall-right-bot {
-      position: absolute;
-      z-index: 150;
-      width: 0;
-      height: 0;
-      font-size: 0;
-    }
-
-    #wall-right-top {
-      top: 0;
-      bottom: auto;
-      border-bottom: 65px solid #fff;
-      border-left: 188px solid transparent;
-      border-top-color: rgb(255, 255, 255);
-    }
-
-    #wall-right-bot {
-      border-top: 65px solid #fff;
-      border-left: 77px solid transparent;
-      border-top-color: rgb(255, 255, 255);
-      right: 0;
-      bottom: 0;
-    }
-
-    #wall {
-
-      width: 664px;
-      height: 382px;
-      position: absolute;
-      left: 58px;
-      top: 21px;
-      z-index: 200;
-      overflow: hidden;
-      text-align: center;
-      background-color: rgb(255, 255, 255);
-    }
-
-    #floor {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 780px;
-      z-index: 50;
-      background: url(http://print-oboi.com.ua/public/img/interior/floor/big/8.jpg);
-
-      .gr {
-        background: url(http://print-oboi.com.ua/public/img/bg-room-floor-gr.png) repeat-x;
-        height: 48px;
+      .ico-bw, .ico-mirror, .ico-sepia {
+        cursor: pointer;
+        background: url(http://print-oboi.com.ua/public/img/ico-cut.png) no-repeat;
+        line-height: 25px;
+        margin-bottom: 8px;
+        padding-left: 42px;
+        padding-top: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 20px;
+      }
+      & .ico-bw {
+        &.active {
+          background-position: 0 -112px;
+        }
+      }
+      & .ico-mirror {
+        background-position: 0px -40px;
+        &.active {
+          background-position: 0 -152px;
+        }
+      }
+      & .ico-sepia {
+        background-position: 0 -78px;
+        &.active {
+          background-position: 0 -187px;
+        }
       }
     }
-  }
 
-  .furniture {
-    position: absolute;
-    bottom: -15px;
-    left: 0;
-    width: 780px;
-    height: 215px;
-    z-index: 300;
+    .visualization {
+      position: relative;
+      width: 780px;
+      height: 451px;
+      overflow: hidden;
+      margin-bottom: 40px;
 
-    #sofa {
+      #room {
+        width: 780px;
+        height: 451px;
+        z-index: 100;
+        position: relative;
+      }
 
+      #wall-top {
+        background: url(http://print-oboi.com.ua/public/img/bg-room-wall-top.png) no-repeat;
+        width: 780px;
+        height: 21px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 400;
+      }
+
+      #wall-left-gr, #wall-right-gr, #wall-left, #wall-right {
+        position: absolute;
+        top: 20px;
+        height: 383px;
+        width: 58px;
+        z-index: 200;
+        background: #fff;
+      }
+
+      #wall-right-top, #wall-right-bot, #wall-right, #wall-right-gr {
+        right: 0;
+      }
+
+      #wall-left-gr {
+        background: url(http://print-oboi.com.ua/public/img/bg-room-wall-left.png) 100% 2px repeat-y;
+        z-index: 300;
+
+      }
+
+      #wall-right-gr {
+        background: url(http://print-oboi.com.ua/public/img/bg-room-wall-right.png) 0 2px repeat-y;
+        z-index: 300;
+        right: 0;
+
+      }
+
+      #wall-left-gr, #wall-right-gr {
+        opacity: 0.5;
+        top: 0;
+        height: 452px;
+      }
+
+      #wall-left-top {
+        top: 0;
+        bottom: auto;
+        border-bottom: 65px solid #fff;
+        border-right: 188px solid transparent;
+        left: 0;
+        border-bottom-color: rgb(255, 255, 255);
+      }
+
+      #wall-left-bot {
+        border-top: 65px solid #fff;
+        border-right: 77px solid transparent;
+        border-top-color: rgb(255, 255, 255);
+        bottom: 0;
+      }
+
+      #wall-left-top, #wall-right-top, #wall-left-bot, #wall-right-bot {
+        position: absolute;
+        z-index: 150;
+        width: 0;
+        height: 0;
+        font-size: 0;
+      }
+
+      #wall-right-top {
+        top: 0;
+        bottom: auto;
+        border-bottom: 65px solid #fff;
+        border-left: 188px solid transparent;
+        border-top-color: rgb(255, 255, 255);
+      }
+
+      #wall-right-bot {
+        border-top: 65px solid #fff;
+        border-left: 77px solid transparent;
+        border-top-color: rgb(255, 255, 255);
+        right: 0;
+        bottom: 0;
+      }
+
+      #wall {
+
+        width: 664px;
+        height: 382px;
+        position: absolute;
+        left: 58px;
+        top: 21px;
+        z-index: 200;
+        overflow: hidden;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+      }
+
+      #floor {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 780px;
+        z-index: 50;
+        background: url(http://print-oboi.com.ua/public/img/interior/floor/big/8.jpg);
+
+        .gr {
+          background: url(http://print-oboi.com.ua/public/img/bg-room-floor-gr.png) repeat-x;
+          height: 48px;
+        }
+      }
+    }
+
+    .furniture {
+      position: absolute;
+      bottom: -15px;
+      left: 0;
+      width: 780px;
+      height: 215px;
+      z-index: 300;
+
+      #sofa {
+
+      }
+    }
+    .floor-item {
+      margin: 5px;
+      cursor: pointer;
+      border: 3px solid white;
+      &.active {
+        border: 3px solid coral;
+      }
+    }
+
+    .doors-item {
+      width: 62px;
+      height: auto;
+    }
+    .window-item {
+      width: 126px;
+      height: auto;
     }
   }
-  .floor-item {
-    margin: 5px;
-    cursor: pointer;
-    border: 3px solid white;
-    &.active {
-      border: 3px solid coral;
-    }
-  }
-
-  .doors-item {
-    width:62px;
-    height: auto;
-  }
-  .window-item {
-    width: 126px;
-    height: auto;
-  }
-
 }

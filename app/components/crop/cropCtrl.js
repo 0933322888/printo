@@ -161,7 +161,6 @@ angular.module('app')
                 });
 
                 $scope.obj.src = 'https://foto-oboi.com.ua/poua/images/wp/' + $scope.item.id + '/' + '580b390' + $scope.chosenFilters + '.jpg';
-
             };
 
             $scope.sendOrder = function () {

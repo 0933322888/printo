@@ -103,7 +103,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
                 templateUrl: "./app/components/interior/interior.html",
                 controller: 'interiorCtrl',
                 params: {
-                    order: null
+                    item: null
                 }
             });
 
