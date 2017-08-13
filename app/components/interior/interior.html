@@ -1,0 +1,105 @@
+<div class="interior">
+
+    <div>
+        <p class="title_text"><b>{{"Просмотр «Сказочное дерево» в интерьере"}}</b></p>
+    </div>
+
+    <div>
+        <div class="col-md-12 block">
+            <div class="content">
+
+
+                <div class="visualization">
+
+                    <div id="room">&nbsp;</div>
+
+                    <div id="wall-top">&nbsp;</div>
+                    <div id="wall-left" style="background-color: rgb(255, 255, 255);">&nbsp;</div>
+                    <div id="wall-right" style="background-color: rgb(255, 255, 255);">&nbsp;</div>
+                    <div id="wall-left-gr" style="opacity: 0.5;">&nbsp;</div>
+                    <div id="wall-right-gr" style="opacity: 0.5;">&nbsp;</div>
+                    <div id="wall-left-top" style="border-bottom-color: rgb(255, 255, 255);">&nbsp;</div>
+                    <div id="wall-left-bot" style="border-top-color: rgb(255, 255, 255);">&nbsp;</div>
+                    <div id="wall-right-top" style="border-bottom-color: rgb(255, 255, 255);">&nbsp;</div>
+                    <div id="wall-right-bot" style="border-top-color: rgb(255, 255, 255);">&nbsp;</div>
+
+                    <div id="wall" style="background-color: rgb(255, 255, 255);">
+                        <img src="http://foto-oboi.com.ua/poua/images/wp/4882/580b390.jpg" alt="" id="wallpaper"
+                             data-id="4882" class="ui-draggable" style="position: relative; left: -21px;">
+                        <img src="http://print-oboi.com.ua/public/img/interior/furniture/s48.png" alt="" height="121"
+                             width="120" id="window" class="ui-draggable">
+                        <img src="http://print-oboi.com.ua/public/img/interior/furniture/s44.jpg" alt="" height="250"
+                             width="122" id="door" class="ui-draggable" style="top: 132px; opacity: 1; left: 542px;">
+                    </div>
+
+                    <div class="furniture">
+                        <img drag-me src="http://print-oboi.com.ua/public/img/interior/furniture/s110.png" alt="" height="192"
+                             width="440" id="sofa"
+                             style="position: relative; bottom: 10px; opacity: 1; left: 12px; top: 23px;">
+                        <img src="http://print-oboi.com.ua/public/img/interior/furniture/s31.png" alt="" height="274"
+                             width="118" id="chair" class="ui-draggable" style="left: 468px; opacity: 1; top: 28px;">
+                    </div>
+
+                    <div id="floor"
+                         ng-style="{'background': 'url(http://print-oboi.com.ua/public/img/interior/floor/big/' + displayModel.floor.selection +'.jpg)'}">
+                        <div class="gr">&nbsp;</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <uib-tabset active="activeJustified" justified="true">
+            <uib-tab index="0" heading="Стены, пол">
+
+                <div class="col-md-3"></div>
+                <div class="col-md-9">
+                    <div>
+                        <img ng-repeat="n in displayModel.floor.collection"
+                             class="floor-item"
+                             ng-class="{'active': displayModel.floor.selection === n }"
+                             ng-src="http://print-oboi.com.ua/public/img/interior/floor/small/{{n + '.jpg'}}"
+                             ng-click="displayModel.floor.selection = n">
+                    </div>
+                </div>
+
+            </uib-tab>
+            <uib-tab index="1" heading="Диваны, уголки">
+                <img ng-repeat="n in displayModel.sofa.collection"
+                     class="sofa-item"
+                     ng-class="{'active': displayModel.sofa.selection === n }"
+                     ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{n + '.png'}}"
+                     ng-click="displayModel.sofa.selection = n">
+            </uib-tab>
+            <uib-tab index="2" heading="Кровати">
+                <img ng-repeat="n in displayModel.beds.collection"
+                     class="bed-item"
+                     ng-class="{'active': displayModel.beds.selection === n }"
+                     ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{n + '.png'}}"
+                     ng-click="displayModel.beds.selection = n">
+            </uib-tab>
+            <uib-tab index="3" heading="Двери, окна">
+                <img ng-repeat="n in displayModel.doors.collection"
+                     class="doors-item"
+                     ng-class="{'active': displayModel.doors.selection === n }"
+                     ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{n + '.jpg'}}"
+                     ng-click="displayModel.doors.selection = n">
+                <img class="window-item" ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s48.png">
+            </uib-tab>
+            <uib-tab index="4" heading="Кресла, столы">
+                <img ng-repeat="n in displayModel.chairs.collection"
+                     class="chairs-item"
+                     ng-class="{'active': displayModel.chairs.selection === n }"
+                     ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{n + '.png'}}"
+                     ng-click="displayModel.chairs.selection = n">
+            </uib-tab>
+        </uib-tabset>
+
+    </div>
+
+
+</div>

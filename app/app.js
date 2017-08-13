@@ -97,6 +97,14 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$locationP
                 params: {
                     order: null
                 }
+            })
+            .state('app.interior', {
+                url: "/interior",
+                templateUrl: "./app/components/interior/interior.html",
+                controller: 'interiorCtrl',
+                params: {
+                    order: null
+                }
             });
 
         $locationProvider.html5Mode(true);
