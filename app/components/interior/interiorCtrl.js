@@ -4,7 +4,7 @@ angular.module('app')
     .controller('interiorCtrl', ['$scope', '$rootScope', '$state', '$stateParams',
         function ($scope, $rootScope, $state, $stateParams) {
             $scope.item = $stateParams.item || {};
-            $scope.item.id = 4882;
+            $scope.item.id = $scope.item.id || 4882;
             //TODO: 1) remove mocking above
             //2) get from seesionStorage last category and use it for going back button
             $scope.img = 'https://foto-oboi.com.ua/poua/images/wp/' + $scope.item.id + '/' + '580b390' + '.jpg';
@@ -27,6 +27,7 @@ angular.module('app')
                     selection: 31
                 }
             };
+
 
             $scope.filters = {
                 g: false,
@@ -54,6 +55,11 @@ angular.module('app')
                     el.selection = null;
                 });
                 $scope.displayModel.floor.selection = floor;
+            };
+
+            $scope.goBack= function() {
+                var category = JSON.parse(sessionStorage.getItem("lastCategory"));
+                $state.go('app.wallpapers', category);
             }
         }
     ]);

@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'infinite-scroll', 'ngSanitize', 'ngJcrop']);
+var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'infinite-scroll', 'ngSanitize', 'ngJcrop', 'farbtastic' ]);
 
 app.constant('BASE_URL', 'https://foto-oboi.com.ua/');
 app.constant('SITEID', 'poua');

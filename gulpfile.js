@@ -24,7 +24,9 @@ var paths = {
             './bower_components/jcrop/js/jquery.Jcrop.js',
             './bower_components/ng-jcrop/ng-jcrop.js',
             './node_modules/angular-crop/lib/angular-crop.js',
-            './bower_components/angular-sanitize/angular-sanitize.min.js'
+            './bower_components/angular-sanitize/angular-sanitize.min.js',
+            './bower_components/angular-farbtastic/angular-farbtastic.js'
+
         ]
     }
 

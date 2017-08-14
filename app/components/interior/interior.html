@@ -2,7 +2,7 @@
 
 
     <p class="title_text red-line"><b>{{"Просмотр «" + item['name_' + $root.curLang] + "» в интерьере"}}</b></p>
-
+    <a ng-click="goBack()" class="back">Вернуться назад</a>
 
     <div class="room-perspective">
         <div class="actions pull-right">
@@ -27,16 +27,16 @@
                     <div id="room">&nbsp;</div>
 
                     <div id="wall-top">&nbsp;</div>
-                    <div id="wall-left" style="background-color: rgb(255, 255, 255);">&nbsp;</div>
-                    <div id="wall-right" style="background-color: rgb(255, 255, 255);">&nbsp;</div>
+                    <div id="wall-left"  ng-style="{'background': color}">&nbsp;</div>
+                    <div id="wall-right" ng-style="{'background': color}">&nbsp;</div>
                     <div id="wall-left-gr" style="opacity: 0.5;">&nbsp;</div>
                     <div id="wall-right-gr" style="opacity: 0.5;">&nbsp;</div>
-                    <div id="wall-left-top" style="border-bottom-color: rgb(255, 255, 255);">&nbsp;</div>
-                    <div id="wall-left-bot" style="border-top-color: rgb(255, 255, 255);">&nbsp;</div>
-                    <div id="wall-right-top" style="border-bottom-color: rgb(255, 255, 255);">&nbsp;</div>
-                    <div id="wall-right-bot" style="border-top-color: rgb(255, 255, 255);">&nbsp;</div>
+                    <div id="wall-left-top" ng-style="{'border-bottom-color': color}">&nbsp;</div>
+                    <div id="wall-left-bot" ng-style="{'border-top-color': color}">&nbsp;</div>
+                    <div id="wall-right-top" ng-style="{'border-bottom-color': color}">&nbsp;</div>
+                    <div id="wall-right-bot" ng-style="{'border-top-color': color}">&nbsp;</div>
 
-                    <div id="wall" style="background-color: rgb(255, 255, 255);">
+                    <div id="wall" ng-style="{'background': color}">
                         <img drag-me left="60" ng-src="{{img}}" alt="" id="wallpaper">
                         <img drag-me
                              ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{displayModel.doors.selection +'.png'}}"
@@ -77,8 +77,15 @@
 
         <uib-tabset active="activeJustified" justified="true">
             <uib-tab index="0" heading="Стены, пол">
+                <div class="tabs-header">
+                    <div class="col-md-3">Цвет стен</div>
+                    <div class="col-md-9">Цвет пола</div>
+                </div>
+                <div class="col-md-3">
+                    <ng-farbtastic width="170" ng-model="$parent.$parent.color">
+                    </ng-farbtastic>
 
-                <div class="col-md-3"></div>
+                </div>
                 <div class="col-md-9">
                     <div>
                         <img ng-repeat="n in displayModel.floor.collection"
