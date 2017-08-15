@@ -14,18 +14,12 @@
                  ng-class="{'active': filters.s}" id="f_sepia"><span class="plink">сепия</span></div>
         </div>
 
-        <div class="clear-room pull-left">
-            <a ng-click="clearRoom()">× Очистить комнату</a>
-        </div>
+
 
         <div class="col-md-12 block">
             <div class="content">
-
-
                 <div class="visualization">
-
                     <div id="room">&nbsp;</div>
-
                     <div id="wall-top">&nbsp;</div>
                     <div id="wall-left"  ng-style="{'background': color}">&nbsp;</div>
                     <div id="wall-right" ng-style="{'background': color}">&nbsp;</div>
@@ -38,28 +32,30 @@
 
                     <div id="wall" ng-style="{'background': color}">
                         <img drag-me left="60" ng-src="{{img}}" alt="" id="wallpaper">
-                        <img drag-me
+                        <img drag-me left="60" top="50"
                              ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{displayModel.doors.selection +'.png'}}"
                              alt="" height="121"
                              width="120"
                              ng-if="displayModel.doors.selection === 48"
                              id="window">
-                        <img drag-me top="132" left="490"
+                        <img drag-me top="132" left="542"
                              ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{displayModel.doors.selection +'.jpg'}}" alt="" height="250"
                              width="122"
                              id="door"
-                             ng-if="displayModel.doors.selection !== 48"
-                             style="top: 132px; opacity: 1; left: 542px;">
+                             ng-if="displayModel.doors.selection !== 48">
                     </div>
 
                     <div class="furniture">
                         <img drag-me left="12" top="0"
                              ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{ displayModel.beds.selection + '.png'}}" alt="" height="192"
-                             width="440" id="sofa"
-                             style="opacity: 1;">
-                        <img drag-me left="0" top="0"
+                             width="440">
+                        <img drag-me left="420" top="0" ng-hide="displayModel.chairs.selection < 33"
                              ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{ displayModel.chairs.selection + '.png'}}" alt="" height="auto"
-                             width="249" id="chair" class="ui-draggable" style="left: 468px; opacity: 1; top: 28px;">
+                             width="249" id="chair">
+
+                        <img drag-me left="420" top="0" ng-show="displayModel.chairs.selection < 33"
+                             ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{ displayModel.chairs.selection + '.png'}}" alt="" height="auto"
+                             width="{{displayModel.chairs.selection === 31 ? 118 : 100}}" id="lights">
                     </div>
 
                     <div id="floor"
@@ -70,7 +66,11 @@
                 </div>
 
             </div>
+            <div class="clear-room pull-right">
+                <a ng-click="clearRoom()">× Очистить комнату</a>
+            </div>
         </div>
+
     </div>
 
     <div>
@@ -114,13 +114,20 @@
             <uib-tab index="3" heading="Двери, окна">
                 <img ng-repeat="n in displayModel.doors.collection"
                      class="doors-item"
-                     ng-class="{'active': displayModel.doors.selection === n }"
                      ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{n + '.jpg'}}"
                      ng-click="displayModel.doors.selection = n">
-                <img class="window-item" ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s48.png">
+                <img class="window-item"
+                     ng-repeat="n in displayModel.doors.collection2"
+                     ng-click="displayModel.doors.selection = n"
+                     ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{n + '.png'}}">
             </uib-tab>
             <uib-tab index="4" heading="Кресла, столы">
                 <img ng-repeat="n in displayModel.chairs.collection"
+                     class="chairs-item"
+                     ng-class="{'active': displayModel.chairs.selection === n }"
+                     ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{n + '.png'}}"
+                     ng-click="displayModel.chairs.selection = n">
+                <img ng-repeat="n in displayModel.chairs.collection2"
                      class="chairs-item"
                      ng-class="{'active': displayModel.chairs.selection === n }"
                      ng-src="http://print-oboi.com.ua/public/img/interior/furniture/s{{n + '.png'}}"

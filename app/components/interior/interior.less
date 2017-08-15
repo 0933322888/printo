@@ -26,8 +26,15 @@
     }
 
     .clear-room {
-      cursor: pointer;
-      color: #c00;
+      margin: -10px 0 10px 0;
+      a {
+        cursor: pointer;
+        color: #c00;
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
     & .actions {
 
@@ -192,27 +199,6 @@
       width: 780px;
       height: 215px;
       z-index: 300;
-
-      #sofa {
-
-      }
-    }
-    .floor-item {
-      margin: 5px;
-      cursor: pointer;
-      border: 3px solid white;
-      &.active {
-        border: 3px solid coral;
-      }
-    }
-
-    .doors-item {
-      width: 62px;
-      height: auto;
-    }
-    .window-item {
-      width: 126px;
-      height: auto;
     }
   }
 
@@ -222,7 +208,28 @@
     & div {
       padding: 15px 0px 5px 0px;
       text-align: center;
-      background: linear-gradient(to top, rgba(255,255,255,0.3), rgba(255,255,255,1));
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
     }
   }
+  .floor-item {
+    margin: 5px;
+    cursor: pointer;
+    border: 3px solid white;
+
+    text-align: center;
+    &.active {
+      border: 3px solid coral;
+    }
+  }
+
+  .doors-item {
+    width: 62px;
+    height: auto;
+    margin: 10px;
+  }
+  .window-item {
+    width: 126px;
+    height: auto;
+  }
 }
+

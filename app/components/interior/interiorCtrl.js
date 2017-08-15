@@ -19,12 +19,14 @@ angular.module('app')
                     selection: 110
                 },
                 doors: {
-                    collection: [41,42,43,44,45,46,47,48],
+                    collection: [41,42,43,44,45,46,47],
+                    collection2: [48],
                     selection: 44
                 },
                 chairs: {
-                    collection: [31,32,34,35,36,37],
-                    selection: 31
+                    collection: [34,35,36,37],
+                    collection2: [31,32],
+                    selection: 34
                 }
             };
 

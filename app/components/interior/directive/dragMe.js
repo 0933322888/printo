@@ -49,7 +49,7 @@ angular.module('app')
                         default:
                             y = event.pageY - startY;
 
-                            if (y <= -50) y = -50;
+                            if (y <= -100) y = -100;
                             if (y >= containerHeight-elHeight + 50 ) y = containerHeight-elHeight + 50;
                             element.css({
                                 top: y + 'px'
